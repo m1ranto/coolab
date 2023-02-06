@@ -1,0 +1,39 @@
+<header>
+  <nav class="navbar navbar-expand-lg py-0 bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" aria-current="page" href="">Coolab</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="mx-auto w-50" action="">
+          <input class="form-control rounded-5" type="search" placeholder="Search...">
+        </form>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-baseline">
+          <li class="nav-item dropdown">
+            <a class="nav-link btn btn-sm py-1 btn-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-plus-lg text-white"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Add Projects</a></li>
+              <li><a class="dropdown-item" href="#">Add Tasks</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= image_tag "default-profile-picture.png", class: "profile-picture rounded-circle", alt: "Profile picture" %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Projects</a></li>
+              <li><a class="dropdown-item" href="#">Tasks</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
