@@ -6,15 +6,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="mx-auto w-50" action="">
-          <input class="form-control rounded-5" type="search" placeholder="Search...">
-        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link link-dark" href=""><i class="bi bi-house-door-fill me-1"></i>Home</a></li>
+          <li class="nav-item">
+            <%= link_to collaborators_path, class: "nav-link link-dark" do %>
+              <i class="bi bi-people-fill me-1"></i>Collaborators
+            <% end %>
+          </li>
+          <li class="nav-item"><a class="nav-link link-dark" href=""><i class="bi bi-kanban me-1"></i>Projects</a></li>
+        </ul>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-baseline">
           <li class="nav-item dropdown">
             <a class="nav-link btn btn-sm py-1 btn-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-plus-lg text-white"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
+              <li><%= link_to "Add Collaborator", new_collaborator_path, class: "dropdown-item" %></li>
               <li><a class="dropdown-item" href="#">Add Projects</a></li>
               <li><a class="dropdown-item" href="#">Add Tasks</a></li>
             </ul>

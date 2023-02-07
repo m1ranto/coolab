@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="hstack justify-content-between">
+  <h1 class="fs-5 my-0">Collaborators</h1>
+  <%= link_to "New collaborator", new_collaborator_path, class: "btn btn-dark" %>
+</div>
+
+<div class="hstack gap-5" id="collaborators">
+  <% @collaborators.each do |collaborator| %>
+    <%= render collaborator %>
+  <% end %>
+</div>
+

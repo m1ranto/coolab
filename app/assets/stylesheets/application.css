@@ -10,11 +10,19 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ * require_tree .
  *= require_self
  */
 
 .profile-picture {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
+}
+.profile-picture-lg {
+    width: 100px;
+    height: 100px;
+}
+
+.w-max-form {
+    max-width: 500px;
 }
