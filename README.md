@@ -6,7 +6,7 @@ A Cool open-source project management collaboration for your teams.
 
 ## Getting Started
 
-To quick start, just clone the repo: `git clone https://github.com/mirantocodes/ui-css.git`
+To quick start, just clone the repo: `git clone https://github.com/mirantocodes/coolab.git`
 
 
 ## Contributing
