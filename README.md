@@ -1,24 +1,14 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What's Coolab?
 
-Things you may want to cover:
+A Cool open-source project management collaboration for your teams.
 
-* Ruby version
 
-* System dependencies
+## Getting Started
 
-* Configuration
+To quick start, just clone the repo: `git clone https://github.com/mirantocodes/ui-css.git`
 
-* Database creation
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you're interested in contributing, just submit a pull request.
