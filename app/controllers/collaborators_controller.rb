@@ -1,6 +1,8 @@
 class CollaboratorsController < ApplicationController
   before_action :set_collaborator, only: %i[ show edit update destroy ]
 
+  include SessionsHelper
+
   # GET /collaborators or /collaborators.json
   def index
     @collaborators = Collaborator.all
@@ -25,6 +27,7 @@ class CollaboratorsController < ApplicationController
 
     respond_to do |format|
       if @collaborator.save
+        log_in @collaborator
         format.html { redirect_to collaborator_url(@collaborator), notice: "Collaborator was successfully created." }
         format.json { render :show, status: :created, location: @collaborator }
       else

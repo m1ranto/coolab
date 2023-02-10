@@ -15,7 +15,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <% if logged_in? %>
+      <%= render 'layouts/header' %>
+    <% end %>
 
     <main class="px-1 px-sm-3">
       <%= yield %>
