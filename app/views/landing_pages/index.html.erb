@@ -7,7 +7,7 @@
         <li><a href="#feature">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><%= link_to 'Sign in', login_path, data: { turbo: false }, class: "btn-menu" %></li>
-        <li><%= link_to 'Sign up', new_collaborator_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
+        <li><%= link_to 'Sign up', signup_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
       </ul>
     </div>
     <div>
@@ -16,7 +16,7 @@
         Menu
       </a>
       <%= link_to 'Sign in', login_path, data: { turbo: false }, class: "btn-menu-lg" %>
-      <%= link_to 'Sign up', new_collaborator_path, data: { turbo: false }, class: "btn-contact btn-menu-lg" %>
+      <%= link_to 'Sign up', signup_path, data: { turbo: false }, class: "btn-contact btn-menu-lg" %>
     </div>
   </nav>
 </header>
@@ -26,7 +26,7 @@
     <div>
       <h1>Cool project collaboration for your teams !</h1>
       <p>Say hello to a user-friendly collaboration app that save your team work time.</p>
-      <%= link_to 'Get started', new_collaborator_path, data: { turbo: false }, class: "btn-contact" %>
+      <%= link_to 'Get started', signup_path, data: { turbo: false }, class: "btn-contact" %>
     </div>
     <section>
       <%= image_tag "header magnet-me-63XrEEiOko8-unsplash.jpg", alt: "Collaborator on project" %>
@@ -159,7 +159,7 @@
 
   <section id="cta">
     <h2>Manage your project and<br>collaborate in just one place.</h2>
-    <%= link_to 'Get started', new_collaborator_path, data: { turbo: false }, class: "btn-contact" %>
+    <%= link_to 'Get started', signup_path, data: { turbo: false }, class: "btn-contact" %>
   </section>
 </main>
 <footer>

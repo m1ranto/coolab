@@ -4,7 +4,7 @@
     <p class="fs-5">Cool project collaboration for your teams !</p>
   </section>
   <section class="offset-lg-1 col-lg-7 py-4 d-flex flex-column align-items-center d-lg-block">
-    <p class="text-lg-end pe-4">Not yet a collaborator? <%= link_to 'Sign up now', new_collaborator_path, class: "link-dark" %></p>
+    <p class="text-lg-end pe-4">Not yet a collaborator? <%= link_to 'Sign up now', signup_path, class: "link-dark" %></p>
     <h1 class="fs-3 fw-bold mt-5 pt-lg-5">Sign in to Coolab</h1>
 
     <%= form_with(url: login_path, class: "w-max-form") do |form| %>
