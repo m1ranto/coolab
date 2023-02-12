@@ -14,13 +14,23 @@
  *= require_self
  */
 
-.profile-picture {
+.default-profile {
     width: 45px;
     height: 45px;
+    border-radius: 50%;
+    color: whitesmoke;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
-.profile-picture-lg {
+.default-profile-lg {
     width: 100px;
     height: 100px;
+    border-radius: 50%;
+    color: whitesmoke;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .w-max-form {

@@ -26,6 +26,7 @@ class CollaboratorsController < ApplicationController
   # POST /collaborators or /collaborators.json
   def create
     @collaborator = Collaborator.new(collaborator_params)
+    @collaborator.profile = profile_color
 
     respond_to do |format|
       if @collaborator.save
@@ -84,5 +85,10 @@ class CollaboratorsController < ApplicationController
     def correct_collaborator
       @collaborator = Collaborator.find(params[:id])
       redirect_to collaborators_path unless @collaborator == current_collaborator
+    end
+
+    # Collaborator profile background-color in hsl
+    def profile_color
+      "hsl(#{rand 360}, #{rand 100}%, #{rand 60}%)"
     end
 end

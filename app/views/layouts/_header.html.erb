@@ -28,7 +28,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= image_tag "default-profile-picture.png", class: "profile-picture rounded-circle", alt: "Profile picture" %>
+              <%= default_profile(current_collaborator) %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -36,7 +36,6 @@
               <li><a class="dropdown-item" href="#">Tasks</a></li>
               <li><a class="dropdown-item" href="#">Settings</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Log out</a></li>
               <li><%= link_to 'Log out', logout_path, data: { "turbo-method": :delete }, class: "dropdown-item" %></li>
             </ul>
           </li>

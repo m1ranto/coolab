@@ -1,6 +1,7 @@
 <div id="<%= dom_id collaborator %>">
   <%= link_to collaborator, class: "hstack gap-2 flex-wrap text-decoration-none" do %>
-    <%= image_tag "default-profile-picture.png", class: "profile-picture rounded-circle", alt: "Profile picture" %>
+    <%#= image_tag "default-profile-picture.png", class: "profile-picture rounded-circle", alt: "Profile picture" %>
+    <%= default_profile(collaborator) %>
     <div>
       <p class="my-0 text-dark"><%= collaborator.name %></p>
       <p class="my-0 text-secondary"><%= collaborator.title %></p>

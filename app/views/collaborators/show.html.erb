@@ -2,7 +2,7 @@
 
 <div id="<%= dom_id @collaborator %>">
   <%= link_to @collaborator, class: "vstack align-items-center text-center text-decoration-none" do %>
-    <%= image_tag "default-profile-picture.png", class: "profile-picture-lg rounded-circle", alt: "Profile picture" %>
+    <%= default_large_profile(@collaborator) %>
     <div>
       <p class="my-0 text-dark"><%= @collaborator.name %></p>
       <p class="my-0 text-secondary"><%= @collaborator.title %></p>
