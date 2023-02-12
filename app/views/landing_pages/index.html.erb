@@ -6,7 +6,8 @@
         <li><a href="#product">Product</a></li>
         <li><a href="#feature">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><%= link_to 'Get started', new_collaborator_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
+        <li><%= link_to 'Sign in', login_path, data: { turbo: false }, class: "btn-menu" %></li>
+        <li><%= link_to 'Sign up', new_collaborator_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
       </ul>
     </div>
     <div>
@@ -14,7 +15,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>
         Menu
       </a>
-      <%= link_to 'Get started', new_collaborator_path, data: { turbo: false }, class: "btn-contact btn-menu-lg" %>
+      <%= link_to 'Sign in', login_path, data: { turbo: false }, class: "btn-menu-lg" %>
+      <%= link_to 'Sign up', new_collaborator_path, data: { turbo: false }, class: "btn-contact btn-menu-lg" %>
     </div>
   </nav>
 </header>
@@ -79,16 +81,6 @@
       <article>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 333334 333334" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><defs><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="162482" y1="307276" x2="170852" y2="26057.5"><stop offset="0" stop-color="#19a8dd"/><stop offset=".678" stop-color="#2ab2e2"/><stop offset="1" stop-color="#3cbde8"/></linearGradient></defs><circle cx="166667" cy="166667" r="166667" fill="url(#a)"/><path d="M246886 91205l-29735 149919s-4158 10396-15594 5404l-68618-52606-24952-12059-42002-14140s-6446-2288-7069-7277c-624-4992 7277-7694 7277-7694l166970-65498s13722-6030 13722 3951z" fill="#fefefe"/><path d="M127666 239440s-2003-188-4499-8089c-2495-7901-15178-49487-15178-49487l100846-64043s5822-3535 5614 0c0 0 1040 623-2079 3534s-79222 71320-79222 71320l-5481 46765z" fill="#d4e6f1"/><path d="M159250 214094l-27141 24745s-2122 1609-4443 601l5197-45965 26387 20619z" fill="#b6d0e5"/></svg>
         <h3>Telegram</h3>
-        <p>For message</p>
-      </article>
-      <article>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 92.12" style="enable-background:new 0 0 122.88 92.12" xml:space="preserve"><style type="text/css"><![CDATA[ .st0{fill:#EA4335;}  .st1{fill:#C5221F;}  .st2{fill:#FBBC04;}  .st3{fill:#34A853;}  .st4{fill:#4285F4;}  ]]></style><g><path class="st4" d="M8.36,92.12h19.54V44.67L0,23.76v60.08C0,88.42,3.78,92.12,8.36,92.12L8.36,92.12z"/><path class="st3" d="M94.97,92.12h19.54c4.67,0,8.36-3.78,8.36-8.36v-60L94.97,44.67V92.12L94.97,92.12z"/><path class="st2" d="M94.97,8.4v36.27l27.91-20.91V12.58c0-10.37-11.82-16.25-20.11-10.05L94.97,8.4L94.97,8.4z"/><polygon class="st0" points="27.9,44.67 27.9,8.4 61.44,33.57 94.97,8.4 94.97,44.67 61.44,69.76 27.9,44.67"/><path class="st1" d="M0,12.58v11.18l27.91,20.91V8.4l-7.8-5.87C11.82-3.66,0,2.29,0,12.58L0,12.58z"/></g></svg>
-        <h3>Gmail</h3>
-        <p>For email</p>
-      </article>
-      <article>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 122.78" style="enable-background:new 0 0 122.88 122.78" xml:space="preserve"><style type="text/css"><![CDATA[ .st0{fill:#E01E5A;}  .st1{fill:#ECB22E;}  .st2{fill:#2EB67D;}  .st3{fill:#36C5F0;}  ]]></style><g><path class="st0" d="M25.91,77.62c0,7.14-5.77,12.9-12.9,12.9S0.1,84.75,0.1,77.62c0-7.14,5.77-12.9,12.9-12.9h12.9V77.62 L25.91,77.62z M32.36,77.62c0-7.14,5.77-12.9,12.9-12.9s12.9,5.77,12.9,12.9v32.26c0,7.14-5.77,12.9-12.9,12.9 s-12.9-5.77-12.9-12.9V77.62L32.36,77.62z"/><path class="st3" d="M45.26,25.81c-7.14,0-12.9-5.77-12.9-12.9c0-7.14,5.77-12.9,12.9-12.9s12.9,5.77,12.9,12.9v12.9H45.26 L45.26,25.81z M45.26,32.36c7.14,0,12.9,5.77,12.9,12.9c0,7.14-5.77,12.9-12.9,12.9H12.9C5.77,58.17,0,52.4,0,45.26 c0-7.14,5.77-12.9,12.9-12.9H45.26L45.26,32.36z"/><path class="st2" d="M96.97,45.26c0-7.14,5.77-12.9,12.9-12.9c7.14,0,12.9,5.77,12.9,12.9c0,7.14-5.77,12.9-12.9,12.9h-12.9V45.26 L96.97,45.26z M90.52,45.26c0,7.14-5.77,12.9-12.9,12.9c-7.14,0-12.9-5.77-12.9-12.9V12.9c0-7.14,5.77-12.9,12.9-12.9 c7.14,0,12.9,5.77,12.9,12.9V45.26L90.52,45.26z"/><path class="st1" d="M77.62,96.97c7.14,0,12.9,5.77,12.9,12.9c0,7.14-5.77,12.9-12.9,12.9c-7.14,0-12.9-5.77-12.9-12.9v-12.9H77.62 L77.62,96.97z M77.62,90.52c-7.14,0-12.9-5.77-12.9-12.9c0-7.14,5.77-12.9,12.9-12.9h32.36c7.14,0,12.9,5.77,12.9,12.9 c0,7.14-5.77,12.9-12.9,12.9H77.62L77.62,90.52z"/></g></svg>
-        <h3>Slack</h3>
         <p>For message</p>
       </article>
       <article>

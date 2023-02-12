@@ -13,6 +13,10 @@
  * require_tree .
  *= require_self
  */
+:root {
+    --color: whitesmoke;
+    --primary-color: hsl(240, 60%, 41%);
+}
 
 .default-profile {
     width: 45px;

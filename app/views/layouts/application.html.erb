@@ -17,10 +17,13 @@
   <body>
     <% if logged_in? %>
       <%= render 'layouts/header' %>
+      <main class="px-3">
+        <%= yield %>
+      </main>
+    <% else %>
+      <main class="overflow-x-hidden">
+        <%= yield %>
+      </main>
     <% end %>
-
-    <main class="px-1 px-sm-3">
-      <%= yield %>
-    </main>
   </body>
 </html>
