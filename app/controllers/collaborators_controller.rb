@@ -1,5 +1,7 @@
 class CollaboratorsController < ApplicationController
   before_action :set_collaborator, only: %i[ show edit update destroy ]
+  before_action :logged_in_collaborator, except: %i[ new create ]
+  before_action :correct_collaborator, only: %i[ edit update destroy ]
 
   include SessionsHelper
 
@@ -69,5 +71,18 @@ class CollaboratorsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def collaborator_params
       params.require(:collaborator).permit(:name, :email, :title, :password, :password_confirmation)
+    end
+
+    # Require logged-in collaborator
+    def logged_in_collaborator
+      unless logged_in?
+        redirect_to login_path
+      end
+    end
+
+    # Require correct collaborator
+    def correct_collaborator
+      @collaborator = Collaborator.find(params[:id])
+      redirect_to collaborators_path unless @collaborator == current_collaborator
     end
 end
