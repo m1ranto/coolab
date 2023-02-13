@@ -1,7 +1,7 @@
 require "test_helper"
 
 class CollaboratorTest < ActiveSupport::TestCase
-  def setup
+  setup do
     @collaborator = Collaborator.new(name: "bob", email: "bob@email.com", password: "password")
   end
 

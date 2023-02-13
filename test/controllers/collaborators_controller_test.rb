@@ -15,7 +15,6 @@ class CollaboratorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-=begin
   test "should create collaborator" do
     assert_difference("Collaborator.count") do
       post collaborators_url, params: { collaborator: { email: @collaborator.email, name: @collaborator.name, title: @collaborator.title } }
@@ -23,7 +22,6 @@ class CollaboratorsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to collaborator_url(Collaborator.last)
   end
-=end
 
   test "should show collaborator" do
     get collaborator_url(@collaborator)
@@ -35,12 +33,10 @@ class CollaboratorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-=begin
   test "should update collaborator" do
     patch collaborator_url(@collaborator), params: { collaborator: { email: @collaborator.email, name: @collaborator.name, title: @collaborator.title } }
     assert_redirected_to collaborator_url(@collaborator)
   end
-=end
 
   test "should destroy collaborator" do
     assert_difference("Collaborator.count", -1) do
