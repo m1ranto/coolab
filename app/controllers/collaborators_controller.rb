@@ -16,6 +16,7 @@ class CollaboratorsController < ApplicationController
 
   # GET /collaborators/new
   def new
+    redirect_to collaborators_path if logged_in?
     @collaborator = Collaborator.new
   end
 

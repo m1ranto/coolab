@@ -42,6 +42,10 @@
     align-items: center;
 }
 
+.mb-negative-08 {
+    margin-bottom: -8px;
+}
+
 .w-max-form {
     max-width: 350px;
 }
