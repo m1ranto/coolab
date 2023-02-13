@@ -5,7 +5,7 @@
   <%= link_to "New collaborator", new_collaborator_path, class: "btn btn-dark" %>
 </div>
 
-<div class="hstack gap-5" id="collaborators">
+<div class="hstack flex-wrap gap-5" id="collaborators">
   <% @collaborators.each do |collaborator| %>
     <%= render collaborator %>
   <% end %>

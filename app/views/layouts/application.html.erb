@@ -17,7 +17,7 @@
   <body>
     <% if logged_in? %>
       <%= render 'layouts/header' %>
-      <main class="px-3">
+      <main class="container-fluid">
         <%= yield %>
       </main>
     <% else %>

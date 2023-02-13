@@ -16,11 +16,16 @@
 :root {
     --color: whitesmoke;
     --primary-color: hsl(240, 60%, 41%);
+    --bg-color: hsl(223, 93%, 11%);
+}
+
+.bg-blue {
+    background-color: var(--bg-color);
 }
 
 .default-profile {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     color: whitesmoke;
     display: inline-flex;
