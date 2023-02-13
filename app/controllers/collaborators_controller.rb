@@ -88,7 +88,7 @@ class CollaboratorsController < ApplicationController
       redirect_to collaborators_path unless @collaborator == current_collaborator
     end
 
-    # Collaborator profile background-color in hsl
+    # Generate random background-color profile in hsl
     def profile_color
       "hsl(#{rand 360}, #{rand 100}%, #{rand 60}%)"
     end

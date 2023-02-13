@@ -9,12 +9,14 @@
       <p class="my-0 text-secondary"><%= @collaborator.email %></p>
     </div>
   <% end %>
-  <div class="text-center">
-    <%= link_to edit_collaborator_path(@collaborator), class: "mt-1 btn btn-sm btn-dark" do %>
-      Edit<i class="bi bi-pencil-square ms-2"></i>
-    <% end %>
-    <%= button_to @collaborator, class: "mt-1 btn btn-sm btn-danger", method: :delete do %>
-      Destroy<i class="bi bi-trash ms-2"></i>
-    <% end %>
-  </div>
+  <% if @collaborator == current_collaborator %>
+    <div class="text-center">
+      <%= link_to edit_collaborator_path(@collaborator), class: "mt-1 btn btn-sm btn-dark" do %>
+        Edit<i class="bi bi-pencil-square ms-2"></i>
+      <% end %>
+      <%= button_to @collaborator, class: "mt-1 btn btn-sm btn-danger", method: :delete do %>
+        Destroy<i class="bi bi-trash ms-2"></i>
+      <% end %>
+    </div>
+  <% end %>
 </div>
