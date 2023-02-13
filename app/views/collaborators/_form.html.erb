@@ -1,11 +1,9 @@
   <%= form_with(model: collaborator, class: "w-max-form") do |form| %>
   <% if collaborator.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(collaborator.errors.count, "error") %> prohibited this collaborator from being saved:</h2>
-
-      <ul>
+      <ul class="list-unstyled">
         <% collaborator.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="bg-danger-subtle px-1 my-1 rounded"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
