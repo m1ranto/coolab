@@ -1,7 +1,8 @@
 
 ## What's Coolab?
 
-A Cool open-source project management collaboration for your teams.
+A Cool portfolio open-source project management collaboration app.  
+New features will be added until March!
 
 
 ## Getting Started
