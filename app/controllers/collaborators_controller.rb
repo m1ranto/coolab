@@ -75,13 +75,6 @@ class CollaboratorsController < ApplicationController
       params.require(:collaborator).permit(:name, :email, :title, :password, :password_confirmation)
     end
 
-    # Require logged-in collaborator
-    def logged_in_collaborator
-      unless logged_in?
-        redirect_to login_path
-      end
-    end
-
     # Require correct collaborator
     def correct_collaborator
       @collaborator = Collaborator.find(params[:id])

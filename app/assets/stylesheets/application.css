@@ -19,6 +19,10 @@
     --bg-color: hsl(223, 93%, 11%);
 }
 
+body {
+    background-color: whitesmoke;
+}
+
 .bg-blue {
     background-color: var(--bg-color);
 }
@@ -48,4 +52,8 @@
 
 .w-max-form {
     max-width: 350px;
+}
+
+.w-project {
+    width: 350px;
 }

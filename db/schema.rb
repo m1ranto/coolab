@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_12_130040) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_053724) do
   create_table "collaborators", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -21,4 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_12_130040) do
     t.string "profile"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "collaborator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collaborator_id"], name: "index_projects_on_collaborator_id"
+  end
+
+  add_foreign_key "projects", "collaborators"
 end

@@ -1,0 +1,6 @@
+<%= link_to project_path(project), class: "w-project link-dark text-decoration-none bg-secondary rounded card p-2", id: dom_id(project) do %>
+  <h2 class="fs-5"><%= project.name %></h2>
+  <p><%= project.description %></p>
+
+  <%= default_profile project.collaborator %>
+<% end %>

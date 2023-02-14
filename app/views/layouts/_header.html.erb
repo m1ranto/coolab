@@ -14,9 +14,9 @@
           <% end %>
         </li>
         <li>
-          <a class="nav-link link-light" href="">
+          <%= link_to projects_path, class: "nav-link link-light" do %>
             <i class="bi bi-kanban me-1"></i><span class="d-none d-sm-inline">Projects</span>
-          </a>
+          <% end %>
         </li>
       </ul>
       <ul class="mb-0 pb-0 list-unstyled hstack align-items-baseline">
@@ -26,7 +26,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><%= link_to 'Profile', current_collaborator, class: "dropdown-item" %></li>
-            <li><a class="dropdown-item" href="#">Projects</a></li>
+            <li><%= link_to 'Projects', projects_path, class: "dropdown-item" %></li>
             <li><a class="dropdown-item" href="#">Tasks</a></li>
             <li><%= link_to 'Settings', edit_collaborator_path(current_collaborator), class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>

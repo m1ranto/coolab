@@ -6,7 +6,7 @@ class LandingPagesController < ApplicationController
 
   def index
     if logged_in?
-      redirect_to collaborators_path
+      redirect_to projects_path
     end
   end
 end
