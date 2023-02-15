@@ -4,24 +4,24 @@
       <a class="navbar-brand text-white mb-0 pb-0" aria-current="page" href="">Coolab</a>
       <ul class="me-5 list-unstyled hstack gap-4 mb-0 pb-0">
         <li>
-          <%= link_to root_path, class: "nav-link link-light" do %>
+          <%= link_to root_path, class: "py-2 nav-link link-light" do %>
             <i class="bi bi-house-door-fill me-1"></i><span class="d-none d-sm-inline">Home</span>
           <% end %>
         </li>
         <li>
-          <%= link_to collaborators_path, class: "nav-link link-light" do %>
+          <%= link_to collaborators_path, class: "py-2 nav-link link-light" do %>
             <i class="bi bi-people-fill me-1"></i><span class="d-none d-sm-inline">Collaborators</span>
           <% end %>
         </li>
         <li>
-          <%= link_to projects_path, class: "nav-link link-light" do %>
+          <%= link_to projects_path, class: "py-2 nav-link link-light" do %>
             <i class="bi bi-kanban me-1"></i><span class="d-none d-sm-inline">Projects</span>
           <% end %>
         </li>
       </ul>
       <ul class="mb-0 pb-0 list-unstyled hstack align-items-baseline">
         <li class="dropdown text-white">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="py-1 nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <%= default_profile(current_collaborator) %>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">

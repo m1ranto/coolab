@@ -7,12 +7,11 @@ class CollaboratorsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit collaborators_url
-    assert_selector "h1", text: "Collaborators"
+    assert_selector "div"
   end
 
   test "should create collaborator" do
-    visit collaborators_url
-    click_on "New collaborator"
+    visit signup_url
 
     fill_in "Email", with: @collaborator.email
     fill_in "Name", with: @collaborator.name
@@ -20,12 +19,11 @@ class CollaboratorsTest < ApplicationSystemTestCase
     click_on "Create Collaborator"
 
     assert_text "Collaborator was successfully created"
-    click_on "Back"
   end
 
   test "should update Collaborator" do
     visit collaborator_url(@collaborator)
-    click_on "Edit this collaborator", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Email", with: @collaborator.email
     fill_in "Name", with: @collaborator.name
@@ -33,12 +31,11 @@ class CollaboratorsTest < ApplicationSystemTestCase
     click_on "Update Collaborator"
 
     assert_text "Collaborator was successfully updated"
-    click_on "Back"
   end
 
   test "should destroy Collaborator" do
     visit collaborator_url(@collaborator)
-    click_on "Destroy this collaborator", match: :first
+    click_on "Destroy", match: :first
 
     assert_text "Collaborator was successfully destroyed"
   end

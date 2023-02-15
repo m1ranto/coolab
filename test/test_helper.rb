@@ -9,5 +9,15 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  # Log in as a collaborator
+  def log_in_as(collaborator)
+    session[:collaborator_id] = collaborator.id
+  end
+end
+
+class ActionDispatch::IntegrationTest
+  # Log in as a collaborator for integration test
+  def log_in_as(collaborator, password: 'password')
+    post login_path, params: { email: collaborator.email, password: password }
+  end
 end

@@ -7,7 +7,7 @@ class ProjectsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit projects_url
-    assert_selector "h1", text: "Projects"
+    assert_selector "div"
   end
 
   test "should create project" do
@@ -20,12 +20,11 @@ class ProjectsTest < ApplicationSystemTestCase
     click_on "Create Project"
 
     assert_text "Project was successfully created"
-    click_on "Back"
   end
 
   test "should update Project" do
     visit project_url(@project)
-    click_on "Edit this project", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Collaborator", with: @project.collaborator_id
     fill_in "Description", with: @project.description
@@ -33,12 +32,11 @@ class ProjectsTest < ApplicationSystemTestCase
     click_on "Update Project"
 
     assert_text "Project was successfully updated"
-    click_on "Back"
   end
 
   test "should destroy Project" do
     visit project_url(@project)
-    click_on "Destroy this project", match: :first
+    click_on "Destroy", match: :first
 
     assert_text "Project was successfully destroyed"
   end

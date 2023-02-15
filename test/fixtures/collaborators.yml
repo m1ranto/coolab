@@ -2,10 +2,12 @@
 
 one:
   name: MyString
-  email: MyString
+  email: one@email.com
   title: MyString
+  password_digest: <%= Collaborator.digest('password') %>
 
 two:
   name: MyString
-  email: MyString
+  email: james@email.com
   title: MyString
+  password_digest: <%= Collaborator.digest('password') %>
