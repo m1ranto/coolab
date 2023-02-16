@@ -2,8 +2,8 @@ require "test_helper"
 
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @project = projects(:one)
-    log_in_as(@project.collaborator)
+    @project = projects(:coolab)
+    log_in_as @project.collaborator
   end
 
   test "should get index" do

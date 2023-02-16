@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
-  collaborator: one
+coolab:
+  name: Coolab
+  description: Build cool project management collaboration for your teams
+  collaborator: miranto
 
-two:
-  name: MyString
-  description: MyText
-  collaborator: two
+office:
+  name: Office
+  description: Improve remote office
+  collaborator: james

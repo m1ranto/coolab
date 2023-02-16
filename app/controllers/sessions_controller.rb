@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     collaborator = Collaborator.find_by(email: params[:email])
     if collaborator && collaborator.authenticate(params[:password])
       log_in collaborator
-      redirect_to collaborators_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end

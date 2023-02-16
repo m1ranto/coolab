@@ -19,6 +19,16 @@ class CollaboratorTest < ActiveSupport::TestCase
     assert_not @collaborator.valid?
   end
 
+  test "name should not be too long" do
+    @collaborator.name = "a" * 51
+    assert_not @collaborator.valid?
+  end
+
+  test "email should not be too long" do
+    @collaborator.email = "a" * 51  + "@email.com"
+    assert_not @collaborator.valid?
+  end
+
   test "email should be unique" do
     duplicate_collaborator = @collaborator.dup
     @collaborator.save

@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class CollaboratorsTest < ApplicationSystemTestCase
   setup do
-    @collaborator = collaborators(:one)
+    @collaborator = collaborators(:miranto)
   end
 
   test "visiting the index" do

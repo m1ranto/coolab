@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: one@email.com
-  title: MyString
+miranto:
+  name: Miranto
+  email: miranto@email.com
+  title: Web programmer
   password_digest: <%= Collaborator.digest('password') %>
 
-two:
-  name: MyString
+james:
+  name: James
   email: james@email.com
-  title: MyString
+  title: Product designer
   password_digest: <%= Collaborator.digest('password') %>

@@ -2,7 +2,7 @@ require "test_helper"
 
 class CollaboratorsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @collaborator = collaborators(:one)
+    @collaborator = collaborators(:miranto)
   end
 
   test "should get index" do
