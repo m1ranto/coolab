@@ -5,26 +5,26 @@ class CollaboratorsController < ApplicationController
 
   include SessionsHelper
 
-  # GET /collaborators or /collaborators.json
+  # Get all collaborators
   def index
     @collaborators = Collaborator.all
   end
 
-  # GET /collaborators/1 or /collaborators/1.json
+  # Get collaborator
   def show
   end
 
-  # GET /collaborators/new
+  # Get new collaborator
   def new
     redirect_to collaborators_path if logged_in?
     @collaborator = Collaborator.new
   end
 
-  # GET /collaborators/1/edit
+  # Edit collaborator
   def edit
   end
 
-  # POST /collaborators or /collaborators.json
+  # Create collaborator
   def create
     @collaborator = Collaborator.new(collaborator_params)
     @collaborator.profile = profile_color
@@ -33,34 +33,29 @@ class CollaboratorsController < ApplicationController
       if @collaborator.save
         log_in @collaborator
         format.html { redirect_to collaborator_url(@collaborator), notice: "Collaborator was successfully created." }
-        format.json { render :show, status: :created, location: @collaborator }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @collaborator.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /collaborators/1 or /collaborators/1.json
+  # Update collaborator
   def update
     respond_to do |format|
       if @collaborator.update(collaborator_params)
         format.html { redirect_to collaborator_url(@collaborator), notice: "Collaborator was successfully updated." }
-        format.json { render :show, status: :ok, location: @collaborator }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @collaborator.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /collaborators/1 or /collaborators/1.json
+  # Delete collaborator
   def destroy
     @collaborator.destroy
 
     respond_to do |format|
       format.html { redirect_to collaborators_url, notice: "Collaborator was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

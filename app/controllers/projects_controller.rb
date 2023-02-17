@@ -5,59 +5,54 @@ class ProjectsController < ApplicationController
 
   include SessionsHelper
 
-  # GET /projects or /projects.json
+  # Get all projects
   def index
     @projects = Project.all
   end
 
-  # GET /projects/1 or /projects/1.json
+  # Get project
   def show
   end
 
-  # GET /projects/new
+  # Get new project
   def new
     @project = Project.new
   end
 
-  # GET /projects/1/edit
+  # Edit project
   def edit
   end
 
-  # POST /projects or /projects.json
+  # Create project
   def create
     @project = current_collaborator.projects.build(project_params)
 
     respond_to do |format|
       if @project.save
         format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /projects/1 or /projects/1.json
+  # Update project
   def update
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to project_url(@project), notice: "Project was successfully updated." }
-        format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /projects/1 or /projects/1.json
+  # Delete project
   def destroy
     @project.destroy
 
     respond_to do |format|
       format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
