@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :tasks, except: :index
-  resources :projects
+  resources :projects do
+    resources :tasks, except: :index
+  end
 
   resources :collaborators, except: :new
   get 'signup'    => "collaborators#new"

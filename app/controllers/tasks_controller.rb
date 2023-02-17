@@ -1,60 +1,66 @@
 class TasksController < ApplicationController
+  before_action :get_project
   before_action :set_task, only: %i[ show edit update destroy ]
 
-  # GET /tasks/1 or /tasks/1.json
+  # Get task
   def show
   end
 
-  # GET /tasks/new
+  # Get new task
   def new
-    @task = Task.new
+    @task = @project.tasks.build
   end
 
-  # GET /tasks/1/edit
+  # Edit task
   def edit
   end
 
-  # POST /tasks or /tasks.json
+  # Create task
   def create
-    @task = Task.new(task_params)
+    @task = @project.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: "Task was successfully created." }
+        format.html { redirect_to project_url(@project), notice: "Task was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /tasks/1 or /tasks/1.json
+  # Update task
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+        format.html { redirect_to project_url(@project), notice: "Task was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /tasks/1 or /tasks/1.json
+  # Delete task
   def destroy
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
+      format.html { redirect_to project_url(@project), notice: "Task was successfully destroyed." }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Set task
     def set_task
-      @task = Task.find(params[:id])
+      @task = @project.tasks.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def task_params
       params.require(:task).permit(:name, :project_id)
     end
+
+  # Get project, as task is nested in project route
+  def get_project
+    @project = Project.find(params[:project_id])
+  end
 end
