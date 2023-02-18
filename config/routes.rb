@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :todos
   resources :projects do
     resources :tasks, except: :index
   end
