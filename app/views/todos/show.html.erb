@@ -1,3 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @todo %>
+<div id="<%= dom_id @todo %>">
+  <h2 class="d-inline-block">
+    <%= link_to @todo.name, [@todo.task.project, @todo.task, @todo], class: "link-dark text-decoration-none" %>
+  </h2>
+  <div class="ms-3 d-inline-flex gap-2 align-items-center">
+    <%= link_to '', edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "bi bi-pencil-square link-dark fs-6" %>
+    <%= button_to '', [@todo.task.project, @todo.task, @todo], class: "bi bi-trash btn p-0 fs-6", method: :delete %>
+  </div>
+
+  <p>
+    <strong>Description:</strong>
+    <% if @todo.description.empty? %>
+      <%= link_to "Add description", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-dark" %>
+    <% else %>
+      <%= @todo.description %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Due on:</strong>
+    <% if @todo.due_on.nil? %>
+      <%= link_to "Select a date", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-dark" %>
+    <% else %>
+      <%= @todo.due_on %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Done:</strong>
+    <%= @todo.done %>
+  </p>
+
+  <p>
+    <strong>Task:</strong>
+    <%= @todo.task_id %>
+  </p>
+</div>

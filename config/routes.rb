@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :todos
   resources :projects do
-    resources :tasks, except: :index
+    resources :tasks, except: :index do
+      resources :todos, except: :index
+    end
   end
 
   resources :collaborators, except: :new

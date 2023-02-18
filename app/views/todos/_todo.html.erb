@@ -1,38 +1,12 @@
-<div id="<%= dom_id todo %>">
-  <h2 class="d-inline-block">
-    <%= link_to todo.name, todo, class: "link-dark text-decoration-none" %>
-  </h2>
-  <div class="ms-3 d-inline-flex gap-2 align-items-center">
-    <%= link_to '', edit_todo_path(todo), class: "bi bi-pencil-square link-dark fs-6" %>
-    <%= button_to '', todo, class: "bi bi-trash btn p-0 fs-6", method: :delete %>
-  </div>
-
-  <p>
-    <strong>Description:</strong>
-    <% if todo.description.empty? %>
-      <%= link_to "Add description", edit_todo_path(todo), class: "link-dark" %>
-    <% else %>
-      <%= todo.description %>
-    <% end %>
-  </p>
-
-  <p>
-    <strong>Due on:</strong>
-    <% if todo.due_on.nil? %>
-      <%= link_to "Select a date", edit_todo_path(todo), class: "link-dark" %>
-    <% else %>
-      <%= todo.due_on %>
-    <% end %>
-  </p>
-
-  <p>
-    <strong>Done:</strong>
-    <%= todo.done %>
-  </p>
-
-  <p>
-    <strong>Task:</strong>
-    <%= todo.task_id %>
-  </p>
-
+<div class="d-flex flex-wrap align-items-baseline" id="<%= dom_id todo %>">
+  <h3 class="fs-5">
+    <%= link_to todo.name, [todo.task.project, todo.task, todo], class: "link-dark text-decoration-none" %>
+  </h3>
+  <% unless todo.description.empty? %>
+    <%= link_to "", [todo.task.project, todo.task, todo], class: "bi bi-justify-left link-dark mx-1" %>
+  <% end %>
+  <% unless todo.due_on.nil? %>
+    <%= link_to "", [todo.task.project, todo.task, todo], class: "bi bi-calendar-event link-dark mx-1" %>
+    <p><%= todo.due_on.strftime("%a, %b %d") %></p>
+  <% end %>
 </div>
