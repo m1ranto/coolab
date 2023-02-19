@@ -3,6 +3,7 @@ require "test_helper"
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @task = tasks(:one)
+    log_in_as collaborators(:miranto)
   end
 
   test "should get new" do

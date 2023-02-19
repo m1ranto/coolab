@@ -3,6 +3,7 @@ require "test_helper"
 class TodosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @todo = todos(:one)
+    log_in_as collaborators(:miranto)
   end
 
   test "should get new" do

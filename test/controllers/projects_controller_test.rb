@@ -3,7 +3,7 @@ require "test_helper"
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @project = projects(:coolab)
-    log_in_as @project.collaborator
+    log_in_as collaborators(:miranto)
   end
 
   test "should get index" do
