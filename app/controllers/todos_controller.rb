@@ -1,6 +1,9 @@
 class TodosController < ApplicationController
   before_action :get_task
   before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :logged_in_collaborator
+
+  include SessionsHelper
 
   # Get todo
   def show

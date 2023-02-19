@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
   before_action :get_project
-  before_action :set_task, only: %i[ show edit update destroy ]
+    before_action :set_task, only: %i[ show edit update destroy ]
+    before_action :logged_in_collaborator
+
+    include SessionsHelper
 
   # Get task
   def show
