@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   before_action :get_project
-    before_action :set_task, only: %i[ show edit update destroy ]
-    before_action :logged_in_collaborator
+  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :logged_in_collaborator
 
-    include SessionsHelper
+  include SessionsHelper
 
   # Get task
   def show
@@ -62,8 +62,8 @@ class TasksController < ApplicationController
       params.require(:task).permit(:name, :project_id)
     end
 
-  # Get project, as task is nested in project route
-  def get_project
-    @project = Project.find(params[:project_id])
-  end
+    # Get project, as task is nested in project route
+    def get_project
+      @project = Project.find(params[:project_id])
+    end
 end

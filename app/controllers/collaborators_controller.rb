@@ -60,7 +60,7 @@ class CollaboratorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Set collaborator
     def set_collaborator
       @collaborator = Collaborator.find(params[:id])
     end
