@@ -1,8 +1,8 @@
-<div id="<%= dom_id collaborator %>">
+<div class="my-2 px-2 py-1 card-darker" id="<%= dom_id collaborator %>">
   <%= link_to collaborator, class: "hstack gap-2 flex-wrap text-decoration-none" do %>
     <%= default_profile(collaborator) %>
     <div>
-      <p class="mb-negative-08 text-dark"><%= collaborator.name %></p>
+      <p class="mb-negative-08"><%= collaborator.name %></p>
       <p class="mb-0 text-secondary"><%= collaborator.title %></p>
     </div>
   <% end %>

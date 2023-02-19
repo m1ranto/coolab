@@ -17,14 +17,22 @@
     --color: whitesmoke;
     --primary-color: hsl(240, 60%, 41%);
     --bg-color: hsl(223, 93%, 11%);
+    --bg-darker: #161b22;
 }
 
 body {
-    background-color: dimgrey;
+    background-color: #0d1117;
 }
 
 main {
-    max-width: 650px;
+    color: var(--color) !important;
+    max-width: 850px;
+    padding-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color);
 }
 
 .bg-blue {
@@ -54,10 +62,10 @@ main {
     margin-bottom: -8px;
 }
 
-.w-max-form {
-    max-width: 350px;
-}
-
-.w-project {
-    width: 350px;
+.card-darker {
+    padding: 16px;
+    color: var(--color) !important;
+    background-color: var(--bg-darker);
+    border: 1px solid hsl(0, 0%, 15%);
+    border-radius: 5px;
 }

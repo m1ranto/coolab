@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
+<h1 class="visually-hidden">Projects</h1>
 
-<div class="text-center mb-4">
-<%= link_to 'New project', new_project_path, class: "btn btn-success text-black" %>
+<div class="text-center">
+  <%= link_to 'New project', new_project_path, class: "btn btn-success text-black" %>
 </div>
 
-<div class="d-flex flex-wrap justify-content-center gap-3" id="projects">
+<div id="projects">
   <% @projects.each do |project| %>
     <%= render project %>
   <% end %>
