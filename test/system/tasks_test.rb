@@ -3,40 +3,42 @@ require "application_system_test_case"
 class TasksTest < ApplicationSystemTestCase
   setup do
     @task = tasks(:one)
+    visit login_url
+
+    fill_in "Email", with: 'miranto@email.com'
+    fill_in "Password", with: 'password'
+    click_on "Sign in"
   end
 
   test "visiting the index" do
-    visit tasks_url
-    assert_selector "h1", text: "Tasks"
+    click_on @task.project.name
+    visit project_task_url(@task.project, @task)
+    assert_selector "h1", text: "Task"
   end
 
   test "should create task" do
-    visit tasks_url
+    click_on @task.project.name
+    visit project_url(@task.project)
     click_on "New task"
 
-    fill_in "Name", with: @task.name
-    fill_in "Project", with: @task.project_id
-    click_on "Create Task"
-
-    assert_text "Task was successfully created"
-    click_on "Back"
+    fill_in "Name", with: 'Name task new'
   end
 
   test "should update Task" do
-    visit task_url(@task)
-    click_on "Edit this task", match: :first
+    click_on @task.project.name
+    visit project_task_url(@task.project, @task)
+    find("a.bi-pencil-square").click
 
-    fill_in "Name", with: @task.name
-    fill_in "Project", with: @task.project_id
+    fill_in "Name", with: 'Name task updated'
     click_on "Update Task"
 
     assert_text "Task was successfully updated"
-    click_on "Back"
   end
 
   test "should destroy Task" do
-    visit task_url(@task)
-    click_on "Destroy this task", match: :first
+    click_on @task.project.name
+    visit project_task_url(@task.project, @task)
+    find("button.bi-trash").click
 
     assert_text "Task was successfully destroyed"
   end

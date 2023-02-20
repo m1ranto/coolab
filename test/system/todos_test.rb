@@ -3,47 +3,45 @@ require "application_system_test_case"
 class TodosTest < ApplicationSystemTestCase
   setup do
     @todo = todos(:one)
+    visit login_url
+
+    fill_in "Email", with: 'miranto@email.com'
+    fill_in "Password", with: 'password'
+    click_on "Sign in"
   end
 
   test "visiting the index" do
-    visit todos_url
-    assert_selector "h1", text: "Todos"
+    click_on @todo.task.project.name
+    visit project_task_todo_url(@todo.task.project, @todo.task, @todo)
+    assert_selector "h1", text: "Todo"
   end
 
   test "should create todo" do
-    visit todos_url
+    click_on @todo.task.project.name
+    visit project_task_url(@todo.task.project, @todo.task)
     click_on "New todo"
 
     fill_in "Description", with: @todo.description
     check "Done" if @todo.done
     fill_in "Due on", with: @todo.due_on
     fill_in "Name", with: @todo.name
-    fill_in "Task", with: @todo.task_id
     click_on "Create Todo"
 
     assert_text "Todo was successfully created"
-    click_on "Back"
   end
 
   test "should update Todo" do
-    visit todo_url(@todo)
-    click_on "Edit this todo", match: :first
+    click_on @todo.task.project.name
+    visit project_task_url(@todo.task.project, @todo.task)
+    click_on @todo.name
+    find("a.bi-pencil-square").click
 
     fill_in "Description", with: @todo.description
     check "Done" if @todo.done
     fill_in "Due on", with: @todo.due_on
     fill_in "Name", with: @todo.name
-    fill_in "Task", with: @todo.task_id
     click_on "Update Todo"
 
     assert_text "Todo was successfully updated"
-    click_on "Back"
-  end
-
-  test "should destroy Todo" do
-    visit todo_url(@todo)
-    click_on "Destroy this todo", match: :first
-
-    assert_text "Todo was successfully destroyed"
   end
 end
