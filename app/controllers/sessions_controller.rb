@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   include SessionsHelper
 
   def new
-    redirect_to collaborators_path if logged_in?
+    redirect_to root_path if logged_in?
   end
 
   def create

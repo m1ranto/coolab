@@ -9,7 +9,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should not get new" do
     log_in_as collaborators(:miranto)
     get login_url
-    assert_redirected_to collaborators_url
+    assert_redirected_to root_url
   end
 
   test "should create session" do

@@ -8,7 +8,7 @@
 <p class="mb-0 text-center"><%= @collaborator.email %></p>
 <% if @collaborator == current_collaborator %>
   <div class="mt-1 d-flex flex-wrap justify-content-center gap-2">
-  <%= link_to edit_collaborator_path(@collaborator), class: "mt-1 btn btn-sm btn-dark" do %>
+    <%= link_to edit_collaborator_path(@collaborator), class: "mt-1 btn btn-sm btn-dark" do %>
       Edit<i class="bi bi-pencil-square ms-2"></i>
     <% end %>
     <%= button_to @collaborator, class: "mt-1 btn btn-sm btn-danger", method: :delete do %>
