@@ -10,4 +10,11 @@
       <%= todo.due_on.strftime("%a, %b %d") %>
     <% end %>
   <% end %>
+  <% unless todo.collaborators.empty? %>
+    <%= link_to [todo.task.project, todo.task, todo], class: "mx-1" do %>
+      <% todo.collaborators.each do |collaborator| %>
+        <%= default_small_profile collaborator %>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>

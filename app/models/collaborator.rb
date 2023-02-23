@@ -10,6 +10,7 @@ class Collaborator < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }
 
   has_many :projects, dependent: :destroy
+  has_and_belongs_to_many :todos
 
   has_secure_password
 

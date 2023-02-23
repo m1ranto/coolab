@@ -39,6 +39,6 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
       delete project_task_todo_url(@todo.task.project, @todo.task, @todo)
     end
 
-    assert_redirected_to project_task_todos_url(@todo.task.project, @todo.task)
+    assert_redirected_to project_task_url(@todo.task.project, @todo.task)
   end
 end

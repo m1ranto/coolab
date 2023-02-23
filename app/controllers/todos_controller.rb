@@ -2,6 +2,7 @@ class TodosController < ApplicationController
   before_action :get_task
   before_action :set_todo, only: %i[ show edit update destroy ]
   before_action :logged_in_collaborator
+  before_action :get_collaborators, only: %i[ create update ]
 
   include SessionsHelper
 
@@ -21,6 +22,7 @@ class TodosController < ApplicationController
   # Create todo
   def create
     @todo = @task.todos.build(todo_params)
+    @todo.collaborators = @collaborators
 
     respond_to do |format|
       if @todo.save
@@ -33,6 +35,8 @@ class TodosController < ApplicationController
 
   # Update todo
   def update
+    @todo.collaborators = @collaborators
+
     respond_to do |format|
       if @todo.update(todo_params)
         format.html { redirect_to project_task_todo_url(@task.project, @task, @todo), notice: "Todo was successfully updated." }
@@ -47,7 +51,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
-      format.html { redirect_to project_task_todos_url(@task.project, @task), notice: "Todo was successfully destroyed." }
+      format.html { redirect_to project_task_url(@task.project, @task), notice: "Todo was successfully destroyed." }
     end
   end
 
@@ -60,6 +64,18 @@ class TodosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def todo_params
       params.require(:todo).permit(:name, :description, :due_on, :done, :task_id)
+    end
+
+    # Get collaborators
+    def get_collaborators
+      @collaborators = []
+      collaborator_ids = params[:todo][:collaborator]
+      unless collaborator_ids.nil?
+        collaborator_ids.each do |collaborator_id|
+          @collaborators << Collaborator.find(collaborator_id) unless collaborator_id.empty?
+        end
+      end
+      @collaborators
     end
 
     # Get task

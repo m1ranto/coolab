@@ -22,9 +22,23 @@
   </p>
 
   <p>
+    <div>
+      <strong>Assigned to:</strong>
+      <% if @todo.collaborators.empty? %>
+        <%= link_to "Add collaborator", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo) %>
+      <% else %>
+        <% @todo.collaborators.each do |collaborator| %>
+          <%= default_small_profile collaborator %>
+          <%= collaborator.name %>
+        <% end %>
+      <% end %>
+    </div>
+  </p>
+
+  <p>
     <strong>Due on:</strong>
     <% if @todo.due_on.nil? %>
-      <%= link_to "Select a date", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-dark" %>
+      <%= link_to "Select a date", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo) %>
     <% else %>
       <%= @todo.due_on %>
     <% end %>

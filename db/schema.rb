@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_18_050642) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_080038) do
   create_table "collaborators", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -20,6 +20,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_18_050642) do
     t.string "password_digest"
     t.string "profile"
     t.index ["email"], name: "index_collaborators_on_email", unique: true
+  end
+
+  create_table "collaborators_todos", id: false, force: :cascade do |t|
+    t.integer "collaborator_id"
+    t.integer "todo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collaborator_id", "todo_id"], name: "index_collaborators_todos_on_collaborator_id_and_todo_id"
   end
 
   create_table "projects", force: :cascade do |t|
