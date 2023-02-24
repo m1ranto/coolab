@@ -70,10 +70,8 @@ class TodosController < ApplicationController
     def get_collaborators
       @collaborators = []
       collaborator_ids = params[:todo][:collaborator]
-      unless collaborator_ids.nil?
-        collaborator_ids.each do |collaborator_id|
-          @collaborators << Collaborator.find(collaborator_id) unless collaborator_id.empty?
-        end
+      collaborator_ids&.each do |collaborator_id|
+        @collaborators << Collaborator.find(collaborator_id) unless collaborator_id.empty?
       end
       @collaborators
     end

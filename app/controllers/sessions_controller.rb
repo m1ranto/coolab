@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     collaborator = Collaborator.find_by(email: params[:email])
-    if collaborator && collaborator.authenticate(params[:password])
+    if collaborator&.authenticate(params[:password])
       log_in collaborator
       redirect_to root_path
     else
