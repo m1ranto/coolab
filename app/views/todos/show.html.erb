@@ -28,7 +28,7 @@
         <%= link_to "Add collaborator", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo) %>
       <% else %>
         <% @todo.collaborators.each do |collaborator| %>
-          <%= default_small_profile collaborator %>
+          <%= profile_picture_small collaborator %>
           <%= collaborator.name %>
         <% end %>
       <% end %>

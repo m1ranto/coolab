@@ -13,7 +13,7 @@
   <% unless todo.collaborators.empty? %>
     <%= link_to [todo.task.project, todo.task, todo], class: "mx-1" do %>
       <% todo.collaborators.each do |collaborator| %>
-        <%= default_small_profile collaborator %>
+        <%= profile_picture_small collaborator %>
       <% end %>
     <% end %>
   <% end %>
