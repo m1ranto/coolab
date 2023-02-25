@@ -1,0 +1,24 @@
+<%= form_with(model: [comment.project, comment]) do |form| %>
+  <% if comment.errors.any? %>
+    <ul class="list-unstyled ms-4 mt-2">
+      <% comment.errors.each do |error| %>
+        <li class="text-danger bg-dark ms-3 px-2 my-1 d-inline-block rounded"><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="mt-3 hstack">
+    <%= profile_picture current_collaborator %>
+    <div class="flex-grow-1 me-3">
+      <%= form.text_field :content, class: "ms-2 form-control text-bg-dark border-0" %>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <%= form.hidden_field :project_id %>
+  </div>
+
+  <div class="mt-3">
+    <%= form.hidden_field :collaborator_id, value: current_collaborator.id %>
+  </div>
+<% end %>

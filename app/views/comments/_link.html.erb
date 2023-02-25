@@ -1,0 +1,5 @@
+<div class="text-center">
+  <%= link_to @project.name, @project, class: "text-decoration-underline mx-2" %>
+  <span> > </span>
+  <%= link_to 'Campfire', project_comments_path(@project), class: "text-decoration-underline mx-2" %>
+</div>

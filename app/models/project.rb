@@ -3,4 +3,5 @@ class Project < ApplicationRecord
 
   belongs_to :collaborator
   has_many   :tasks, dependent: :destroy
+  has_many   :comments, dependent: :destroy
 end

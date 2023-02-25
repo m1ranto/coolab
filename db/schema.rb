@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_080038) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_24_171525) do
   create_table "collaborators", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -28,6 +28,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_080038) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collaborator_id", "todo_id"], name: "index_collaborators_todos_on_collaborator_id_and_todo_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "project_id", null: false
+    t.integer "collaborator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collaborator_id"], name: "index_comments_on_collaborator_id"
+    t.index ["project_id"], name: "index_comments_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -58,6 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_080038) do
     t.index ["task_id"], name: "index_todos_on_task_id"
   end
 
+  add_foreign_key "comments", "collaborators"
+  add_foreign_key "comments", "projects"
   add_foreign_key "projects", "collaborators"
   add_foreign_key "tasks", "projects"
   add_foreign_key "todos", "tasks"

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :tasks, except: :index do
       resources :todos, except: :index
     end
+    resources :comments
   end
 
   resources :collaborators, except: :new
