@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :tasks, except: :index do
       resources :todos, except: :index
     end
-    resources :comments
+    resources :comments, only: %i[ index create destroy ]
   end
 
   resources :collaborators, except: :new
