@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :collaborators, except: :new
   get 'signup'    => "collaborators#new"
+  post 'invite'   => "collaborators#invite"
 
   get 'login'     => "sessions#new"
   post 'login'    => "sessions#create"

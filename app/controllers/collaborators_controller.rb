@@ -20,6 +20,13 @@ class CollaboratorsController < ApplicationController
     @collaborator = Collaborator.new
   end
 
+  # Invite new collaborator by email
+  def invite
+    email = params[:email]
+    InvitationMailer.invite_collaborator(email).deliver_later
+    redirect_to collaborators_url, notice: "Invitation was sent to #{email}"
+  end
+
   # Edit collaborator
   def edit
   end
