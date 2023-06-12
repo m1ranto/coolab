@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :comments, only: %i[ index create destroy ]
   end
 
+  resources :organizations
+
   resources :collaborators, except: :new
   get 'signup'    => "collaborators#new"
   post 'invite'   => "collaborators#invite"
