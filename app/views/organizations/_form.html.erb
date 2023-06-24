@@ -1,13 +1,5 @@
 <%= form_with(model: organization) do |form| %>
-  <% if organization.errors.any? %>
-    <div style="color: red">
-      <ul class="list-unstyled">
-        <% organization.errors.each do |error| %>
-          <li class="bg-danger-subtle px-1 my-1 rounded"><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/errors', object: organization %>
 
   <div class="mt-3">
     <%= form.label :name, class: "form-label" %>

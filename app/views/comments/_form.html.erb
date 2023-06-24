@@ -2,7 +2,7 @@
   <% if comment.errors.any? %>
     <ul class="list-unstyled ms-4 mt-2">
       <% comment.errors.each do |error| %>
-        <li class="text-danger bg-dark ms-3 px-2 my-1 d-inline-block rounded"><%= error.full_message %></li>
+        <li class="text-danger bg-dark ms-3 px-2 my-1 d-inline-block rounded"><%= error.full_message %></li><br>
       <% end %>
     </ul>
   <% end %>

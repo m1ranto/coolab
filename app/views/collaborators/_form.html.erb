@@ -1,13 +1,5 @@
-  <%= form_with(model: collaborator, class: "w-max-form") do |form| %>
-  <% if collaborator.errors.any? %>
-    <div style="color: red">
-      <ul class="list-unstyled">
-        <% collaborator.errors.each do |error| %>
-          <li class="bg-danger-subtle px-1 my-1 rounded"><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: collaborator, class: "w-max-form") do |form| %>
+  <%= render 'shared/errors', object: collaborator %>
 
   <div class="mt-3">
     <%= form.label :name, class: "form-label" %>
