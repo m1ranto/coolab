@@ -7,7 +7,7 @@
   <%= link_to 'New project', new_project_path, class: "btn btn-success text-black" %>
 </div>
 
-<div id="projects">
+<div class="d-flex flex-wrap justify-content-between" id="projects">
   <% @projects.each do |project| %>
     <%= render project %>
   <% end %>

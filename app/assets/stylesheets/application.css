@@ -64,17 +64,30 @@ a {
     border: 1px solid hsl(0, 0%, 15%);
     border-radius: 5px;
 }
+#todoslist .card-darker {
+    padding: 0;
+    border: none;
+}
 
+.title-container {
+    position: relative;
+    margin-top: 25px !important;
+    padding-top: 35px;
+}
 .title {
+    position: absolute;
     background-color: var(--primary-color);
     display: inline-block;
-    padding: 0 5px;
+    padding: 3px 5px;
     border-radius: 3px;
-    position: absolute;
-    left: 10px;
     top: -13px;
 }
 
 .bg-default {
     background-color: #0d1117;;
+}
+
+.card-width {
+    width: 405px;
+    display: inline-block;
 }
