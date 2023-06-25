@@ -1,0 +1,11 @@
+<section class="card-darker mt-4 pt-4 position-relative">
+  <h2 class="fs-3 title">
+    <%= "Todo".pluralize(current_collaborator.todos.size) %>
+  </h2>
+
+  <% if current_collaborator.todos.size.zero? %>
+    <p>Your todos will show here !</p>
+  <% else %>
+    <%= render current_collaborator.todos %>
+  <% end %>
+</section>

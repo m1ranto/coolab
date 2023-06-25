@@ -16,3 +16,7 @@
     <% end %>
   </div>
 <% end %>
+
+<% if current_collaborator == @collaborator %>
+  <%= render 'shared/current_collaborator_todos' %>
+<% end %>
