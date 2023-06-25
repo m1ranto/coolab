@@ -1,6 +1,4 @@
 
-## New features will be added until Friday, 10 March!
-
 ## What's Coolab?
 
 A Cool portfolio open-source project management collaboration app.
