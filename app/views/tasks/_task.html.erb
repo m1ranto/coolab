@@ -9,9 +9,19 @@
     </div>
   </div>
 
-  <%= render task.todos %>
+  <% task.todos.each do |todo| %>
+    <% unless todo.done %>
+      <%= render todo %>
+    <% end %>
+  <% end %>
 
   <div>
     <%= link_to 'New todo', new_project_task_todo_path(@project, task), class: "mt-1 btn btn-sm btn-dark" %>
   </div>
+
+  <% task.todos.each do |todo| %>
+    <% if todo.done %>
+      <%= render todo %>
+    <% end %>
+  <% end %>
 </div>

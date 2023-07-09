@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   before_action :get_task
-  before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[ show edit update done destroy ]
   before_action :logged_in_collaborator
   before_action :get_collaborators, only: %i[ create update ]
 
@@ -44,6 +44,13 @@ class TodosController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
+  end
+
+  # Done todo
+  def done
+    @todo.done = @todo.done ? false : true
+    @todo.save
+    redirect_back_or_to project_task_todo_url(@task.project, @task, @todo)
   end
 
   # Delete todo

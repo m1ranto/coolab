@@ -91,3 +91,10 @@ a {
     width: 405px;
     display: inline-block;
 }
+
+.form-check-todo {
+    width: 21px;
+    height: 21px;
+    background-color: transparent;
+    border: 1px solid dimgrey;
+}

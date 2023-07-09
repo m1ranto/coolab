@@ -4,12 +4,17 @@
 <h1 class="visually-hidden">Todo</h1>
 
 <div class="card-darker" id="<%= dom_id @todo %>">
-  <h2 class="d-inline-block">
-    <%= link_to @todo.name, [@todo.task.project, @todo.task, @todo] %>
-  </h2>
-  <div class="ms-3 d-inline-flex gap-2 align-items-center">
-    <%= link_to '', edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "bi bi-pencil-square link-secondary fs-6" %>
-    <%= button_to '', [@todo.task.project, @todo.task, @todo], class: "bi bi-trash link-secondary btn p-0 fs-6", method: :delete %>
+  <div class="d-flex align-items-center">
+    <%= form_with model: @todo, url: done_todo_path(@todo.task.project, @todo.task, @todo) do |form| %>
+      <%= form.check_box :done, class: "form-check-input form-check-todo me-2", onchange: "this.form.submit()" %>
+    <% end %>
+    <h2 class="d-inline-block mb-0">
+      <%= link_to @todo.name, [@todo.task.project, @todo.task, @todo] %>
+    </h2>
+    <div class="ms-3 d-inline-flex gap-2 align-items-center">
+      <%= link_to '', edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "bi bi-pencil-square link-secondary fs-6" %>
+      <%= button_to '', [@todo.task.project, @todo.task, @todo], class: "bi bi-trash link-secondary btn p-0 fs-6", method: :delete %>
+    </div>
   </div>
 
   <p>
