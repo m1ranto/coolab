@@ -1,13 +1,15 @@
 <div class="mb-3 card-darker" id="<%= dom_id task %>">
-  <div class="d-flex align-items-center">
-    <h2 class="fs-3">
-      <%= link_to task.name, project_task_path(@project, task), class: "py-2" %>
-    </h2>
-    <div class="ms-auto d-inline-flex gap-1">
-      <%= link_to '', edit_project_task_path(@project, task), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
-      <%= button_to '', [@project, task], class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
+  <%= turbo_frame_tag task do %>
+    <div class="d-flex align-items-center">
+      <h2 class="fs-3">
+        <%= link_to task.name, project_task_path(@project, task), class: "py-2" %>
+      </h2>
+      <div class="ms-auto d-inline-flex gap-1">
+        <%= link_to '', edit_project_task_path(@project, task), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
+        <%= button_to '', [@project, task], class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <% task.todos.each do |todo| %>
     <% unless todo.done %>

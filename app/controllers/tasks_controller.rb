@@ -24,6 +24,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend("tasks", @task) }
         format.html { redirect_to project_url(@project), notice: "Task was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -47,6 +48,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@task) }
       format.html { redirect_to project_url(@project), notice: "Task was successfully destroyed." }
     end
   end
