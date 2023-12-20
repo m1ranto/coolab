@@ -50,7 +50,11 @@ class TodosController < ApplicationController
   def done
     @todo.done = @todo.done ? false : true
     @todo.save
-    redirect_back_or_to project_task_todo_url(@task.project, @task, @todo)
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace(@task, @task) }
+      format.html { redirect_back_or_to project_task_todo_url(@task.project, @task, @todo) }
+    end
   end
 
   # Delete todo

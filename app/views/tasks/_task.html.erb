@@ -2,11 +2,11 @@
   <%= turbo_frame_tag task do %>
     <div class="d-flex align-items-center">
       <h2 class="fs-3">
-        <%= link_to task.name, project_task_path(@project, task), class: "py-2" %>
+        <%= link_to task.name, project_task_path(task.project, task), data: { turbo_frame: "_top" } ,class: "py-2" %>
       </h2>
       <div class="ms-auto d-inline-flex gap-1">
-        <%= link_to '', edit_project_task_path(@project, task), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
-        <%= button_to '', [@project, task], class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
+        <%= link_to '', edit_project_task_path(task.project, task), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
+        <%= button_to '', [task.project, task], class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
       </div>
     </div>
   <% end %>
@@ -18,7 +18,7 @@
   <% end %>
 
   <div>
-    <%= link_to 'New todo', new_project_task_todo_path(@project, task), class: "mt-1 btn btn-sm btn-dark" %>
+    <%= link_to 'New todo', new_project_task_todo_path(task.project, task), class: "mt-1 btn btn-sm btn-dark" %>
   </div>
 
   <% task.todos.each do |todo| %>
