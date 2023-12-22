@@ -11,11 +11,19 @@
 <% end %>
 
 <div class="mt-3 card-darker title-container">
+  <%= turbo_stream_from "comment" %>
   <h2 class="fs-3 title">
     <%= link_to "Campfire", project_comments_path(@project), class: "py-2" %>
   </h2>
   <% if @project.comments.any? %>
-    <%= render @project.comments.last(3) %>
+    <% @project.comments.last(3).each do |comment| %>
+      <div id="<%= dom_id comment %>">
+        <h3 class="fs-5">
+          <%= profile_picture_small comment.collaborator %>
+          <%= link_to comment.content, project_comments_path(comment.project), class: "fs-6 px-2 py-1 bg-dark rounded" %>
+        </h3>
+      </div>
+    <% end %>
   <% else %>
     <%= link_to "Add a comment", project_comments_path(@project), class: "btn btn-dark btn-sm" %>
   <% end %>

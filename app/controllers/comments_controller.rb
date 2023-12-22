@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        format.turbo_stream { render turbo_stream: turbo_stream.append("comments", @comment) }
         format.html { redirect_to project_comments_path(@project) }
       else
         @comments = @project.comments.all
@@ -31,6 +32,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@comment) }
       format.html { redirect_to project_comments_path(@project) }
     end
   end

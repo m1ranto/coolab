@@ -3,22 +3,10 @@
 <div class="mt-3 card-darker">
   <h1 class="fs-2">Campfire</h1>
 
+  <%= turbo_stream_from "comment" %>
+
   <div id="comments">
-    <% @comments&.each do |comment| %>
-      <article id="<%= dom_id comment %>">
-        <%= profile_picture comment.collaborator %>
-        <div class="align-middle d-inline-block px-2 py-1 bg-dark rounded mb-2">
-          <address class="mb-0 d-inline small fw-bold"><%= comment.collaborator.name %></address>
-          <time class="small text-secondary " datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
-          <p class="mb-0"><%= comment.content %></p>
-        </div>
-        <% if comment.collaborator == current_collaborator %>
-          <div class="d-inline-block">
-            <%= button_to '', [comment.project, comment], method: :delete, class: "bi bi-trash btn link-secondary p-1" %>
-          </div>
-        <% end %>
-      </article>
-    <% end %>
+    <%= render @comments %>
   </div>
 
   <%= render "form", comment: @comment %>
