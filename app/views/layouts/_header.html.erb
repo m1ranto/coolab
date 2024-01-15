@@ -1,21 +1,21 @@
 <header class="mb-2 bg-default fixed-top">
   <nav class="navbar border-bottom border-dark py-0">
     <div class="container-fluid">
-      <a class="navbar-brand text-white mb-0 pb-0" aria-current="page" href="">Coolab</a>
+      <%= link_to "Coolab", root_path, class: "navbar-brand text-white mb-0 pb-0", aria_current: "page" %>
       <ul class="me-5 list-unstyled hstack gap-4 mb-0 pb-0">
         <li>
-          <%= link_to root_path, class: "py-2 nav-link link-light" do %>
+          <%= link_to projects_path, class: "py-2 nav-link link-light" do %>
             <i class="bi bi-house-door-fill me-1"></i><span class="d-none d-sm-inline">Home</span>
           <% end %>
         </li>
         <li>
           <%= link_to collaborators_path, class: "py-2 nav-link link-light" do %>
-            <i class="bi bi-people-fill me-1"></i><span class="d-none d-sm-inline">Collaborators</span>
+            <i class="bi bi-people-fill me-1"></i><span class="d-none d-sm-inline">Team</span>
           <% end %>
         </li>
         <li>
           <%= link_to projects_path, class: "py-2 nav-link link-light" do %>
-            <i class="bi bi-kanban me-1"></i><span class="d-none d-sm-inline">Projects</span>
+            <i class="bi bi-kanban me-1"></i><span class="d-none d-sm-inline">Issues</span>
           <% end %>
         </li>
       </ul>
@@ -24,10 +24,8 @@
           <a class="py-1 nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <%= profile_picture current_collaborator %>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end">
+          <ul class="dropdown-menu dropdown-menu-end" data-bs-theme="dark">
             <li><%= link_to 'Profile', current_collaborator, class: "dropdown-item" %></li>
-            <li><%= link_to 'Projects', projects_path, class: "dropdown-item" %></li>
-            <li><a class="dropdown-item" href="#">Tasks</a></li>
             <li><%= link_to 'Settings', edit_collaborator_path(current_collaborator), class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to 'Log out', logout_path, data: { "turbo-method": :delete }, class: "dropdown-item" %></li>
