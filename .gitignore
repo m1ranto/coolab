@@ -36,3 +36,6 @@
 
 # Ignore IDE configuration
 /.idea/
+
+# Ignore RSpec examples
+/spec/examples.txt
