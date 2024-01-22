@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "A comment" do
-  let(:collaborator) { Collaborator.new(name: 'Bob', email: 'bob@email.com') }
-  let(:project) { Project.new(name: 'Coolab', collaborator: collaborator) }
-  let(:task) { Task.new(name: 'Task', project: project) }
-  let(:todo) { Todo.new(name: 'Todo', task: task) }
-  let(:comment) { Comment.new(content: 'Comment', project: project, collaborator: collaborator) }
+  fixtures :all
+
+  let(:collaborator) { collaborators(:miranto) }
+  let(:project) { projects(:coolab) }
+  let(:comment) { comments(:keep_pushing_up) }
 
   it 'has content' do
     expect(comment).to be_valid

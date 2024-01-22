@@ -1,12 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'A collaborator' do
-  let(:organization) { Organization.new(name: 'Organization') }
-  let(:collaborator) { Collaborator.new(name: 'Bob', email: 'bob@email.com', password: 'bob', organization: organization) }
-  let(:project) { Project.new(name: 'Coolab', collaborator: collaborator) }
-  let(:task) { Task.new(name: 'Task', project: project) }
-  let(:todo) { Todo.new(name: 'Todo', task: task) }
-  let(:comment) { Comment.new(content: 'Comment', project: project, collaborator: collaborator) }
+  fixtures :all
+
+  let(:organization) { organizations(:miranto_organization) }
+  let(:collaborator) { collaborators(:miranto) }
 
   it 'has a name' do
     expect(collaborator).to be_valid
@@ -28,7 +26,7 @@ RSpec.describe 'A collaborator' do
   end
 
   it 'has an associated password' do
-    expect(collaborator.password).not_to be_empty
+    expect(collaborator.password_digest).not_to be_empty
   end
 
   it 'belongs to an organization' do

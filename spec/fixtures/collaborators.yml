@@ -1,0 +1,11 @@
+miranto:
+  name: Miranto
+  email: miranto@email.com
+  password_digest: <%= Collaborator.digest('miranto') %>
+  organization: miranto_organization
+  todos: add-turbo-and-stimulus
+
+james:
+  name: James
+  email: james@email.com
+  password_digest: <%= Collaborator.digest('james') %>

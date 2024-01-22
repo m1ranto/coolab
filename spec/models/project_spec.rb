@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'A project' do
-  let(:collaborator) { Collaborator.new(name: 'Bob', email: 'bob@email.com') }
-  let(:project) { Project.new(name: 'Coolab', collaborator: collaborator) }
-  let(:task) { Task.new(name: 'Task') }
-  let(:comment) { Comment.new(content: 'Comment') }
+  fixtures :all
+
+  let(:project) { projects(:coolab) }
+  let(:task) { Task.create(name: "New task") }
+  let(:comment) { Comment.create(content: "New comment") }
 
   it 'has a name' do
     project.name = 'Coolab'

@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "A task" do
-  let(:collaborator) { Collaborator.new(name: 'Bob', email: 'bob@email.com') }
-  let(:project) { Project.new(name: 'Coolab', collaborator: collaborator) }
-  let(:task) { Task.new(name: 'Task', project: project) }
-  let(:todo) { Todo.new(name: 'Todo') }
+  fixtures :all
+
+  let(:project) { projects(:coolab) }
+  let(:task) { tasks(:hotwire) }
+  let(:todo) { Todo.create(name: 'New todo') }
 
   it 'has a name' do
     expect(task).to be_valid

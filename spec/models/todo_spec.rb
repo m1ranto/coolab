@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'A todo' do
-  let(:collaborator) { Collaborator.new(name: 'Bob', email: 'bob@email.com') }
-  let(:project) { Project.new(name: 'Coolab', collaborator: collaborator) }
-  let(:task) { Task.new(name: 'Task', project: project) }
-  let(:todo) { Todo.new(name: 'Todo', task: task) }
+  fixtures :all
+
+  let(:collaborator) { collaborators(:miranto) }
+  let(:task) { tasks(:hotwire) }
+  let(:todo) { todos(:add_turbo_and_stimulus) }
 
   it 'has a name' do
     expect(todo).to be_valid
