@@ -5,8 +5,8 @@
         <%= link_to task.name, project_task_path(task.project, task), data: { turbo_frame: "_top" } ,class: "py-2" %>
       </h2>
       <div class="ms-auto d-inline-flex gap-1">
-        <%= link_to '', edit_project_task_path(task.project, task), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
-        <%= button_to '', [task.project, task], class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
+        <%= link_to 'Edit', edit_project_task_path(task.project, task), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
+        <%= button_to 'Delete', [task.project, task], class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
       </div>
     </div>
   <% end %>

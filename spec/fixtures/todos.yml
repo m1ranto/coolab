@@ -2,5 +2,6 @@ add_turbo_and_stimulus:
   name: Add turbo and stimulus
   due_on: <%= 1.month.from_now %>
   done: false
+  description: Add turbo drive, frame, stream and stimulus js
   task: hotwire
   collaborators: miranto

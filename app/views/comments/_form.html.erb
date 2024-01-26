@@ -9,8 +9,9 @@
 
   <div class="mt-3 hstack">
     <%= profile_picture current_collaborator %>
-    <div class="flex-grow-1 me-3">
+    <div class="flex-grow-1 me-3 input-group">
       <%= form.text_field :content, class: "ms-2 form-control text-bg-dark border-0" %>
+      <%= form.submit 'Send', class: "input-group-text btn btn-dark" %>
     </div>
   </div>
 

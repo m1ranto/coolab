@@ -5,8 +5,8 @@
     </h2>
     <% if project.collaborator == current_collaborator %>
       <div class="ms-auto d-inline-flex align-items-center gap-1">
-        <%= link_to '', edit_project_path(project), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
-        <%= button_to '', project, class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
+        <%= link_to 'edit', edit_project_path(project), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
+        <%= button_to 'delete', project, class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
       </div>
     <% end %>
   </div>
