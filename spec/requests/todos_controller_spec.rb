@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe TodosController do
-  fixtures :all
-
   let(:project) { projects(:coolab) }
   let(:task) { tasks(:hotwire) }
   let(:todo) { todos(:add_turbo_and_stimulus) }

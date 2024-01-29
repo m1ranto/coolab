@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Comment', test: :system do
-  fixtures :all
-
   let(:project) { projects(:coolab) }
 
   before do

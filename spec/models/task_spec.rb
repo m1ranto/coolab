@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "A task" do
-  fixtures :all
-
   let(:project) { projects(:coolab) }
   let(:task) { tasks(:hotwire) }
   let(:todo) { Todo.create(name: 'New todo') }

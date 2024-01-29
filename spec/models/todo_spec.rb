@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'A todo' do
-  fixtures :all
-
   let(:collaborator) { collaborators(:miranto) }
   let(:task) { tasks(:hotwire) }
   let(:todo) { todos(:add_turbo_and_stimulus) }

@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController do
-  fixtures :all
-
   let(:project) { projects(:coolab) }
   let(:comment) { comments(:keep_pushing_up) }
   let(:collaborator) { collaborators(:miranto) }

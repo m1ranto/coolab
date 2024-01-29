@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CommentsHelper, test: :helper do
-  fixtures :all
-
   let(:collaborator) { collaborators(:miranto) }
   let(:project) { projects(:coolab) }
   let(:comment) { comments(:keep_pushing_up) }

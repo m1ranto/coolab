@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController do
-  fixtures :all
-
   let(:collaborator) { collaborators(:miranto) }
 
   describe 'GET #new' do

@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe TasksController do
-  fixtures :all
-
   let(:project) { projects(:coolab) }
   let(:task) { tasks(:hotwire) }
   let(:collaborator) { collaborators(:miranto) }

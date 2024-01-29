@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'An organization' do
-  fixtures :all
-
   let(:organization) { organizations(:miranto_organization) }
   let(:collaborator) { collaborators(:james) }
 

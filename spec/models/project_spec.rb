@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'A project' do
-  fixtures :all
-
   let(:project) { projects(:coolab) }
   let(:task) { Task.create(name: "New task") }
   let(:comment) { Comment.create(content: "New comment") }

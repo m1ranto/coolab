@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ProjectsController do
-  fixtures :all
-
   let(:project) { projects(:coolab) }
   let(:collaborator) { collaborators(:miranto) }
 

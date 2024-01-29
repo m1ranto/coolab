@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe SessionsHelper, type: :helper do
-  fixtures :all
-
   let(:collaborator) { collaborators(:miranto) }
 
   before do

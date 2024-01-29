@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe CollaboratorsHelper, test: :helper do
-  fixtures :all
-
   let(:collaborator) { collaborators(:miranto) }
 
   describe 'profile picture' do

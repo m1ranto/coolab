@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Collaborator', test: :system do
-  fixtures :all
-
   let(:collaborator) { collaborators(:miranto) }
 
   it 'is created on signup' do
