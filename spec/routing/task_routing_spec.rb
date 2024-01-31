@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'task routing' do
-  it 'does not route to #index' do
-    expect(get '/projects/1/tasks').not_to be_routable
+  it 'routes to #index' do
+    expect(get '/issues').to route_to('tasks#index')
   end
 
   it 'routes to #create' do

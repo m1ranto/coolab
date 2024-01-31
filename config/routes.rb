@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   delete 'logout' => "sessions#destroy"
 
   root "landing_pages#index"
+
+  get 'issues' => "tasks#index"
 end

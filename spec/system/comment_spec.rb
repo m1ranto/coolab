@@ -12,7 +12,7 @@ RSpec.describe 'Comment', test: :system do
 
   it 'is created by a collaborator' do
     visit project_path(project)
-    click_on 'Campfire'
+    click_on 'Chat'
     fill_in 'comment[content]', with: "New comment"
     click_on 'Send'
 
@@ -21,7 +21,7 @@ RSpec.describe 'Comment', test: :system do
 
   it 'is destroyed by a collaborator' do
     visit project_path(project)
-    click_on 'Campfire'
+    click_on 'Chat'
     find('.bi-trash').click
 
     expect(current_path).to eq(project_comments_path(project))
