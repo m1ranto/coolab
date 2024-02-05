@@ -2,8 +2,4 @@
   <%= link_to todo.task.project.name, todo.task.project, class: "text-decoration-underline mx-2" %>
   <span> > </span>
   <%= link_to todo.task.name, [todo.task.project, todo.task], class: "text-decoration-underline mx-2" %>
-  <% unless todo.new_record? %>
-    <span> > </span>
-    <%= link_to todo.name, [todo.task.project, todo.task, todo], class: "text-decoration-underline mx-2" %>
-  <% end %>
 </div>
