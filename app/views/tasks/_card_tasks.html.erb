@@ -1,0 +1,37 @@
+<%= link_to project_tasks_path(project) do %>
+  <div class="mt-3 card-darker card-width-height title-container" id="todoslist">
+    <h2 class="fs-3 title">Issues</h2>
+    <% if project.tasks.any? %>
+      <% project.tasks.recent.each do |task| %>
+        <% if task.todos.undone.present? %>
+          <h3 class="fs-4 my-1"><%= task.name %></h3>
+        <% end %>
+        <% task.todos.undone.each do |todo| %>
+          <div class="d-flex flex-wrap align-items-center">
+            <%= form_with model: todo, url: done_todo_path(todo.task.project, todo.task, todo) do |f| %>
+              <%= f.check_box :done, class: "form-check-input form-check-todo form-check-todo-sm" %>
+              <%= f.label :done, todo.name %>
+            <% end %>
+
+            <% unless todo.description.nil? %>
+              <i class="bi bi-justify-left fs-6 mx-1"></i>
+            <% end %>
+            <% unless todo.due_on.nil? %>
+              <i class="bi bi-calendar-event fs-6 mx-1"></i>
+              <%= todo.due_on.strftime("%a, %b %d") %>
+            <% end %>
+            <% unless todo.collaborators.empty? %>
+              <div class="mx-1">
+                <% todo.collaborators.each do |collaborator| %>
+                  <%= profile_picture_small collaborator %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= button_tag "New task", class: "btn btn-dark btn-sm" %>
+    <% end %>
+  </div>
+<% end %>

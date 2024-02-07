@@ -55,7 +55,7 @@ RSpec.describe TasksController do
     context 'when logged in' do
       it 'redirects to project page after successfully save' do
         post project_tasks_path(project), params: { task: { name: 'Task', project_id: project.id } }
-        expect(response).to redirect_to(project_path(project))
+        expect(response).to redirect_to(project_tasks_url(project))
       end
     end
   end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   patch '/projects/:project_id/tasks/:task_id/todos/:id/done' => "todos#done", as: 'done_todo'
 
   resources :projects do
-    resources :tasks, except: :index do
+    resources :tasks do
       resources :todos, except: :index
     end
     resources :comments, only: %i[ index create destroy ]

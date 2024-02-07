@@ -1,17 +1,7 @@
+<%= link_to project do %>
 <div class="mt-3 card-darker card-width" id="<%= dom_id(project) %>">
-  <div class="d-flex">
-    <h2 class="fs-3">
-      <%= link_to project.name, project, class: "py-2" %>
-    </h2>
-    <% if project.collaborator == current_collaborator %>
-      <div class="ms-auto d-inline-flex align-items-center gap-1">
-        <%= link_to 'edit', edit_project_path(project), class: "bi bi-pencil-square link-secondary p-1 fs-6" %>
-        <%= button_to 'delete', project, class: "bi bi-trash btn link-secondary p-1 fs-6", method: :delete %>
-      </div>
-    <% end %>
-  </div>
-
+  <h2 class="fs-3"><%= project.name %></h2>
   <p><%= project.description %></p>
-
   <%= profile_picture project.collaborator %>
 </div>
+<% end %>

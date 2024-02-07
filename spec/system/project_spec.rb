@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Project', test: :system do
+  let(:project) { projects(:coolab) }
+
   before do
     visit login_path
 
@@ -21,6 +23,7 @@ RSpec.describe 'Project', test: :system do
   end
 
   it 'is edited by a collaborator' do
+    visit project_path project
     click_on 'edit'
 
     fill_in 'Name', with: 'Edited Coolab'
@@ -31,6 +34,7 @@ RSpec.describe 'Project', test: :system do
   end
 
   it 'is deleted by a collaborator' do
+    visit project_path project
     click_on 'delete'
     expect(current_path).to eq(projects_path)
   end

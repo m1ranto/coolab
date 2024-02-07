@@ -1,9 +1,12 @@
 class TasksController < ApplicationController
-  before_action :get_project, except: :index
+  before_action :get_project
   before_action :set_task, only: %i[ show edit update destroy ]
   before_action :logged_in_collaborator
 
   include SessionsHelper
+
+  def index
+  end
 
   # Get task
   def show
@@ -25,7 +28,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.turbo_stream { render turbo_stream: turbo_stream.prepend("tasks", @task) }
-        format.html { redirect_to project_url(@project), notice: "Task was successfully created." }
+        format.html { redirect_to project_tasks_url(@project), notice: "Task was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

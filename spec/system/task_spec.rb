@@ -9,7 +9,7 @@ RSpec.describe 'Task', test: :system do
   end
 
   it 'is created by a collaborator' do
-    visit project_path(Project.first)
+    visit project_tasks_path(Project.first)
     click_on 'New task'
     fill_in 'Name', with: 'My new task'
     click_on 'Create Task'
@@ -17,7 +17,7 @@ RSpec.describe 'Task', test: :system do
   end
 
   it 'is edited by a collaborator' do
-    visit project_path(Project.first)
+    visit project_tasks_path(Project.first)
     click_on 'Edit'
     fill_in 'Name', with: 'Edited My new task'
     click_on 'Update Task'
@@ -25,7 +25,7 @@ RSpec.describe 'Task', test: :system do
   end
 
   it 'is deleted by a collaborator' do
-    visit project_path(Project.first)
+    visit project_tasks_path(Project.first)
     click_on 'Delete'
     expect(current_path).to eq(project_path(Project.first))
   end

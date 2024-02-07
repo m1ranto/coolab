@@ -95,10 +95,18 @@ a {
     width: 405px;
     display: inline-block;
 }
+.card-width-height {
+    width: 405px;
+    height: 350px;
+}
 
 .form-check-todo {
     width: 21px;
     height: 21px;
     background-color: transparent;
     border: 1px solid dimgrey;
+}
+.form-check-todo-sm {
+    width: 16px;
+    height: 16px;
 }

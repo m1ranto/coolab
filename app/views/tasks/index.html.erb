@@ -1,11 +1,19 @@
-<section class="card-darker title-container">
+<div class="text-center">
+  <%= link_to @project.name, @project, class: "text-decoration-underline mx-2" %>
+</div>
+
+<%= turbo_frame_tag "new_task" do %>
+  <%= link_to 'New task', new_project_task_path(@project), class: "btn btn-success text-black" %>
+<% end %>
+
+<div class="mt-3 card-darker title-container" id="todoslist">
   <h2 class="fs-3 title">
-    <%= "Todo".pluralize(current_collaborator.todos.size) %>
+    <%= "Issue".pluralize(@project.tasks.size) %>
   </h2>
 
-  <% if current_collaborator.todos.blank? %>
-    <p>Your todos will show here !</p>
-  <% else %>
-    <%= render current_collaborator.todos %>
+  <% if @project.tasks.any? %>
+    <div id="tasks">
+      <%= render @project.tasks.reverse %>
+    </div>
   <% end %>
-</section>
+</div>
