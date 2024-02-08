@@ -40,7 +40,8 @@ RSpec.describe 'Todo', test: :system do
 
   it 'is deleted by a collaborator' do
     visit project_task_todo_path(project, task, todo)
-    click_on 'delete'
+    find('.three-dots').click
+    click_on 'Delete'
     expect(current_path).to eq(project_task_path(project, task))
   end
 end

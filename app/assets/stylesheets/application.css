@@ -110,3 +110,14 @@ a {
     width: 16px;
     height: 16px;
 }
+
+.three-dots {
+    background-color: var(--bg-darker);
+    border: 1px solid dimgrey;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

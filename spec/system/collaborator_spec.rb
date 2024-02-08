@@ -54,7 +54,7 @@ RSpec.describe 'Collaborator', test: :system do
 
     it 'is destroyed by himself' do
       visit collaborator_path(collaborator)
-      click_on 'Destroy'
+      click_on 'Delete'
 
       visit login_path
       expect(current_path).to eq(login_path)

@@ -24,7 +24,8 @@ RSpec.describe 'Project', test: :system do
 
   it 'is edited by a collaborator' do
     visit project_path project
-    click_on 'edit'
+    find('.three-dots').click
+    click_on 'Edit'
 
     fill_in 'Name', with: 'Edited Coolab'
     fill_in 'Description', with: 'Edited Cool collaboration app'
@@ -35,7 +36,8 @@ RSpec.describe 'Project', test: :system do
 
   it 'is deleted by a collaborator' do
     visit project_path project
-    click_on 'delete'
+    find('.three-dots').click
+    click_on 'Delete'
     expect(current_path).to eq(projects_path)
   end
 end
