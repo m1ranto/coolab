@@ -121,3 +121,10 @@ a {
     height: 30px;
     border-radius: 50%;
 }
+.link {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 5px;
+    padding-bottom: 5px;
+}
