@@ -3,6 +3,8 @@
 <p style="color: green"><%= notice %></p>
 <h1 class="visually-hidden">Todo</h1>
 
+<div class="mb-1"><%= arrows_todo(@todos, @todo) %></div>
+
 <div class="card-darker" id="<%= dom_id @todo %>">
   <div class="d-flex align-items-center">
     <%= form_with model: @todo, url: done_todo_path(@todo.task.project, @todo.task, @todo) do |form| %>

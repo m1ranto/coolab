@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 
   # Get task
   def show
+    @tasks = @project.tasks
   end
 
   # Get new task

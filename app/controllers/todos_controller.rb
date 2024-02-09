@@ -8,6 +8,7 @@ class TodosController < ApplicationController
 
   # Get todo
   def show
+    @todos = @task.todos
   end
 
   # Get new todo
