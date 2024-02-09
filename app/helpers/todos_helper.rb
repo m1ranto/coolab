@@ -9,7 +9,7 @@ module TodosHelper
 
   def previous_todo(index)
     if index >= 0
-      link_to "", project_task_todo_path(todo.task.project, todo.task, todos[index]), class: "bi bi-chevron-up arrow"
+      link_to "", project_task_todo_path(todo.task.project, todo.task, todos[index]), class: "bi bi-chevron-up arrow", title: "Navigate up K", data: { controller: "arrow", action: "keydown.k@document->arrow#up" }
     else
       link_to "", "#", class: "bi bi-chevron-up arrow disable"
     end
@@ -17,7 +17,7 @@ module TodosHelper
 
   def next_todo(index)
     if index < todos.size
-      link_to "", project_task_todo_path(todo.task.project, todo.task, todos[index]), class: "bi bi-chevron-down arrow"
+      link_to "", project_task_todo_path(todo.task.project, todo.task, todos[index]), class: "bi bi-chevron-down arrow", title: "Navigate down J", data: { controller: "arrow", action: "keydown.j@document->arrow#down" }
     else
       link_to "", "#", class: "bi bi-chevron-down arrow disable"
     end
