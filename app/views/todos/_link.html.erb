@@ -1,7 +1,7 @@
 <div class="text-center">
   <%= link_to todo.task.project.name, todo.task.project, class: "mx-2 link" %>
   <span class="small"> > </span>
-  <%= link_to 'Todos', project_tasks_path(todo.task.project), class: "mx-2 link" %>
+  <%= link_to 'Issues', project_tasks_path(todo.task.project), class: "mx-2 link" %>
   <span class="small"> > </span>
   <%= link_to todo.task.name, [todo.task.project, todo.task], class: "mx-2 link" %>
 </div>

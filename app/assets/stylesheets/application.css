@@ -18,6 +18,7 @@
     --primary-color: hsl(240, 60%, 41%);
     --bg-color: hsl(223, 93%, 11%);
     --bg-darker: #161b22;
+    --border: hsl(0, 0%, 20%);
 }
 
 body {
@@ -113,7 +114,7 @@ a {
 
 .three-dots {
     background-color: var(--bg-darker);
-    border: 1px solid hsl(0, 0%, 20%);
+    border: 1px solid var(--border);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +133,7 @@ a {
 
 .arrow {
     background-color: var(--bg-darker);
-    border: 1px solid hsl(0, 0%, 20%);
+    border: 1px solid var(--border);
     display: inline-flex;
     justify-content: center;
     align-items: center;

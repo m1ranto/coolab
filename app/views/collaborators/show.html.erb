@@ -29,6 +29,4 @@
 <p class="mb-0 text-center"><%= @collaborator.title %></p>
 <p class="mb-0 text-center"><%= @collaborator.email %></p>
 
-<% if current_collaborator == @collaborator %>
-  <%= render 'shared/current_collaborator_todos' %>
-<% end %>
+<%= render 'shared/collaborator_todos', collaborator: @collaborator %>
