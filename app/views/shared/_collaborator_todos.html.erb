@@ -1,10 +1,10 @@
 <section class="card-darker title-container">
   <h2 class="fs-3 title">
-    <%= "My issue".pluralize(collaborator.todos.undone.size) %>
+    <%= "Assignement".pluralize(collaborator.todos.undone.size) %>
   </h2>
 
   <% if collaborator.todos.undone.blank? %>
-    <p>Your issues will show here !</p>
+    <p>Assigned issues will show here !</p>
   <% else %>
     <%= render collaborator.todos.undone %>
   <% end %>
