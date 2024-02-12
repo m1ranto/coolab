@@ -22,6 +22,11 @@ RSpec.describe 'Todo', test: :system do
     expect(page).to have_content('My new todo')
   end
 
+  it 'lists issues' do
+    visit issues_path
+    expect(page).to have_content('Issues')
+  end
+
   it 'has done status' do
     visit project_path(project)
     check 'todo[done]'

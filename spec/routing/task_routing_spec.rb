@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'task routing' do
-  it 'routes to #index' do
-    expect(get '/issues').to route_to('tasks#index')
-  end
-
   it 'routes to #create' do
     expect(post '/projects/1/tasks').to route_to('tasks#create', project_id: '1')
   end

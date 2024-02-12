@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'todo routing' do
+  it 'routes to #issues' do
+    expect(get '/issues').to route_to('todos#issues')
+  end
+
   it 'routes to #done' do
     expect(patch '/projects/1/tasks/1/todos/1/done').to route_to('todos#done', project_id: '1', task_id: '1', id: '1')
   end

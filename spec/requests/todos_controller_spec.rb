@@ -17,9 +17,23 @@ RSpec.describe TodosController do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'returns new task page' do
+      it 'returns new todo page' do
         get new_project_task_todo_path(project, task)
         expect(response.body).to include('Create Todo')
+      end
+    end
+  end
+
+  describe 'GET #issues' do
+    context 'when logged in' do
+      it 'responds with a status 200 (OK)' do
+        get issues_path
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'returns issues page' do
+        get issues_path
+        expect(response.body).to include('Issues')
       end
     end
   end
@@ -31,7 +45,7 @@ RSpec.describe TodosController do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'returns task page' do
+      it 'returns todo page' do
         get project_task_todo_path(project, task, todo)
         expect(response.body).to include(todo.name)
       end
@@ -45,7 +59,7 @@ RSpec.describe TodosController do
         expect(response).to have_http_status(:ok)
       end
 
-      it 'returns edit task page' do
+      it 'returns edit todo page' do
         get edit_project_task_todo_path(project, task, todo)
         expect(response.body).to include(todo.name)
       end
