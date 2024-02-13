@@ -74,7 +74,7 @@ class CollaboratorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def collaborator_params
-      params.require(:collaborator).permit(:name, :email, :title, :password, :password_confirmation)
+      params.require(:collaborator).permit(:name, :email, :title, :password, :password_confirmation, :profile_picture)
     end
 
     # Require correct collaborator

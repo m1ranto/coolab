@@ -13,6 +13,7 @@ class Collaborator < ApplicationRecord
   has_and_belongs_to_many :todos
   has_many :comments, dependent: :destroy
   belongs_to :organization, optional: true
+  has_one_attached :profile_picture
 
   has_secure_password
 

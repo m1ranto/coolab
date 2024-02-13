@@ -22,6 +22,10 @@ module CollaboratorsHelper
 
     # Return size of profile picture
     def profile_picture_size(collaborator, class_size: "profile-picture")
-      content_tag(:figure, first_letter(collaborator), class: class_size, style: "background-color: #{collaborator.profile}")
+      if collaborator.profile_picture.attached?
+        image_tag collaborator.profile_picture, class: class_size
+      else
+        content_tag(:figure, first_letter(collaborator), class: class_size, style: "background-color: #{collaborator.profile}")
+      end
     end
 end

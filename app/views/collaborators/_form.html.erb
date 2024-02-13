@@ -3,23 +3,30 @@
 
   <div class="mt-3">
     <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control" %>
+    <%= form.text_field :name, class: "form-control text-bg-dark border-0" %>
   </div>
 
   <div class="mt-3">
     <%= form.label :title, class: "form-label" %>
-    <%= form.text_field :title, class: "form-control"  %>
+    <%= form.text_field :title, class: "form-control text-bg-dark border-0" %>
   </div>
 
   <div class="mt-3">
     <%= form.label :email, class: "form-label" %>
-    <%= form.email_field :email, class: "form-control"  %>
+    <%= form.email_field :email, class: "form-control text-bg-dark border-0" %>
   </div>
 
   <div class="mt-3">
     <%= form.label :password, class: "form-label" %>
-    <%= form.password_field :password, class: "form-control"  %>
+    <%= form.password_field :password, class: "form-control text-bg-dark border-0" %>
   </div>
+
+  <% unless collaborator.new_record? %>
+    <div class="mt-3">
+      <%= form.label :profile_picture, class: "form-label" %>
+      <%= form.file_field :profile_picture, class: "form-control text-bg-dark border-0" %>
+    </div>
+  <% end %>
 
   <div class="mt-3">
     <%= form.submit class: "btn text-white w-100", style: "background-color: hsl(240, 60%, 41%);" %>
