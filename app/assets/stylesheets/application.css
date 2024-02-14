@@ -148,3 +148,15 @@ a {
 .arrow.disable {
     color: dimgrey;
 }
+
+/* slim-select */
+.ss-option {
+    color: white !important;
+}
+.ss-option:hover,
+.ss-selected {
+    background-color: var(--bg-darker) !important;
+}
+.ss-value {
+    background-color: var(--primary-color) !important;
+}
