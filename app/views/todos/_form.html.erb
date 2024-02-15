@@ -21,6 +21,11 @@
     <%= form.date_field :due_on, class: "form-control mb-0 bg-transparent border-0 focus-none cursor-pointer", onfocus: "this.showPicker()" %>
   </div>
 
+  <div class="mt-1 hstack gap-2">
+    <%= form.label :priority, class: "todo-menu form-label text-end mb-0" %>
+    <%= form.select :priority, Todo::PRIORITIES, {}, { class: "ms-1 form-control mb-0 bg-transparent border-0 focus-none", data: { controller: "select" } } %>
+  </div>
+
   <div class="mt-1">
     <%= form.hidden_field :task_id %>
   </div>

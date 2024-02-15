@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_13_064640) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_15_145307) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_064640) do
     t.integer "task_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "priority"
     t.index ["task_id"], name: "index_todos_on_task_id"
   end
 

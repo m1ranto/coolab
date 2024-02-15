@@ -61,4 +61,14 @@
       <%= @todo.due_on.strftime("%a, %b %d") %>
     <% end %>
   </div>
+
+  <div class="mt-3 hstack gap-3">
+    <span class="todo-menu text-end">Priority</span>
+    <% if @todo.priority.nil? %>
+      <%= link_to "Add priority", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
+    <% else %>
+      <%= @todo.priority %>
+    <% end %>
+  </div>
+
 </div>
