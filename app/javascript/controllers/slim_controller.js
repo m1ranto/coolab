@@ -6,7 +6,7 @@ export default class extends Controller {
     new SlimSelect({
       select: this.element,
       settings: {
-        placeholderText: 'Select collaborator',
+        placeholderText: 'Collaborator',
       }
     })
   }

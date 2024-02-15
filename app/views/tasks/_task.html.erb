@@ -30,9 +30,9 @@
     <% end %>
   <% end %>
 
-  <div>
+  <%= turbo_frame_tag "new_todo" do %>
     <%= link_to 'New todo', new_project_task_todo_path(task.project, task), class: "mt-1 btn btn-sm btn-dark" %>
-  </div>
+  <% end %>
 
   <% task.todos.each do |todo| %>
     <% if todo.done %>
