@@ -167,6 +167,10 @@ a {
     color: whitesmoke;
 }
 
+.todo-menu {
+    width: 125px;
+}
+
 /* slim-select */
 .ss-content {
     background-color: var(--bg-darker) !important;

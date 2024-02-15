@@ -3,25 +3,25 @@
 
   <div class="hstack gap-0">
     <%= form.check_box :done, class: "form-check-input form-check-todo mb-1" %>
-    <%= form.text_field :name, placeholder: "Name this todo", class: "form-control mb-0 bg-transparent border-0 focus-none", style: "padding-left: 9px" %>
+    <%= form.text_field :name, placeholder: "Name this todo", autofocus: true, class: "form-control mb-0 bg-transparent border-0 focus-none", style: "padding-left: 9px" %>
   </div>
 
-  <div class="mt-2 hstack gap-2">
-    <%= form.label :collaborator, "Assigned to", class: "form-label text-end mb-0", style: "width: 125px" %>
+  <div class="mt-1 hstack gap-2">
+    <%= form.label :collaborator, "Assigned to", class: "todo-menu form-label text-end mb-0" %>
     <%= form.collection_select :collaborator, Collaborator.all, :id, :name, { include_blank: true }, { multiple: true, class: "form-control mb-0 bg-transparent border-0 focus-none", style: "min-height: 38px", data: { controller: "slim" } } %>
   </div>
 
-  <div class="mt-2 hstack gap-1">
-    <%= form.label :description, "Notes", class: "form-label text-end mb-0", style: "width: 125px" %>
+  <div class="mt-1 hstack gap-1">
+    <%= form.label :description, "Notes", class: "todo-menu form-label text-end mb-0" %>
     <%= form.text_area :description, placeholder: "Add description", class: "form-control mb-0 bg-transparent border-0 focus-none", style: "height: 38px" %>
   </div>
 
-  <div class="mt-2 hstack gap-1">
-    <%= form.label :due_on, class: "form-label text-end mb-0", style: "width: 125px" %>
+  <div class="mt-1 hstack gap-1">
+    <%= form.label :due_on, class: "todo-menu form-label text-end mb-0" %>
     <%= form.date_field :due_on, class: "form-control mb-0 bg-transparent border-0 focus-none cursor-pointer", onfocus: "this.showPicker()" %>
   </div>
 
-  <div class="mt-2">
+  <div class="mt-1">
     <%= form.hidden_field :task_id %>
   </div>
 

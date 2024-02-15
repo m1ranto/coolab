@@ -7,12 +7,10 @@
 
 <div class="card-darker" id="<%= dom_id @todo %>">
   <div class="d-flex align-items-center">
-    <%= form_with model: @todo, url: done_todo_path(@todo.task.project, @todo.task, @todo) do |form| %>
-      <%= form.check_box :done, class: "form-check-input form-check-todo me-2", onchange: "this.form.submit()" %>
+    <%= form_with model: @todo, url: done_todo_path(@todo.task.project, @todo.task, @todo), class: "hstack" do |form| %>
+      <%= form.check_box :done, class: "form-check-input form-check-todo mb-1 me-2", onchange: "this.form.submit()" %>
+      <%= form.label :done, @todo.name, class: "fs-3" %>
     <% end %>
-    <h2 class="d-inline-block mb-0">
-      <%= link_to @todo.name, [@todo.task.project, @todo.task, @todo] %>
-    </h2>
     <div class="ms-auto dropdown text-white ms-3">
       <a class="py-1 nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <div class="three-dots"><i class="bi bi-three-dots fs-5"></i></div>
@@ -32,45 +30,35 @@
     </div>
   </div>
 
-  <p>
-    <strong>Description:</strong>
-    <% if @todo.description.empty? %>
-      <%= link_to "Add description", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo) %>
+  <div class="mt-3 hstack gap-3">
+    <span class="todo-menu text-end">Assigned to</span>
+    <% if @todo.collaborators.empty? %>
+      <%= link_to "Add collaborator", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
     <% else %>
-      <%= @todo.description %>
-    <% end %>
-  </p>
-
-  <p>
-    <div>
-      <strong>Assigned to:</strong>
-      <% if @todo.collaborators.empty? %>
-        <%= link_to "Add collaborator", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo) %>
-      <% else %>
+      <div>
         <% @todo.collaborators.each do |collaborator| %>
           <%= profile_picture_small collaborator %>
           <%= collaborator.name %>
         <% end %>
-      <% end %>
-    </div>
-  </p>
-
-  <p>
-    <strong>Due on:</strong>
-    <% if @todo.due_on.nil? %>
-      <%= link_to "Select a date", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo) %>
-    <% else %>
-      <%= @todo.due_on %>
+      </div>
     <% end %>
-  </p>
+  </div>
 
-  <p>
-    <strong>Done:</strong>
-    <%= @todo.done %>
-  </p>
+  <div class="mt-3 hstack gap-3">
+    <span class="todo-menu text-end">Notes</span>
+      <% if @todo.description.empty? %>
+        <%= link_to "Add description", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
+      <% else %>
+        <%= @todo.description %>
+      <% end %>
+  </div>
 
-  <p>
-    <strong>Task:</strong>
-    <%= @todo.task_id %>
-  </p>
+  <div class="mt-3 hstack gap-3">
+    <span class="todo-menu text-end">Due on</span>
+    <% if @todo.due_on.nil? %>
+      <%= link_to "Select a date", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
+    <% else %>
+      <%= @todo.due_on.strftime("%a, %b %d") %>
+    <% end %>
+  </div>
 </div>
