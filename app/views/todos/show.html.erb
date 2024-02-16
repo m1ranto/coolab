@@ -67,7 +67,10 @@
     <% if @todo.priority.nil? %>
       <%= link_to "Add priority level", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
     <% else %>
-      <%= @todo.priority %>
+      <div>
+        <i class="<%= priority_icon(todo) %>"></i>
+        <%= @todo.priority %>
+      </div>
     <% end %>
   </div>
 
