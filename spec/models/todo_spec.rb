@@ -32,6 +32,46 @@ RSpec.describe 'A todo' do
     expect(todo).to be_done
   end
 
+  it 'has a no priority level' do
+    todo.priority = 'No priority'
+    expect(todo).to be_valid
+  end
+
+  it 'has an urgent priority level' do
+    todo.priority = 'Urgent'
+    expect(todo).to be_valid
+  end
+
+  it 'has a high priority level' do
+    todo.priority = 'High'
+    expect(todo).to be_valid
+  end
+
+  it 'has a medium priority level' do
+    todo.priority = 'Medium'
+    expect(todo).to be_valid
+  end
+
+  it 'has a low priority level' do
+    todo.priority = 'Low'
+    expect(todo).to be_valid
+  end
+
+  it 'excludes undefined priority levels' do
+    todo.priority = 'Other priority'
+    expect(todo).not_to be_valid
+  end
+
+  it 'excludes empty priority level' do
+    todo.priority = ''
+    expect(todo).not_to be_valid
+  end
+
+  it 'excludes nil priority level' do
+    todo.priority = nil
+    expect(todo).not_to be_valid
+  end
+
   it 'belongs to a task' do
     expect(todo.task).to eq(task)
   end

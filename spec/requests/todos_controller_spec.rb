@@ -69,7 +69,7 @@ RSpec.describe TodosController do
   describe 'POST #create' do
     context 'when logged in' do
       it 'redirects to project page after successfully save' do
-        post project_task_todos_path(project, task), params: { todo: { name: 'Todo', task_id: task.id } }
+        post project_task_todos_path(project, task), params: { todo: { name: 'Todo', task_id: task.id, priority: 'No priority' } }
         expect(response).to redirect_to(project_task_todo_path(project, task, Todo.last))
       end
     end
@@ -78,7 +78,7 @@ RSpec.describe TodosController do
   describe 'PATCH #update' do
     context 'when logged in' do
       it 'redirects to project page after successfully update' do
-        patch project_task_todo_path(project, task, todo), params: { todo: { name: 'Todo update' } }
+        patch project_task_todo_path(project, task, todo), params: { todo: { name: 'Todo update', priority: 'No priority' } }
         expect(response).to redirect_to(project_task_todo_path(project, task, todo))
       end
     end

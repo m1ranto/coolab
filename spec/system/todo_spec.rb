@@ -14,9 +14,8 @@ RSpec.describe 'Todo', test: :system do
 
   it 'is created by a collaborator' do
     visit new_project_task_todo_path(project, task)
-    fill_in 'Name', with: 'My new todo'
-    fill_in 'Description', with: 'My new todo description'
-    select('Miranto', from: 'Collaborator')
+    find("#todo_name").fill_in with: 'My new todo'
+    find("#todo_description").fill_in with: 'My new todo description'
     click_on 'Create Todo'
 
     expect(page).to have_content('My new todo')
@@ -35,9 +34,8 @@ RSpec.describe 'Todo', test: :system do
 
   it 'is edited by a collaborator' do
     visit edit_project_task_todo_path(project, task, todo)
-    fill_in 'Name', with: 'Edited todo'
-    fill_in 'Description', with: 'Edited todo description'
-    select('James', from: 'Collaborator')
+    find("#todo_name").fill_in with: 'Edited todo'
+    find("#todo_description").fill_in with: 'Edited todo description'
     click_on 'Update Todo'
 
     expect(page).to have_content('Edited todo')
