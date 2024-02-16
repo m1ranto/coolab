@@ -1,8 +1,8 @@
 class Todo < ApplicationRecord
-  PRIORITIES = ["No priority", "Urgent", "Medium", "Low"]
+  PRIORITY_LEVELS = ["No priority", "Urgent", "High", "Medium", "Low"]
 
   validates :name, presence: true
-  validates :priority, inclusion: { in: PRIORITIES }
+  validates :priority, inclusion: { in: PRIORITY_LEVELS }
 
   belongs_to :task
   has_and_belongs_to_many :collaborators

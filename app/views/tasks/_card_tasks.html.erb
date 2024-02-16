@@ -12,12 +12,15 @@
                 <%= f.label :done, todo.name %>
               <% end %>
 
-              <% unless todo.description.nil? %>
-                <i class="bi bi-justify-left fs-6 mx-1"></i>
+              <% unless todo.priority.nil? %>
+                <i class="<%= priority_icon(todo) %>"></i>
               <% end %>
               <% unless todo.due_on.nil? %>
                 <i class="bi bi-calendar-event fs-6 mx-1"></i>
                 <%= todo.due_on.strftime("%a, %b %d") %>
+              <% end %>
+              <% unless todo.description.nil? %>
+                <i class="bi bi-justify-left fs-6 mx-1"></i>
               <% end %>
               <% unless todo.collaborators.empty? %>
                 <div class="mx-1">
