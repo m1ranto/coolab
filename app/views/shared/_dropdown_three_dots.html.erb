@@ -1,0 +1,17 @@
+<div class="<%= "ms-auto" unless object.is_a? Project %> dropdown text-white ms-3">
+  <a class="py-1 nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="three-dots"><i class="bi bi-three-dots fs-5"></i></div>
+  </a>
+  <ul class="dropdown-menu" data-bs-theme="dark">
+    <li>
+      <%= link_to dropdown_edit(object), class: "dropdown-item" do %>
+        <i class="bi bi-pencil-square me-2"></i>Edit
+      <% end %>
+    </li>
+    <li>
+      <%= button_to dropdown_delete(object), class: "dropdown-item", method: :delete do %>
+        <i class="bi bi-trash me-2"></i>Delete
+      <% end %>
+    </li>
+  </ul>
+</div>

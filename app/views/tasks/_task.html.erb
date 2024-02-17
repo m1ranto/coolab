@@ -4,23 +4,7 @@
       <h2 class="fs-3">
         <%= link_to task.name, project_task_path(task.project, task), data: { turbo_frame: "_top" } ,class: "py-2" %>
       </h2>
-      <div class="ms-auto dropdown text-white ms-3">
-        <a class="py-1 nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <div class="three-dots"><i class="bi bi-three-dots fs-5"></i></div>
-        </a>
-        <ul class="dropdown-menu" data-bs-theme="dark">
-          <li>
-            <%= link_to edit_project_task_path(task.project, task), class: "dropdown-item" do %>
-              <i class="bi bi-pencil-square me-2"></i>Edit
-            <% end %>
-          </li>
-          <li>
-            <%= button_to [task.project, task], class: "dropdown-item", method: :delete do %>
-              <i class="bi bi-trash me-2"></i>Delete
-            <% end %>
-          </li>
-        </ul>
-      </div>
+      <%= render "shared/dropdown_three_dots", object: task %>
     </div>
   <% end %>
 

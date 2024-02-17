@@ -3,23 +3,7 @@
 <div class="hstack justify-content-center">
   <h1 class="text-center mb-0"><%= @project.name %></h1>
   <% if @project.collaborator == current_collaborator %>
-    <div class="dropdown text-white ms-3">
-      <a class="py-1 nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <div class="three-dots"><i class="bi bi-three-dots fs-5"></i></div>
-      </a>
-      <ul class="dropdown-menu" data-bs-theme="dark">
-        <li>
-          <%= link_to edit_project_path(@project), class: "dropdown-item" do %>
-            <i class="bi bi-pencil-square me-2"></i>Edit
-          <% end %>
-        </li>
-        <li>
-          <%= button_to @project, class: "dropdown-item", method: :delete do %>
-            <i class="bi bi-trash me-2"></i>Delete
-          <% end %>
-        </li>
-      </ul>
-    </div>
+    <%= render "shared/dropdown_three_dots", object: @project %>
   <% end %>
 </div>
 
