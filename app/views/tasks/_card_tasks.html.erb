@@ -9,18 +9,18 @@
             <div class="d-flex flex-wrap align-items-center">
               <%= form_with model: todo, url: done_todo_path(todo.task.project, todo.task, todo) do |f| %>
                 <%= f.check_box :done, class: "form-check-input form-check-todo form-check-todo-sm" %>
-                <%= f.label :done, todo.name %>
+                <%= f.label :done, todo.name, class: "me-1" %>
               <% end %>
 
               <% unless todo.priority.nil? %>
                 <i class="<%= priority_icon(todo) %>"></i>
               <% end %>
               <% unless todo.due_on.nil? %>
-                <i class="bi bi-calendar-event fs-6 mx-1"></i>
-                <%= todo.due_on.strftime("%a, %b %d") %>
+                <i class="bi bi-calendar-event text-primary fs-6 mx-1"></i>
+                <span class="text-secondary"><%= todo.due_on.strftime("%a, %b %d") %></span>
               <% end %>
-              <% unless todo.description.nil? %>
-                <i class="bi bi-justify-left fs-6 mx-1"></i>
+              <% unless todo.description.blank? %>
+                <i class="bi bi-justify-left text-secondary fs-6 mx-1"></i>
               <% end %>
               <% unless todo.collaborators.empty? %>
                 <div class="mx-1">

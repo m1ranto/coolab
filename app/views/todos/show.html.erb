@@ -21,8 +21,10 @@
     <% else %>
       <div>
         <% @todo.collaborators.each do |collaborator| %>
-          <%= profile_picture_small collaborator %>
-          <%= collaborator.name %>
+          <%= link_to collaborator do %>
+            <%= profile_picture_small collaborator %>
+            <%= collaborator.name %>
+          <% end %>
         <% end %>
       </div>
     <% end %>
