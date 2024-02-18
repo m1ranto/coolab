@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<h1 class="visually-hidden">Collaborators</h1>
+<h1 class="text-center fs-3 fw-bold"><%= current_collaborator.organization&.name %></h1>
 
 <%= form_with(url: invite_path) do |form| %>
   <%= form.label :email, "Invite a new collaborator by email" %>
