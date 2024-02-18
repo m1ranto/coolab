@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   root "landing_pages#index"
 
-  get 'issues' => "todos#issues"
+  get 'activity' => "todos#activity"
 end

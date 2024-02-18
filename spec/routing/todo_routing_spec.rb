@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'todo routing' do
   it 'routes to #issues' do
-    expect(get '/issues').to route_to('todos#issues')
+    expect(get '/activity').to route_to('todos#activity')
   end
 
   it 'routes to #done' do

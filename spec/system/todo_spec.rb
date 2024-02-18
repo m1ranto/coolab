@@ -22,8 +22,8 @@ RSpec.describe 'Todo', test: :system do
   end
 
   it 'lists issues' do
-    visit issues_path
-    expect(page).to have_content('Issues')
+    visit activity_path
+    expect(page).to have_content('Activity')
   end
 
   it 'has done status' do

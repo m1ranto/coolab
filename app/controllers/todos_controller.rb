@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :get_task, except: :issues
+  before_action :get_task, except: :activity
   before_action :set_todo, only: %i[ show edit update done destroy ]
   before_action :logged_in_collaborator
   before_action :get_collaborators, only: %i[ create update ]
@@ -11,8 +11,7 @@ class TodosController < ApplicationController
     @todos = @task.todos
   end
 
-  def issues
-    @todos = Todo.all.limit(100)
+  def activity
   end
 
   # Get new todo

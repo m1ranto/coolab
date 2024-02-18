@@ -1,0 +1,42 @@
+<div class="mt-3 card-darker title-container" id="todoslist">
+  <h2 class="fs-3 title"><%= "Activity" %></h2>
+
+  <% Project.all.each do |project| %>
+    <% if project.tasks.any? %>
+      <div id="tasks">
+        <% project.tasks.reverse.each do |task| %>
+          <div class="mb-3 card-darker" id="<%= dom_id task %>">
+            <%= turbo_frame_tag task do %>
+              <div class="d-flex align-items-center">
+                <h2 class="fs-3">
+                  <%= link_to task.name, project_task_path(task.project, task), data: { turbo_frame: "_top" } ,class: "py-2" %>
+                </h2>
+                <%= render "shared/dropdown_three_dots", object: task %>
+              </div>
+            <% end %>
+
+            <% task.todos.each do |todo| %>
+              <% if todo.collaborators.include? current_collaborator %>
+                <% unless todo.done %>
+                  <%= render todo %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <%= turbo_frame_tag "new_todo" do %>
+              <%= link_to 'New todo', new_project_task_todo_path(task.project, task), class: "mt-1 btn btn-sm btn-dark" %>
+            <% end %>
+
+            <% task.todos.each do |todo| %>
+              <% if todo.collaborators.include? current_collaborator %>
+                <% if todo.done %>
+                  <%= render todo %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+      <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
