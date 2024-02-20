@@ -1,0 +1,14 @@
+<div class="text-center">
+  <%= link_to @project.name, @project, class: "mx-2 link" %>
+</div>
+
+<div>
+  <%= link_to 'New document', new_project_document_path(@project), class: "btn btn-success text-black" %>
+</div>
+
+<div class="mt-3 card-darker title-container">
+  <h1 class="fs-3 title">Documents</h1>
+  <div class="mt-2 d-flex flex-wrap gap-3">
+    <%= render @documents %>
+  </div>
+</div>

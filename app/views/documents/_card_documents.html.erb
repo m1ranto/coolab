@@ -1,0 +1,22 @@
+<%= link_to project_documents_path(project) do %>
+  <div class="mt-3 card-darker card-width-height title-container">
+    <h2 class="fs-3 title">Documents</h2>
+    <% if project.documents.any? %>
+      <% project.documents.each do |document| %>
+        <div id="<%= dom_id document %>">
+          <h3 class="fs-5">
+            <h3 class="d-inline-block fs-6 px-2 py-1 mb-0 bg-dark rounded">
+              <i class="bi bi-folder-fill text-blue"></i>
+              <%= document.name %>
+              <% document.files.each do |file| %>
+                <%= file.filename %>
+              <% end %>
+            </h3>
+          </h3>
+        </div>
+      <% end %>
+    <% else %>
+      <%= button_tag "Add a document", class: "btn btn-dark btn-sm" %>
+    <% end %>
+  </div>
+<% end %>

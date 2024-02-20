@@ -1,0 +1,8 @@
+<%= form_with model: [@project, document] do |form| %>
+  <%= render "shared/errors", object: document %>
+
+  <%= form.text_field :name, placeholder: "Document name", autofocus: true, class: "form-control text-bg-dark border-0 my-3" %>
+  <%= form.text_area :description, placeholder: "Add extra notes", class: "form-control text-bg-dark border-0 my-3" %>
+  <%= form.file_field :files, multiple: true, class: "form-control text-bg-dark border-0 my-3" %>
+  <%= form.submit class: "btn btn-success" %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_15_145307) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_19_130923) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -70,6 +70,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_145307) do
     t.index ["project_id"], name: "index_comments_on_project_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "project_id", null: false
+    t.integer "collaborator_id"
+    t.index ["collaborator_id"], name: "index_documents_on_collaborator_id"
+    t.index ["project_id"], name: "index_documents_on_project_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -110,6 +121,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_15_145307) do
   add_foreign_key "collaborators", "organizations"
   add_foreign_key "comments", "collaborators"
   add_foreign_key "comments", "projects"
+  add_foreign_key "documents", "collaborators"
+  add_foreign_key "documents", "projects"
   add_foreign_key "projects", "collaborators"
   add_foreign_key "tasks", "projects"
   add_foreign_key "todos", "tasks"

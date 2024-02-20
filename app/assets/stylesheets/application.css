@@ -171,6 +171,20 @@ a {
     width: 125px;
 }
 
+.document-card {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    padding: 8px;
+    width: 150px;
+    height: 200px;
+    overflow: hidden;
+}
+.text-blue {
+    color: var(--primary-color);
+}
+
 /* slim-select */
 .ss-content {
     background-color: var(--bg-darker) !important;

@@ -1,0 +1,26 @@
+<div class="text-center">
+  <%= link_to @project.name, @project, class: "mx-2 link" %>
+  <span class="small"> > </span>
+  <%= link_to 'Documents', project_documents_path(@project), class: "mx-2 link" %>
+</div>
+
+<div class="mt-4 card-darker text-center">
+  <h2 class="fs-3"><%= @document.name %></h2>
+  <p>Uploaded by <%= profile_picture_small @document.collaborator %> <%= @document.collaborator.name %></p>
+  <div class="my-5">
+    <% @document.files.each do |file| %>
+      <% if file.representable? %>
+        <%= image_tag file, style: "max-width: 500px" %>
+      <% else %>
+        <p>No representation</p>
+      <% end %>
+      <div>
+        <%= file.filename %>
+        <%= link_to "Download", rails_blob_path(file, disposition: "attachment"), class: "mx-2 text-decoration-underline" %>
+      </div>
+    <% end %>
+  </div>
+  <% if @document.description.present? %>
+    <p>Notes: <br><%= @document.description %></p>
+  <% end %>
+</div>

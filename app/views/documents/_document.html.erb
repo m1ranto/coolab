@@ -1,0 +1,13 @@
+<%= link_to [@project, document], class: "document-card" do %>
+  <h2 class="fs-5"><i class="bi bi-folder-fill text-blue me-1"></i><%= document.name %></h2>
+  <% document.files.each do |file| %>
+    <% if file.representable? %>
+      <%#= image_tag file.representation(resize_to_limit: [100, 100]).processed.url, style: "max-width: 200px; max-heigh: 200px" %>
+      <%#= image_tag file, style: "max-width: 200px; max-heigh: 200px" %>
+      <%= file.filename %>
+    <% else %>
+      <p>No representation</p>
+    <% end %>
+  <% end %>
+  <div class="mt-auto"><%= profile_picture_small document.collaborator %> <%= document.collaborator.name %></div>
+<% end %>
