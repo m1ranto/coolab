@@ -16,6 +16,14 @@ RSpec.describe CommentsController do
         expect(response).to have_http_status(:ok)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get project_comments_path(project)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'POST #creates' do
@@ -25,6 +33,14 @@ RSpec.describe CommentsController do
         expect(response).to redirect_to project_comments_path(project)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        post project_comments_path(project), params: { comment: { content: 'New comment', project_id: project.id, collaborator_id: collaborator.id } }
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -32,6 +48,14 @@ RSpec.describe CommentsController do
       it 'redirects to project comments page' do
         delete project_comment_path(project, comment)
         expect(response).to redirect_to project_comments_path(project)
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        delete project_comment_path(project, comment)
+        expect(response).to redirect_to(login_path)
       end
     end
   end

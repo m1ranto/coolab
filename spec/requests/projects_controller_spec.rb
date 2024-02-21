@@ -20,6 +20,14 @@ RSpec.describe ProjectsController do
         expect(response.body).to include('New project')
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get projects_path
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #show' do
@@ -32,6 +40,14 @@ RSpec.describe ProjectsController do
       it 'returns a project' do
         get project_path(project)
         expect(response.body).to include(project.name)
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get project_path(project)
+        expect(response).to redirect_to(login_path)
       end
     end
   end
@@ -48,6 +64,14 @@ RSpec.describe ProjectsController do
         expect(response.body).to include('Name')
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get new_project_path
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'POST #create' do
@@ -55,6 +79,14 @@ RSpec.describe ProjectsController do
       it 'redirects to project page after successfully save' do
         post projects_path, params: { project: { name: 'Project', description: 'Description', collaborator_id: collaborator.id } }
         expect(response).to redirect_to project_path(Project.last)
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        post projects_path, params: { project: { name: 'Project', description: 'Description', collaborator_id: collaborator.id } }
+        expect(response).to redirect_to(login_path)
       end
     end
   end
@@ -71,19 +103,47 @@ RSpec.describe ProjectsController do
         expect(response.body).to include(project.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get edit_project_path(project)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'PATCH #update' do
-    it 'redirects to project page after successfully update' do
-      patch project_path(project), params: { project: { name: 'Project update' } }
-      expect(response).to redirect_to(project_path(project))
+    context 'when logged in' do
+      it 'redirects to project page after successfully update' do
+        patch project_path(project), params: { project: { name: 'Project update' } }
+        expect(response).to redirect_to(project_path(project))
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        patch project_path(project), params: { project: { name: 'Project update' } }
+        expect(response).to redirect_to(login_path)
+      end
     end
   end
 
   describe 'DELETE #destroy' do
-    it 'redirects to projects page after successfully delete' do
-      delete project_path(project)
-      expect(response).to redirect_to(projects_path)
+    context 'when logged in' do
+      it 'redirects to projects page after successfully delete' do
+        delete project_path(project)
+        expect(response).to redirect_to(projects_path)
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        delete project_path(project)
+        expect(response).to redirect_to(login_path)
+      end
     end
   end
 end

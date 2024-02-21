@@ -22,6 +22,14 @@ RSpec.describe TodosController do
         expect(response.body).to include('Create Todo')
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get new_project_task_todo_path(project, task)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #issues' do
@@ -34,6 +42,14 @@ RSpec.describe TodosController do
       it 'returns issues page' do
         get activity_path
         expect(response.body).to include('Activity')
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get activity_path
+        expect(response).to redirect_to(login_path)
       end
     end
   end
@@ -50,6 +66,14 @@ RSpec.describe TodosController do
         expect(response.body).to include(todo.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get project_task_todo_path(project, task, todo)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #edit' do
@@ -64,6 +88,14 @@ RSpec.describe TodosController do
         expect(response.body).to include(todo.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get edit_project_task_todo_path(project, task, todo)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'POST #create' do
@@ -71,6 +103,14 @@ RSpec.describe TodosController do
       it 'redirects to project page after successfully save' do
         post project_task_todos_path(project, task), params: { todo: { name: 'Todo', task_id: task.id, priority: 'No priority' } }
         expect(response).to redirect_to(project_task_todo_path(project, task, Todo.last))
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        post project_task_todos_path(project, task), params: { todo: { name: 'Todo', task_id: task.id, priority: 'No priority' } }
+        expect(response).to redirect_to(login_path)
       end
     end
   end
@@ -82,6 +122,14 @@ RSpec.describe TodosController do
         expect(response).to redirect_to(project_task_todo_path(project, task, todo))
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        patch project_task_todo_path(project, task, todo), params: { todo: { name: 'Todo update', priority: 'No priority' } }
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -89,6 +137,14 @@ RSpec.describe TodosController do
       it 'redirects to project page after successfully delete' do
         delete project_task_todo_path(project, task, todo)
         expect(response).to redirect_to(project_task_path(project, task))
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        delete project_task_todo_path(project, task, todo)
+        expect(response).to redirect_to(login_path)
       end
     end
   end

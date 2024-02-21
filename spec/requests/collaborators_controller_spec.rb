@@ -22,6 +22,14 @@ RSpec.describe CollaboratorsController do
         expect(response.body).to include(collaborator.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get collaborators_path
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #new' do
@@ -29,6 +37,20 @@ RSpec.describe CollaboratorsController do
       it 'redirects to collaborators page' do
         get signup_path
         expect(response).to redirect_to collaborators_path
+      end
+    end
+
+    context 'when logged out' do
+      it 'responds with a status 200 (OK)' do
+        delete logout_path
+        get signup_path
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'returns signup page' do
+        delete logout_path
+        get signup_path
+        expect(response.body).to include('Sign up')
       end
     end
   end
@@ -45,6 +67,14 @@ RSpec.describe CollaboratorsController do
         expect(response.body).to include(collaborator.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get collaborator_path(collaborator)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #edit' do
@@ -59,11 +89,20 @@ RSpec.describe CollaboratorsController do
         expect(response.body).to include(collaborator.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get edit_collaborator_path(collaborator)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'POST #create' do
-    context 'when not logged in' do
+    context 'when logged out' do
       it 'redirects to projects home page after successfully save' do
+        delete logout_path
         post collaborators_path, params: { collaborator: { name: 'Name', email: 'name@email.com', password: 'name' } }
         expect(response).to redirect_to collaborator_path(Collaborator.last)
       end
@@ -77,6 +116,14 @@ RSpec.describe CollaboratorsController do
         expect(response).to redirect_to collaborator_path(collaborator)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        patch collaborator_path(collaborator), params: { collaborator: { name: 'Name update' } }
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -84,6 +131,14 @@ RSpec.describe CollaboratorsController do
       it 'redirects to collaborator page after successfully delete' do
         delete collaborator_path(collaborator)
         expect(response).to redirect_to collaborators_path
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        delete collaborator_path(collaborator)
+        expect(response).to redirect_to(login_path)
       end
     end
   end

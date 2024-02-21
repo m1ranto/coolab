@@ -21,6 +21,14 @@ RSpec.describe DocumentsController do
         expect(response.body).to include('Documents')
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get project_documents_path(project)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #new' do
@@ -35,6 +43,14 @@ RSpec.describe DocumentsController do
         expect(response.body).to include('New')
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get new_project_document_path(project)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'POST #create' do
@@ -42,6 +58,14 @@ RSpec.describe DocumentsController do
       it 'redirects to document page after successfully save' do
         post project_documents_path(project), params: { document: { name: 'Roadmap', description: 'Application roadmap', project_id: project.id } }
         expect(response).to redirect_to(project_document_path(project, Document.last))
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        post project_documents_path(project), params: { document: { name: 'Roadmap', description: 'Application roadmap', project_id: project.id } }
+        expect(response).to redirect_to(login_path)
       end
     end
   end
@@ -58,6 +82,14 @@ RSpec.describe DocumentsController do
         expect(response.body).to include(document.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get project_document_path(project, document)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #edit' do
@@ -72,6 +104,14 @@ RSpec.describe DocumentsController do
         expect(response.body).to include(document.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get edit_project_document_path(project, document)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'PATCH #update' do
@@ -81,6 +121,14 @@ RSpec.describe DocumentsController do
         expect(response).to redirect_to(project_document_path(project, document))
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        patch project_document_path(project, document), params: { document: { name: 'Roadmap 2', description: 'Application roadmap 2', project_id: project.id } }
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -88,6 +136,14 @@ RSpec.describe DocumentsController do
       it 'redirects to all documents after successfully delete' do
         delete project_document_path(project, document)
         expect(response).to redirect_to(project_documents_path(project))
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        delete project_document_path(project, document)
+        expect(response).to redirect_to(login_path)
       end
     end
   end

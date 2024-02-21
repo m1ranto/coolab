@@ -21,6 +21,14 @@ RSpec.describe TasksController do
         expect(response.body).to include('Create Task')
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get new_project_task_path(project)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'GET #show' do
@@ -33,6 +41,14 @@ RSpec.describe TasksController do
       it 'returns task page' do
         get project_task_path(project, task)
         expect(response.body).to include(project.name)
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get project_task_path(project, task)
+        expect(response).to redirect_to(login_path)
       end
     end
   end
@@ -49,6 +65,14 @@ RSpec.describe TasksController do
         expect(response.body).to include(project.name)
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        get edit_project_task_path(project, task)
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'POST #create' do
@@ -56,6 +80,14 @@ RSpec.describe TasksController do
       it 'redirects to project page after successfully save' do
         post project_tasks_path(project), params: { task: { name: 'Task', project_id: project.id } }
         expect(response).to redirect_to(project_tasks_url(project))
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        post project_tasks_path(project), params: { task: { name: 'Task', project_id: project.id } }
+        expect(response).to redirect_to(login_path)
       end
     end
   end
@@ -67,6 +99,14 @@ RSpec.describe TasksController do
         expect(response).to redirect_to(project_path(project))
       end
     end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        patch project_task_path(project, task), params: { task: { name: 'Task update' } }
+        expect(response).to redirect_to(login_path)
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -74,6 +114,14 @@ RSpec.describe TasksController do
       it 'redirects to project page after successfully delete' do
         delete project_task_path(project, task)
         expect(response).to redirect_to(project_path(project))
+      end
+    end
+
+    context 'when logged out' do
+      it 'redirects to login page' do
+        delete logout_path
+        delete project_task_path(project, task)
+        expect(response).to redirect_to(login_path)
       end
     end
   end
