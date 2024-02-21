@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  before_action :logged_in_collaborator
   before_action :set_project
   before_action :set_document, only: %i[ show edit update destroy ]
 

@@ -14,8 +14,8 @@ RSpec.describe 'Document', test: :system do
 
   it 'is edited by a collaborator' do
     visit edit_project_document_path(project, document)
-    fill_in 'Name', with: 'Roadmap update'
-    fill_in 'Description', with: 'App roadmap update'
+    fill_in 'Name this document', with: 'Roadmap update'
+    fill_in 'Add description', with: 'App roadmap update'
     click_on 'Update Document'
 
     expect(page).to have_content('Roadmap update')

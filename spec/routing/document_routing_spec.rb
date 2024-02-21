@@ -10,7 +10,7 @@ RSpec.describe "document routing" do
   end
 
   it 'routes to #index' do
-    expect(get '/projects/1/documents').to route_to('documentes#index', project_id: '1')
+    expect(get '/projects/1/documents').to route_to('documents#index', project_id: '1')
   end
 
   it 'routes to #show' do

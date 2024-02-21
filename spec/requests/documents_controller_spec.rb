@@ -41,7 +41,7 @@ RSpec.describe DocumentsController do
     context 'when logged in' do
       it 'redirects to document page after successfully save' do
         post project_documents_path(project), params: { document: { name: 'Roadmap', description: 'Application roadmap', project_id: project.id } }
-        expect(response).to redirect_to(project_document_path(project, document))
+        expect(response).to redirect_to(project_document_path(project, Document.last))
       end
     end
   end

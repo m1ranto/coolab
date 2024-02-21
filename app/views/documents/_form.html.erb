@@ -1,8 +1,21 @@
 <%= form_with model: [@project, document] do |form| %>
   <%= render "shared/errors", object: document %>
 
-  <%= form.text_field :name, placeholder: "Document name", autofocus: true, class: "form-control text-bg-dark border-0 my-3" %>
-  <%= form.text_area :description, placeholder: "Add extra notes", class: "form-control text-bg-dark border-0 my-3" %>
-  <%= form.file_field :files, multiple: true, class: "form-control text-bg-dark border-0 my-3" %>
-  <%= form.submit class: "btn btn-success" %>
+  <%= form.text_field :name, placeholder: "Name this document", autofocus: true, class: "form-control mb-0 bg-transparent border-0 focus-none" %>
+
+  <div class="mt-4 upload-border d-flex flex-column justify-content-center align-items-center">
+    <%= form.label :files, class: "cursor-pointer" do %>
+      <i class="bi bi-image-alt display-5"></i>
+    <% end %>
+    <%= form.file_field :files, multiple: true, class: "upload-button text-center" %>
+  </div>
+
+  <div class="mt-3 hstack gap-1">
+    <%= form.label :description, "Notes", class: "form-label mb-0" %>
+    <%= form.text_area :description, placeholder: "Add description", class: "form-control mb-0 bg-transparent border-0 focus-none", style: "height: 38px" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit class: "btn btn-success" %>
+  </div>
 <% end %>

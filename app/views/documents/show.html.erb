@@ -5,14 +5,21 @@
 </div>
 
 <div class="mt-4 card-darker text-center">
-  <h2 class="fs-3"><%= @document.name %></h2>
-  <p>Uploaded by <%= profile_picture_small @document.collaborator %> <%= @document.collaborator.name %></p>
+  <div>
+    <h2 class="fs-3 d-inline-block"><%= @document.name %></h2>
+    <div class="ms-auto d-inline-block">
+      <%= render "shared/dropdown_three_dots", object: @document %>
+    </div>
+  </div>
+  <div>Uploaded by <%= profile_picture_small @document.collaborator %> <%= @document.collaborator.name %></div>
   <div class="my-5">
     <% @document.files.each do |file| %>
-      <% if file.representable? %>
-        <%= image_tag file, style: "max-width: 500px" %>
-      <% else %>
-        <p>No representation</p>
+      <%= link_to rails_blob_path(file, disposition: "attachement"), { target: "_blank" } do %>
+        <% if file.representable? %>
+          <%= image_tag file.representation(resize_to_limit: [500, 1000]), class: "cursor-zoom-in" %>
+        <% else %>
+          <i class="bi bi-file-earmark-text display-1"></i>
+        <% end %>
       <% end %>
       <div>
         <%= file.filename %>

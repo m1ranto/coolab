@@ -5,9 +5,6 @@ RSpec.describe 'A Document' do
   let(:project) { projects(:coolab) }
   let(:collaborator) { collaborators(:miranto) }
 
-  it 'has at least one attachment'
-  it 'has one or many attachments'
-
   it 'has a name' do
     document.name = 'Roadmap'
     expect(document).to be_valid

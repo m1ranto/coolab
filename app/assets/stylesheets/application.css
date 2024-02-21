@@ -174,15 +174,32 @@ a {
 .document-card {
     border: 1px solid var(--border);
     border-radius: 5px;
-    display: inline-flex;
-    flex-direction: column;
+    display: inline-block;
     padding: 8px;
     width: 150px;
-    height: 200px;
+    height: 208px;
     overflow: hidden;
 }
+.document-card-sm {
+    padding: 3px;
+    width: 100px;
+    height: 140px;
+}
+
+.cursor-zoom-in {
+    cursor: zoom-in;
+}
+
 .text-blue {
     color: var(--primary-color);
+}
+
+.upload-border {
+    border: 2px dashed var(--border);
+    height: 175px;
+}
+.upload-button::file-selector-button {
+    display: none;
 }
 
 /* slim-select */
