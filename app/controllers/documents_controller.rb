@@ -14,6 +14,7 @@ class DocumentsController < ApplicationController
   end
 
   def show
+    @documents = Document.all
   end
 
   def edit

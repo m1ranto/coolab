@@ -4,7 +4,9 @@
   <%= link_to 'Documents', project_documents_path(@project), class: "mx-2 link" %>
 </div>
 
-<div class="mt-4 card-darker text-center">
+<div class="mb-1"><%= arrows_document(@documents, @document) %></div>
+
+<div class="card-darker text-center">
   <div>
     <h2 class="fs-3 d-inline-block"><%= @document.name %></h2>
     <div class="ms-auto d-inline-block">
