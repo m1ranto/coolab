@@ -7,7 +7,7 @@ class CollaboratorsController < ApplicationController
 
   # Get all collaborators
   def index
-    @collaborators = Collaborator.all
+    @collaborators = current_collaborator.organization.collaborators
   end
 
   # Get collaborator
