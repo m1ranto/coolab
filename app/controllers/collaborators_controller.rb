@@ -33,7 +33,15 @@ class CollaboratorsController < ApplicationController
 
   # Create collaborator
   def create
-    @collaborator = Collaborator.new(collaborator_params)
+    if organization_name = params[:collaborator][:organization_name]
+      # create collaborator and create new organization
+      @organization = Organization.create!(name: organization_name)
+      @collaborator = @organization.collaborators.new(collaborator_params)
+    else
+      # create collaborator to join existing organization
+      @collaborator = Collaborator.new(collaborator_params)
+    end
+
     @collaborator.profile = profile_color
 
     respond_to do |format|
@@ -74,7 +82,7 @@ class CollaboratorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def collaborator_params
-      params.require(:collaborator).permit(:name, :email, :title, :password, :password_confirmation, :profile_picture)
+      params.require(:collaborator).permit(:name, :email, :title, :organization_id, :password, :password_confirmation, :profile_picture)
     end
 
     # Require correct collaborator

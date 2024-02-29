@@ -1,13 +1,9 @@
 <p style="color: green"><%= notice %></p>
 <h1 class="text-center fs-3 fw-bold"><%= current_collaborator.organization&.name %></h1>
 
-<%= form_with(url: invite_path) do |form| %>
-  <%= form.label :email, "Invite a new collaborator by email" %>
-  <div class="mt-1 input-group mb-3">
-    <%= form.email_field :email, class: "form-control", placeholder: "collaborator@email.com"  %>
-    <%= form.submit "Invite", class: "btn text-white input-group-text", style: "background-color: hsl(240, 60%, 41%);" %>
-  </div>
-<% end %>
+<div class="text-center mb-3">
+  <%= link_to 'Invite collaborators', organization_invite_path(current_collaborator.organization), class: "btn btn-success text-black" %>
+</div>
 
 <div id="collaborators">
   <% @collaborators.each do |collaborator| %>

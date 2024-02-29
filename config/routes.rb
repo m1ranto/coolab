@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :organizations
+  get 'organizations/:id/invite'   => "organizations#invite", as: "organization_invite"
+  get 'organizations/:id/join/:invitation_id'   => "organizations#join"
 
   resources :collaborators, except: :new
   get 'signup'    => "collaborators#new"
