@@ -1,7 +1,8 @@
 <%= render "link", task: @task %>
 
-<h1 class="fs-5">New task</h1>
-
-<%= turbo_frame_tag "new_task" do %>
-  <%= render "form", task: @task %>
-<% end %>
+<div class="card-darker title-container">
+  <h1 class="fs-4 title">New project</h1>
+  <%= turbo_frame_tag "new_task" do %>
+    <%= render "form", task: @task %>
+  <% end %>
+</div>

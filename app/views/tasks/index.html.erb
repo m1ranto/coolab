@@ -2,11 +2,13 @@
   <%= link_to @project.name, @project, class: "mx-2 link" %>
 </div>
 
-<%= turbo_frame_tag "new_task" do %>
-  <%= link_to 'New task', new_project_task_path(@project), class: "btn btn-success text-black" %>
-<% end %>
-
 <div class="mt-3 card-darker title-container" id="todoslist">
+  <div class="mb-2">
+    <%= turbo_frame_tag "new_task" do %>
+      <%= link_to 'New task', new_project_task_path(@project), class: "btn btn-success text-black" %>
+    <% end %>
+  </div>
+
   <h2 class="fs-3 title">
     <%= "Issue".pluralize(@project.tasks.size) %>
   </h2>
