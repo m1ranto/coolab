@@ -5,7 +5,7 @@
   <%= link_to 'Invite collaborators', organization_invite_path(current_collaborator.organization), class: "btn btn-success text-black" %>
 </div>
 
-<div id="collaborators">
+<div class="row justify-content-center" id="collaborators">
   <% @collaborators.each do |collaborator| %>
     <%= render collaborator %>
   <% end %>
