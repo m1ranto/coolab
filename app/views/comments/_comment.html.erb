@@ -8,11 +8,15 @@
       <address class="mb-0 d-inline small fw-bold"><%= comment.collaborator.name %></address>
       <p class="mb-0"><%= comment.content %></p>
     </div>
-    <%= profile_picture comment.collaborator %>
+    <%= link_to collaborator_path(current_collaborator) do %>
+      <%= profile_picture current_collaborator %>
+    <% end %>
   </article>
 <% else %>
   <article class="" id="<%= dom_id comment %>">
-    <%= profile_picture comment.collaborator %>
+    <%= link_to collaborator_path(comment.collaborator) do %>
+      <%= profile_picture comment.collaborator %>
+    <% end %>
     <div class="align-middle d-inline-block px-2 py-1 bg-dark rounded mb-2">
       <address class="mb-0 d-inline small fw-bold"><%= comment.collaborator.name %></address>
       <time class="small text-secondary " datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>

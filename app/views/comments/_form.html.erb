@@ -12,7 +12,9 @@
       <%= form.text_field :content, class: "ms-2 form-control text-bg-dark border-0" %>
       <%= form.submit 'Send', class: "input-group-text btn btn-dark" %>
     </div>
-    <%= profile_picture current_collaborator %>
+    <%= link_to collaborator_path(current_collaborator) do %>
+      <%= profile_picture current_collaborator %>
+    <% end %>
   </div>
 
   <div class="mt-3">
