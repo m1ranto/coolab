@@ -1,8 +1,4 @@
-<div class="text-center">
-  <%= link_to @project.name, @project, class: "mx-2 link" %>
-  <span class="small"> > </span>
-  <%= link_to 'Documents', project_documents_path(@project), class: "mx-2 link" %>
-</div>
+<%= render 'shared/links', object: @document %>
 
 <div class="mb-1"><%= arrows_document(@documents, @document) %></div>
 

@@ -1,0 +1,20 @@
+<div class="text-center">
+  <% link_class = "mx-2 link" %>
+  <% if object.is_a? Project %>
+    <%= link_to object.name, object, class: link_class %>
+  <% elsif object.is_a? Document %>
+    <%= link_to object.project.name, object.project, class: link_class %>
+    <span class="small"> > </span>
+    <%= link_to 'Documents', project_documents_path(object.project), class: link_class %>
+  <% elsif object.is_a? Task %>
+    <%= link_to object.project.name, object.project, class: link_class %>
+    <span class="small"> > </span>
+    <%= link_to 'Issues', project_tasks_path(object.project), class: link_class %>
+  <% elsif object.is_a? Todo %>
+    <%= link_to object.task.project.name, object.task.project, class: link_class %>
+    <span class="small"> > </span>
+    <%= link_to 'Issues', project_tasks_path(object.task.project), class: link_class %>
+    <span class="small"> > </span>
+    <%= link_to object.task.name, [object.task.project, object.task], class: link_class %>
+  <% end %>
+</div>

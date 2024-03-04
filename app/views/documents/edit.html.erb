@@ -1,10 +1,4 @@
-<div class="text-center">
-  <%= link_to @project.name, @project, class: "mx-2 link" %>
-  <span class="small"> > </span>
-  <%= link_to 'Documents', project_documents_path(@project), class: "mx-2 link" %>
-  <span class="small"> > </span>
-  <%= link_to @document.name, project_document_path(@project, @document), class: "mx-2 link" %>
-</div>
+<%= render 'shared/links', object: @document %>
 
 <div class="card-darker title-container">
   <h1 class="fs-4 title">Edit document</h1>

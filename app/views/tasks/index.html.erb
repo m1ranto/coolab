@@ -1,6 +1,4 @@
-<div class="text-center">
-  <%= link_to @project.name, @project, class: "mx-2 link" %>
-</div>
+<%= render 'shared/links', object: @project %>
 
 <div class="mt-3 card-darker title-container" id="todoslist">
   <div class="mb-2">

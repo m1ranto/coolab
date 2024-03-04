@@ -1,6 +1,4 @@
-<div class="text-center">
-  <%= link_to @project.name, @project, class: "mx-2 link" %>
-</div>
+<%= render 'shared/links', object: @project %>
 
 <div>
   <%= link_to 'New document', new_project_document_path(@project), class: "btn btn-success text-black" %>
