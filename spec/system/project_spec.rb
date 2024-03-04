@@ -14,8 +14,8 @@ RSpec.describe 'Project', test: :system do
   it 'is creates by a collaborator' do
     click_on 'New project'
 
-    fill_in 'Name', with: 'Coolab'
-    fill_in 'Description', with: 'Cool collaboration app'
+    find('#project_name').fill_in with: 'Coolab'
+    find('#project_description').fill_in with: 'Cool collaboration app'
     click_on 'Create Project'
 
     visit projects_path
@@ -27,8 +27,8 @@ RSpec.describe 'Project', test: :system do
     find('.three-dots').click
     click_on 'Edit'
 
-    fill_in 'Name', with: 'Edited Coolab'
-    fill_in 'Description', with: 'Edited Cool collaboration app'
+    find('#project_name').fill_in with: 'Edited Coolab'
+    find('#project_description').fill_in with: 'Edited Cool collaboration app'
     click_on 'Update Project'
 
     expect(page).to have_content('Edited Coolab')

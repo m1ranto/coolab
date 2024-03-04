@@ -103,7 +103,7 @@ RSpec.describe CollaboratorsController do
     context 'when logged out' do
       it 'redirects to projects home page after successfully save' do
         delete logout_path
-        post collaborators_path, params: { collaborator: { name: 'Name', email: 'name@email.com', password: 'name' } }
+        post collaborators_path, params: { collaborator: { name: 'Name', organization_name: 'Organization', email: 'name@email.com', password: 'name' } }
         expect(response).to redirect_to collaborator_path(Collaborator.last)
       end
     end

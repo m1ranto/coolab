@@ -8,7 +8,7 @@ RSpec.describe 'Collaborator', test: :system do
     find("#signup").click
 
     fill_in 'Name', with: 'Joe'
-    fill_in 'Title', with: 'CTO'
+    fill_in 'Organization', with: 'Joe-Organization'
     fill_in 'Email', with: 'joe@email.com'
     fill_in 'Password', with: 'joe'
     click_on 'Create Collaborator'

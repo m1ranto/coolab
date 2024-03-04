@@ -11,7 +11,7 @@ RSpec.describe 'Task', test: :system do
   it 'is created by a collaborator' do
     visit project_tasks_path(Project.first)
     click_on 'New task'
-    fill_in 'Name', with: 'My new task'
+    find('#task_name').fill_in with: 'My new task'
     click_on 'Create Task'
     expect(page).to have_content('My new task')
   end
@@ -19,7 +19,7 @@ RSpec.describe 'Task', test: :system do
   it 'is edited by a collaborator' do
     visit project_tasks_path(Project.first)
     click_on 'Edit'
-    fill_in 'Name', with: 'Edited My new task'
+    find('#task_name').fill_in with: 'Edited My new task'
     click_on 'Update Task'
     expect(page).to have_content('Edited My new task')
   end
