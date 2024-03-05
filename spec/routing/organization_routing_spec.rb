@@ -1,20 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'organization routing' do
-  it 'routes to #index' do
-    expect(get '/organizations').to route_to('organizations#index')
+  it 'routes to #invite' do
+    expect(get '/organizations/1/invite').to route_to('organizations#invite', id: '1')
   end
 
-  it 'routes to #create' do
-    expect(post '/organizations').to route_to('organizations#create')
-  end
-
-  it 'routes to #new' do
-    expect(get '/organizations/new').to route_to('organizations#new')
-  end
-
-  it 'routes to #show' do
-    expect(get '/organizations/1').to route_to('organizations#show', id: '1')
+  it 'routes to #join' do
+    expect(get '/organizations/1/join/3T56X51wHINj-sGxkrF4FA').to route_to('organizations#join', id: '1', invitation_id: '3T56X51wHINj-sGxkrF4FA')
   end
 
   it 'routes to #edit' do

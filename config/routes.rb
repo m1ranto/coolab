@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     resources :comments, only: %i[ index create destroy ]
   end
 
-  resources :organizations
+  resources :organizations, only: %i[ edit update destroy ]
   get 'organizations/:id/invite'   => "organizations#invite", as: "organization_invite"
-  get 'organizations/:id/join/:invitation_id'   => "organizations#join"
+  get 'organizations/:id/join/:invitation_id'   => "organizations#join", as: "organization_join"
 
   resources :collaborators, except: :new
   get 'signup'    => "collaborators#new"

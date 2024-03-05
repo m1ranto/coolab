@@ -1,4 +1,4 @@
-<div class="<%= "ms-auto" unless object.is_a? Project %> dropdown text-white ms-3">
+<div class="<%= "ms-auto" unless (object.is_a?(Project) || object.is_a?(Organization)) %> dropdown text-white ms-3">
   <a class="py-1 nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <div class="three-dots"><i class="bi bi-three-dots fs-5"></i></div>
   </a>

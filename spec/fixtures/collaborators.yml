@@ -4,6 +4,7 @@ miranto:
   password_digest: <%= Collaborator.digest('miranto') %>
   organization: miranto_organization
   todos: add-turbo-and-stimulus
+  admin: true
 
 james:
   name: James

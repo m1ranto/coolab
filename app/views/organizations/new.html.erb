@@ -1,5 +1,0 @@
-<% if current_collaborator.organization.nil? %>
-  <%= render 'form', organization: @organization %>
-<% else %>
-  <h1 class="text-center fs-3 fw-bold mt-3"><%= current_collaborator.organization.name %></h1>
-<% end %>

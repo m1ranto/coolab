@@ -1,22 +1,21 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: %i[ show invite join edit update destroy ]
-  before_action :logged_in_collaborator, except: %i[ new create join ]
+  before_action :set_organization, only: %i[ invite join edit update destroy ]
+  before_action :logged_in_collaborator, except: :join
 
   include SessionsHelper
 
-  # Get new organization
-  def new
-    @organization = Organization.new
-  end
-
   def invite
-    @token = SecureRandom.urlsafe_base64
-    @organization.invitation_token = @token
-    @organization.save
+    if current_collaborator.admin?
+      @token = SecureRandom.urlsafe_base64
+      @organization.invitation_token = @token
+      @organization.save
+    else
+      redirect_to collaborators_url
+    end
   end
 
   def join
-    redirect_to projects_url if logged_in?
+    return redirect_to projects_url if logged_in?
 
     if @organization.invitation_token == params[:invitation_id] && @organization.updated_at > 1.hour.ago
       @collaborator = Collaborator.new
@@ -27,20 +26,22 @@ class OrganizationsController < ApplicationController
 
   # Edit organization
   def edit
+    redirect_to collaborators_url unless current_collaborator.admin?
   end
 
-  # Create organization
-  def create
-    @organization = Organization.new(organization_params)
-
+  def update
     respond_to do |format|
-      if @organization.save
-        log_in @organization
-        format.html { redirect_to organization_url(@organization), notice: "Organization was successfully created." }
+      if @organization.update(organization_params)
+        format.html { redirect_to collaborators_url, notice: 'Organization was successfully updated.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @organization.destroy
+    redirect_to root_url
   end
 
   private
@@ -51,6 +52,6 @@ class OrganizationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organization_params
-      params.require(:organization).permit(:name, :description, :organization_id)
+      params.require(:organization).permit(:name)
     end
 end
