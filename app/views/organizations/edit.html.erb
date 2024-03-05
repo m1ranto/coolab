@@ -1,3 +1,10 @@
-<% if current_collaborator.organization.nil? %>
-  <%= render 'form', organization: @organization %>
-<% end %>
+<div class="text-center">
+  <%= link_to @organization.name, collaborators_path, class: "mx-2 link" %>
+</div>
+
+<%# if current_collaborator.organization.nil? %><%= render 'shared/links', object: @project %>
+  <div class="card-darker title-container">
+    <h1 class="fs-4 title">Edit organization</h1>
+    <%= render 'form', organization: @organization %>
+  </div>
+<%# end %>

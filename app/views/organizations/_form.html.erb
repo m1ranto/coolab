@@ -1,7 +1,7 @@
 <%= form_with(model: organization) do |form| %>
   <%= render 'shared/errors', object: organization %>
 
-  <div class="mt-3">
+  <div>
     <%= form.label :name, class: "form-label" %>
     <%= form.text_field :name, class: "form-control text-bg-dark border-0" %>
   </div>

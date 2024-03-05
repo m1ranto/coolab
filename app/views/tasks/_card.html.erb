@@ -1,4 +1,4 @@
-<%= link_to project_tasks_path(project) do %>
+<%= link_to project_tasks_path(project), class: "overflow-hidden" do %>
   <div class="mt-3 card-darker card-width-height title-container" id="todoslist">
     <h2 class="fs-3 title">Issues</h2>
     <% if project.tasks.any? %>

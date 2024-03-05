@@ -10,7 +10,9 @@
 <p class="text-center fs-5"><%= @project.description %></p>
 
 <div class="text-center">
-  <%= profile_picture @project.collaborator %>
+  <%= link_to collaborator_path(@project.collaborator) do %>
+    <%= profile_picture @project.collaborator %>
+  <% end %>
 </div>
 
 <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">

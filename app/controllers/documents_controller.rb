@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
   end
 
   def new
-    @document = Document.new
+    @document = @project.documents.new
   end
 
   def show
