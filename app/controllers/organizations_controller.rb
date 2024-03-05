@@ -1,17 +1,14 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: %i[ invite join edit update destroy ]
   before_action :logged_in_collaborator, except: :join
+  before_action :admin_collaborator, only: %i[ invite edit ]
 
   include SessionsHelper
 
   def invite
-    if current_collaborator.admin?
-      @token = SecureRandom.urlsafe_base64
-      @organization.invitation_token = @token
-      @organization.save
-    else
-      redirect_to collaborators_url
-    end
+    @token = SecureRandom.urlsafe_base64
+    @organization.invitation_token = @token
+    @organization.save
   end
 
   def join
@@ -26,7 +23,6 @@ class OrganizationsController < ApplicationController
 
   # Edit organization
   def edit
-    redirect_to collaborators_url unless current_collaborator.admin?
   end
 
   def update
@@ -53,5 +49,10 @@ class OrganizationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def organization_params
       params.require(:organization).permit(:name)
+    end
+
+    # Require admin collaborator
+    def admin_collaborator
+      return redirect_to collaborators_url unless current_collaborator.admin?
     end
 end
