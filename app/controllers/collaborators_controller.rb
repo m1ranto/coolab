@@ -34,9 +34,10 @@ class CollaboratorsController < ApplicationController
   # Create collaborator
   def create
     if organization_name = params[:collaborator][:organization_name]
-      # create collaborator and create new organization
+      # create admin collaborator and new organization
       @organization = Organization.create!(name: organization_name)
       @collaborator = @organization.collaborators.new(collaborator_params)
+      @collaborator.admin = true
     else
       # create collaborator to join existing organization
       @collaborator = Collaborator.new(collaborator_params)

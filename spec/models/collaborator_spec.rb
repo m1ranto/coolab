@@ -31,6 +31,11 @@ RSpec.describe 'A collaborator' do
     expect(collaborator.organization).to eq(organization)
   end
 
+  it 'administrates an organization' do
+    collaborator.admin = true
+    expect(collaborator.admin).to be_truthy
+  end
+
   it 'can create a project' do
     expect { collaborator.projects.new(name: 'Project') }.to change { collaborator.projects.size }.by(1)
   end
