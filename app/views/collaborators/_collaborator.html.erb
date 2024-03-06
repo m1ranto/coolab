@@ -1,9 +1,9 @@
-<div class="m-2 px-2 py-1 card-darker col-12 col-md-3" id="<%= dom_id collaborator %>">
-  <%= link_to collaborator, class: "hstack gap-2 flex-wrap text-decoration-none" do %>
-    <%= profile_picture collaborator %>
-    <div>
-      <p class="mb-0"><%= collaborator.name %></p>
-      <p class="mb-0 text-secondary"><%= collaborator.title %></p>
-    </div>
-  <% end %>
-</div>
+<%= link_to collaborator, class: "my-1 p-2 col-12 col-md-6 hstack gap-2 flex-wrap text-decoration-none", id: dom_id(collaborator) do %>
+  <%= profile_picture collaborator %>
+  <div>
+    <p class="mb-0"><%= collaborator.name %></p>
+    <% if collaborator.title %>
+      <p class="mb-0 text-secondary" style="margin-top: -5px"><%= collaborator.title %></p>
+    <% end %>
+  </div>
+<% end %>

@@ -13,9 +13,11 @@
   </div>
 <% end %>
 
-<div class="row justify-content-center" id="collaborators">
-  <% @collaborators.each do |collaborator| %>
-    <%= render collaborator %>
-  <% end %>
+<div class="card-darker title-container">
+  <h2 class="title">Team</h2>
+  <div class="px-1 row justify-content-between" id="collaborators">
+    <% @collaborators.each do |collaborator| %>
+      <%= render collaborator %>
+    <% end %>
+  </div>
 </div>
-
