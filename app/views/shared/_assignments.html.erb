@@ -1,0 +1,38 @@
+<section class="card-darker title-container">
+  <h2 class="fs-3 title">
+    <%= "Assignment".pluralize(collaborator.todos.undone.size) %>
+  </h2>
+
+  <% if collaborator.todos.undone.blank? %>
+    <p>Assigned issues will show here !</p>
+  <% else %>
+    <% collaborator.todos.undone.each do |todo| %>
+      <div class="d-flex flex-wrap align-items-center my-1" id="<%= dom_id todo %>">
+        <%= form_with model: todo, url: assign_todo_path(todo.task.project, todo.task, todo), data: { controller: "todo", action: "input->todo#done" } do |form| %>
+          <%= form.check_box :done, class: "form-check-input form-check-todo me-2" %>
+        <% end %>
+        <h3 class="fs-6 mb-0 me-1">
+          <%= link_to todo.name, [todo.task.project, todo.task, todo], class: "fs-6 py-2" %>
+        </h3>
+        <% unless todo.priority.nil? %>
+          <%= link_to "", [todo.task.project, todo.task, todo], class: "#{ priority_icon(todo) }" %>
+        <% end %>
+        <% unless todo.due_on.nil? %>
+          <%= link_to [todo.task.project, todo.task, todo], class: "bi bi-calendar-event text-primary fs-6 mx-1" do %>
+            <span class="text-secondary"><%= todo.due_on.strftime("%a, %b %d") %></span>
+          <% end %>
+        <% end %>
+        <% unless todo.description.blank? %>
+          <%= link_to "", [todo.task.project, todo.task, todo], class: "bi bi-justify-left text-secondary fs-6 mx-1" %>
+        <% end %>
+        <% unless todo.collaborators.empty? %>
+          <% todo.collaborators.each do |collaborator| %>
+            <%= link_to collaborator, class: "ms-1" do %>
+              <%= profile_picture_small collaborator %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</section>

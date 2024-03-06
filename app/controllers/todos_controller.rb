@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   before_action :get_task, except: :activity
-  before_action :set_todo, only: %i[ show edit update done destroy ]
+  before_action :set_todo, only: %i[ show edit update done assign destroy ]
   before_action :logged_in_collaborator
   before_action :get_collaborators, only: %i[ create update ]
 
@@ -57,6 +57,17 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace(@task, @task) }
+      format.html { redirect_back_or_to project_task_todo_url(@task.project, @task, @todo) }
+    end
+  end
+
+  # Done todo
+  def assign
+    @todo.done = true
+    @todo.save
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@todo) }
       format.html { redirect_back_or_to project_task_todo_url(@task.project, @task, @todo) }
     end
   end

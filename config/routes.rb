@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   patch '/projects/:project_id/tasks/:task_id/todos/:id/done' => "todos#done", as: 'done_todo'
+  patch '/projects/:project_id/tasks/:task_id/todos/:id/assign' => "todos#assign", as: 'assign_todo'
 
   resources :projects do
     resources :documents
