@@ -1,5 +1,5 @@
 <% if object.errors.any? %>
-  <section class="bg-danger-subtle p-2 rounded text-dark">
+  <section class="card-darker mb-2 p-2">
     <h2 class="fs-5 text-danger mb-0">Oops! There <%= "is".pluralize(object.errors.size) %> <%= pluralize(object.errors.size, "error") %>:</h2>
     <ul class="mb-1">
       <% object.errors.each do |error| %>
