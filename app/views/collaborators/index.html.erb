@@ -3,7 +3,7 @@
 <div class="hstack justify-content-center">
   <h1 class="text-center fs-3 fw-bold"><%= current_collaborator.organization&.name %></h1>
   <% if current_collaborator.admin? %>
-    <%= render 'shared/dropdown_three_dots', object: current_collaborator.organization %>
+    <%= render 'shared/dropdown_menu', object: current_collaborator.organization %>
   <% end %>
 </div>
 

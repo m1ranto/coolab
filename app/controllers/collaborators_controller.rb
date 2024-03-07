@@ -89,7 +89,7 @@ class CollaboratorsController < ApplicationController
     # Require correct collaborator
     def correct_collaborator
       @collaborator = Collaborator.find(params[:id])
-      redirect_to collaborators_path unless @collaborator == current_collaborator
+      redirect_to collaborators_path unless @collaborator == current_collaborator || current_collaborator.admin?
     end
 
     # Generate random background-color profile in hsl

@@ -5,9 +5,9 @@
 <div class="card-darker text-center">
   <div>
     <h2 class="fs-3 d-inline-block"><%= @document.name %></h2>
-    <div class="ms-auto d-inline-block">
-      <%= render "shared/dropdown_three_dots", object: @document %>
-    </div>
+    <% if @document.collaborator == current_collaborator || current_collaborator.admin? %>
+      <%= render "shared/dropdown_menu", object: @document %>
+    <% end %>
   </div>
   <div>Uploaded by <%= profile_picture_small @document.collaborator %> <%= @document.collaborator.name %></div>
   <div class="my-5">

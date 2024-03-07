@@ -11,7 +11,7 @@
       <%= form.check_box :done, class: "form-check-input form-check-todo mb-1 me-2", onchange: "this.form.submit()" %>
       <%= form.label :done, @todo.name, class: "fs-3" %>
     <% end %>
-    <%= render "shared/dropdown_three_dots", object: @todo %>
+    <%= render "shared/dropdown_menu", object: @todo %>
   </div>
 
   <div class="mt-3 hstack gap-3">

@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
 
     # Require correct collaborator
     def correct_collaborator
-      @comment = current_collaborator.comments.find(params[:id])
-      redirect_to projects_path if @comment.nil?
+      @collaborator = @comment.collaborator
+      redirect_to project_comments_path unless @collaborator == current_collaborator || current_collaborator.admin?
     end
 end

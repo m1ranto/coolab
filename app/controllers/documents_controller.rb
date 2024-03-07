@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
   before_action :logged_in_collaborator
   before_action :set_project
   before_action :set_document, only: %i[ show edit update destroy ]
+  before_action :correct_collaborator, only: %i[ edit update destroy ]
 
   include SessionsHelper
 
@@ -63,5 +64,11 @@ class DocumentsController < ApplicationController
 
     def set_project
       @project = Project.find(params[:project_id])
+    end
+
+    # Require correct collaborator
+    def correct_collaborator
+      @collaborator = @document.collaborator
+      redirect_to project_documents_path unless @collaborator == current_collaborator || current_collaborator.admin?
     end
 end

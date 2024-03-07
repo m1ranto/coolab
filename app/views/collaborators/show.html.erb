@@ -5,24 +5,8 @@
 </div>
 <div class="hstack justify-content-center">
   <h1 class="mb-0 fs-2 text-center"><%= @collaborator.name %></h1>
-  <% if @collaborator == current_collaborator %>
-    <div class="dropdown text-white ms-3">
-      <a class="py-1 nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <div class="three-dots"><i class="bi bi-three-dots fs-5"></i></div>
-      </a>
-      <ul class="dropdown-menu" data-bs-theme="dark">
-        <li>
-          <%= link_to edit_collaborator_path(@collaborator), class: "dropdown-item" do %>
-            <i class="bi bi-pencil-square me-2"></i>Edit
-          <% end %>
-        </li>
-        <li>
-          <%= button_to @collaborator, class: "dropdown-item", method: :delete do %>
-            <i class="bi bi-trash me-2"></i>Delete
-          <% end %>
-        </li>
-      </ul>
-    </div>
+  <% if @collaborator == current_collaborator || current_collaborator.admin? %>
+    <%= render 'shared/dropdown_menu', object: @collaborator %>
   <% end %>
 </div>
 <p class="mb-0 text-center"><%= @collaborator.title %></p>

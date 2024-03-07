@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
 
     # Require correct collaborator
     def correct_collaborator
-      @project = current_collaborator.projects.find(params[:id])
-      redirect_to projects_path if @project.nil?
+      @collaborator = @project.collaborator
+      redirect_to projects_path unless @collaborator == current_collaborator || current_collaborator.admin?
     end
 end

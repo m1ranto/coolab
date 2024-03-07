@@ -4,7 +4,7 @@
       <h2 class="fs-3">
         <%= link_to task.name, project_task_path(task.project, task), data: { turbo_frame: "_top" } ,class: "py-2" %>
       </h2>
-      <%= render "shared/dropdown_three_dots", object: task %>
+      <%= render "shared/dropdown_menu", object: task %>
     </div>
   <% end %>
 

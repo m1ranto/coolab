@@ -22,5 +22,10 @@
       <time class="small text-secondary " datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
       <p class="mb-0"><%= comment.content %></p>
     </div>
+    <% if current_collaborator&.admin? %>
+      <div class="d-inline-block">
+        <%= button_to '', [comment.project, comment], method: :delete, class: "bi bi-trash btn link-secondary p-1" %>
+      </div>
+    <% end %>
   </article>
 <% end %>
