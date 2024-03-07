@@ -1,5 +1,5 @@
 <%= form_with model: [comment.project, comment], data: { controller: "form", action: "turbo:submit-end->form#reset" } do |form| %>
-  <% if comment.errors.any? %>
+  <% if comment.errors.present? %>
     <ul class="list-unstyled ms-4 mt-2">
       <% comment.errors.each do |error| %>
         <li class="text-danger bg-dark ms-3 px-2 my-1 d-inline-block rounded"><%= error.full_message %></li><br>

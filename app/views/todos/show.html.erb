@@ -16,7 +16,7 @@
 
   <div class="mt-3 hstack gap-3">
     <span class="todo-menu text-end">Assigned to</span>
-    <% if @todo.collaborators.empty? %>
+    <% if @todo.collaborators.blank? %>
       <%= link_to "Add collaborator", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
     <% else %>
       <div>
@@ -32,7 +32,7 @@
 
   <div class="mt-3 hstack gap-3">
     <span class="todo-menu text-end">Notes</span>
-      <% if @todo.description.empty? %>
+      <% if @todo.description.blank? %>
         <%= link_to "Add description", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
       <% else %>
         <%= @todo.description %>
@@ -41,7 +41,7 @@
 
   <div class="mt-3 hstack gap-3">
     <span class="todo-menu text-end">Due on</span>
-    <% if @todo.due_on.nil? %>
+    <% if @todo.due_on.blank? %>
       <%= link_to "Select a date", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
     <% else %>
       <%= @todo.due_on.strftime("%a, %b %d") %>
@@ -50,7 +50,7 @@
 
   <div class="mt-3 hstack gap-3">
     <span class="todo-menu text-end">Priority</span>
-    <% if @todo.priority.nil? %>
+    <% if @todo.priority.blank? %>
       <%= link_to "Add priority level", edit_project_task_todo_path(@todo.task.project, @todo.task, @todo), class: "link-secondary" %>
     <% else %>
       <div>
