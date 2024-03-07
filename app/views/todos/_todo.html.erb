@@ -2,19 +2,20 @@
   <%= form_with model: todo, url: done_todo_path(todo.task.project, todo.task, todo), data: { controller: "todo", action: "input->todo#done" } do |form| %>
     <%= form.check_box :done, class: "form-check-input form-check-todo me-2" %>
   <% end %>
-  <h3 class="fs-6 mb-0 me-1">
-    <%= link_to todo.name, [todo.task.project, todo.task, todo], class: "fs-6 py-2" %>
-  </h3>
-  <% if todo.priority.present? %>
-    <%= link_to "", [todo.task.project, todo.task, todo], class: "#{ priority_icon(todo) }" %>
-  <% end %>
-  <% if todo.due_on.present? %>
-    <%= link_to [todo.task.project, todo.task, todo], class: "bi bi-calendar-event text-primary fs-6 mx-1" do %>
-      <span class="text-secondary"><%= todo.due_on.strftime("%a, %b %d") %></span>
+  <%= link_to [todo.task.project, todo.task, todo], class: "hstack" do %>
+    <h3 class="fs-6 mb-0 me-1">
+      <%= todo.name %>
+    </h3>
+    <% if todo.priority.present? %>
+      <i class="<%= priority_icon(todo) %>"></i>
     <% end %>
-  <% end %>
-  <% if todo.description.present? %>
-    <%= link_to "", [todo.task.project, todo.task, todo], class: "bi bi-justify-left text-secondary fs-6 mx-1" %>
+    <% if todo.due_on.present? %>
+      <i class="bi bi-calendar-event text-primary fs-6 mx-1"></i>
+      <span class="text-secondary me-1"><%= todo.due_on.strftime("%a, %b %d") %></span>
+    <% end %>
+    <% if todo.description.present? %>
+      <i class="bi bi-justify-left text-secondary fs-6 me-2"></i>
+    <% end %>
   <% end %>
   <% if todo.collaborators.present? %>
     <% todo.collaborators.each do |collaborator| %>

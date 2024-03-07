@@ -11,7 +11,7 @@
     <%= "Issue".pluralize(@project.tasks.size) %>
   </h2>
 
-  <% if @project.tasks.any? %>
+  <% if @project.tasks.present? %>
     <div id="tasks">
       <%= render @project.tasks %>
     </div>
