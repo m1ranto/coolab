@@ -7,5 +7,6 @@ class Todo < ApplicationRecord
   belongs_to :task
   has_and_belongs_to_many :collaborators
 
-  scope :undone, -> { where(done: false) }
+  scope :completed, -> { where(done: true) }
+  scope :uncompleted, -> { where(done: false) }
 end

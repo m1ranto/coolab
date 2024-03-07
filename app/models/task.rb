@@ -4,5 +4,6 @@ class Task < ApplicationRecord
   belongs_to :project
   has_many   :todos, dependent: :destroy
 
-  scope :recent, -> { order(created_at: :desc).limit(5) }
+  default_scope { order(created_at: :desc) }
+  scope :recent, -> { order(created_at: :desc).limit(10) }
 end

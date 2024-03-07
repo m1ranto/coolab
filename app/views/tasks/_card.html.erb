@@ -3,9 +3,9 @@
     <h2 class="fs-3 title">Issues</h2>
     <% if project.tasks.any? %>
       <% project.tasks.recent.each do |task| %>
-        <% if task.todos.undone.present? %>
+        <% if task.todos.uncompleted.present? %>
           <h3 class="fs-4 my-1"><%= task.name %></h3>
-          <% task.todos.undone.each do |todo| %>
+          <% task.todos.uncompleted.each do |todo| %>
             <div class="d-flex flex-wrap align-items-center">
               <%= form_with model: todo, url: done_todo_path(todo.task.project, todo.task, todo) do |f| %>
                 <%= f.check_box :done, class: "form-check-input form-check-todo form-check-todo-sm" %>

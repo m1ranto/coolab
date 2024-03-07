@@ -8,19 +8,15 @@
     </div>
   <% end %>
 
-  <% task.todos.each do |todo| %>
-    <% unless todo.done %>
-      <%= render todo %>
-    <% end %>
+  <% task.todos.uncompleted.each do |todo| %>
+    <%= render todo %>
   <% end %>
 
   <%= turbo_frame_tag "new_todo" do %>
     <%= link_to 'New todo', new_project_task_todo_path(task.project, task), class: "mt-1 btn btn-sm btn-dark" %>
   <% end %>
 
-  <% task.todos.each do |todo| %>
-    <% if todo.done %>
-      <%= render todo %>
-    <% end %>
+  <% task.todos.completed.each do |todo| %>
+    <%= render todo %>
   <% end %>
 </div>

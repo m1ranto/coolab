@@ -1,12 +1,12 @@
 <section class="card-darker title-container">
   <h2 class="fs-3 title">
-    <%= "Assignment".pluralize(collaborator.todos.undone.size) %>
+    <%= "Assignment".pluralize(collaborator.todos.uncompleted.size) %>
   </h2>
 
-  <% if collaborator.todos.undone.blank? %>
+  <% if collaborator.todos.uncompleted.blank? %>
     <p>Assigned issues will show here !</p>
   <% else %>
-    <% collaborator.todos.undone.each do |todo| %>
+    <% collaborator.todos.uncompleted.each do |todo| %>
       <div class="d-flex flex-wrap align-items-center my-1" id="<%= dom_id todo %>">
         <%= form_with model: todo, url: assign_todo_path(todo.task.project, todo.task, todo), data: { controller: "todo", action: "input->todo#done" } do |form| %>
           <%= form.check_box :done, class: "form-check-input form-check-todo me-2" %>
