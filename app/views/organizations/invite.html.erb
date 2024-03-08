@@ -2,14 +2,17 @@
   <%= link_to @organization.name, collaborators_path, class: "mx-2 link" %>
 </div>
 
-<div class="card-darker title-container">
+<div class="card-darker title-container" data-controller="clipboard">
   <h1 class="fs-3 title">Invite collaborators</h1>
   <p class="">Share this link with collaborators you'd like to join your organization</p>
-  <div class="input-group mb-3" data-controller="clipboard">
+  <div class="input-group mb-3">
     <input type="url" class="form-control text-bg-dark border-0" value="<%= [organization_url(@organization), "join", @token].join("/") %>" data-clipboard-target="source" disabled>
     <button class="btn btn-success" data-action="clipboard#copy">
       <i class="bi bi-copy me-2"></i>
       Copy
     </button>
+  </div>
+
+  <div data-clipboard-target="flash">
   </div>
 </div>

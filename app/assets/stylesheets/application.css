@@ -110,6 +110,14 @@ a {
     max-width: 400px;
 }
 
+.flash {
+    width: 300px;
+    position: fixed;
+    left: 50%;
+    margin-left: -150px;
+    bottom: 15px;
+}
+
 .three-dots {
     background-color: var(--bg-darker);
     border: 1px solid var(--border);
