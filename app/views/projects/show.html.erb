@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <div class="hstack justify-content-center">
   <h1 class="text-center mb-0"><%= @project.name %></h1>
   <% if @project.collaborator == current_collaborator || current_collaborator.admin? %>
