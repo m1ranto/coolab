@@ -4,10 +4,10 @@
 
 <div class="card-darker title-container">
   <h1 class="fs-3 title">Invite collaborators</h1>
-  <p class="text-secondary">Share this link with collaborators you'd like to join your organization</p>
+  <p class="">Share this link with collaborators you'd like to join your organization</p>
   <div class="input-group mb-3" data-controller="clipboard">
     <input type="url" class="form-control text-bg-dark border-0" value="<%= [organization_url(@organization), "join", @token].join("/") %>" data-clipboard-target="source" disabled>
-    <button class="btn text-white" style="background-color: hsl(240, 60%, 41%);" data-action="clipboard#copy">
+    <button class="btn btn-success" data-action="clipboard#copy">
       <i class="bi bi-copy me-2"></i>
       Copy
     </button>

@@ -1,6 +1,6 @@
 <%= render 'shared/links', object: @document %>
 
-<div class="mb-1"><%= arrows_document(@documents, @document) %></div>
+<div class="mt-3 mb-1"><%= arrows_document(@documents, @document) %></div>
 
 <div class="card-darker text-center">
   <div>
@@ -14,7 +14,7 @@
     <% @document.files.each do |file| %>
       <%= link_to rails_blob_path(file, disposition: "attachement"), { target: "_blank" } do %>
         <% if file.representable? %>
-          <%= image_tag file.representation(resize_to_limit: [500, 1000]), class: "cursor-zoom-in" %>
+          <%= image_tag file.representation(resize_to_limit: [500, 1000]), class: "cursor-zoom-in img-fluid" %>
         <% else %>
           <i class="bi bi-file-earmark-text display-1"></i>
         <% end %>

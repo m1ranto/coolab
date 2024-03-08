@@ -1,4 +1,4 @@
-<%= link_to [@project, document], class: "document-card" do %>
+<%= link_to [@project, document], class: "document-card col-12 col-sm-5 col-md-3" do %>
   <h2 class="fs-5 mb-3 text-center"><i class="bi bi-folder-fill text-blue me-1"></i><%= document.name %></h2>
   <% document.files.each do |file| %>
     <% if file.representable? %>

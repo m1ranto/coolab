@@ -2,20 +2,32 @@
   <nav class="navbar border-bottom border-dark py-0">
     <div class="container-fluid">
       <%= link_to "Coolab", root_path, class: "navbar-brand text-white mb-0 pb-0", aria_current: "page" %>
-      <ul class="me-5 list-unstyled hstack gap-4 mb-0 pb-0">
+      <ul class="me-sm-4 list-unstyled hstack gap-3 gap-sm-4 mb-0 pb-0">
         <li>
-          <%= link_to projects_path, class: "py-2 nav-link link-light" do %>
-            <i class="bi bi-house-door-fill me-1"></i><span class="d-none d-sm-inline">Home</span>
+          <%= link_to projects_path, class: "py-sm-2 nav-link link-light" do %>
+            <div class="text-center text-sm-start">
+              <i class="bi bi-house-door-fill"></i>
+              <span class="d-none d-sm-inline">Home</span>
+            </div>
+            <div class="small d-sm-none" style="margin-top: -3px">Home</div>
           <% end %>
         </li>
         <li>
-          <%= link_to activity_path, class: "py-2 nav-link link-light" do %>
-            <i class="bi bi-circle-half me-1"></i><span class="d-none d-sm-inline">Activity</span>
+          <%= link_to activity_path, class: "py-sm-2 nav-link link-light" do %>
+            <div class="text-center text-sm-start">
+              <i class="bi bi-circle-half"></i>
+              <span class="d-none d-sm-inline">Activity</span>
+            </div>
+            <div class="small d-sm-none" style="margin-top: -3px">Activity</div>
           <% end %>
         </li>
         <li>
-          <%= link_to collaborators_path, class: "py-2 nav-link link-light" do %>
-            <i class="bi bi-people-fill me-1"></i><span class="d-none d-sm-inline">Team</span>
+          <%= link_to collaborators_path, class: "py-sm-2 nav-link link-light" do %>
+            <div class="text-center text-sm-start">
+              <i class="bi bi-people-fill"></i>
+              <span class="d-none d-sm-inline">Team</span>
+            </div>
+            <div class="small d-sm-none" style="margin-top: -3px">Team</div>
           <% end %>
         </li>
       </ul>

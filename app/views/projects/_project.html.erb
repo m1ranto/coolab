@@ -1,5 +1,5 @@
-<%= link_to project do %>
-<div class="mt-3 card-darker card-width" id="<%= dom_id(project) %>">
+<%= link_to project, class: "col-12 col-md-6" do %>
+<div class="mt-3 card-darker" id="<%= dom_id(project) %>">
   <h2 class="fs-3"><%= project.name %></h2>
   <p><%= project.description %></p>
   <%= profile_picture project.collaborator %>

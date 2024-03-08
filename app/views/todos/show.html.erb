@@ -6,9 +6,9 @@
 <div class="mb-1"><%= arrows_todo(@todos, @todo) %></div>
 
 <div class="card-darker" id="<%= dom_id @todo %>">
-  <div class="d-flex align-items-center">
-    <%= form_with model: @todo, url: done_todo_path(@todo.task.project, @todo.task, @todo), class: "hstack" do |form| %>
-      <%= form.check_box :done, class: "form-check-input form-check-todo mb-1 me-2", onchange: "this.form.submit()" %>
+  <div class="d-flex align-items-top">
+    <%= form_with model: @todo, url: done_todo_path(@todo.task.project, @todo.task, @todo), class: "ms-2 form-check" do |form| %>
+      <%= form.check_box :done, class: "form-check-input form-check-todo mt-2 mb-1 me-2", onchange: "this.form.submit()" %>
       <%= form.label :done, @todo.name, class: "fs-3" %>
     <% end %>
     <%= render "shared/dropdown_menu", object: @todo %>

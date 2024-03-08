@@ -1,5 +1,5 @@
-<%= link_to project_tasks_path(project), class: "overflow-hidden" do %>
-  <div class="mt-3 card-darker card-width-height title-container" id="todoslist">
+<%= link_to project_tasks_path(project), class: "col-12 col-md-6 overflow-hidden" do %>
+  <div class="mt-3 card-darker card-height title-container" id="todoslist">
     <h2 class="fs-3 title">Issues</h2>
     <% if project.tasks.blank? %>
       <%= button_tag "New task", class: "btn btn-dark btn-sm" %>
@@ -9,28 +9,34 @@
           <h3 class="fs-4 my-1"><%= task.name %></h3>
           <% task.todos.uncompleted.each do |todo| %>
             <div class="d-flex flex-wrap align-items-center">
-              <%= form_with model: todo, url: done_todo_path(todo.task.project, todo.task, todo) do |f| %>
-                <%= f.check_box :done, class: "form-check-input form-check-todo form-check-todo-sm" %>
-                <%= f.label :done, todo.name, class: "me-1" %>
-              <% end %>
+              <div class="form-check">
+                <%= form_with model: todo, url: done_todo_path(todo.task.project, todo.task, todo) do |f| %>
+                  <%= f.check_box :done, class: "form-check-input form-check-todo form-check-todo-sm" %>
+                <% end %>
 
-              <% if todo.priority.present? %>
-                <i class="<%= priority_icon(todo) %>"></i>
-              <% end %>
-              <% if todo.due_on.present? %>
-                <i class="bi bi-calendar-event text-primary fs-6 mx-1"></i>
-                <span class="text-secondary"><%= todo.due_on.strftime("%a, %b %d") %></span>
-              <% end %>
-              <% if todo.description.present? %>
-                <i class="bi bi-justify-left text-secondary fs-6 mx-1"></i>
-              <% end %>
-              <% if todo.collaborators.present? %>
-                <div class="mx-1">
-                  <% todo.collaborators.each do |collaborator| %>
-                    <%= profile_picture_small collaborator %>
+                <div class="hstack flex-wrap">
+                  <h3 class="fs-6 mb-0 me-1">
+                    <%= todo.name %>
+                  </h3>
+                  <% if todo.priority.present? %>
+                    <i class="<%= priority_icon(todo) %>"></i>
+                  <% end %>
+                  <% if todo.due_on.present? %>
+                    <i class="bi bi-calendar-event text-primary fs-6 mx-1"></i>
+                    <span class="text-secondary"><%= todo.due_on.strftime("%a, %b %d") %></span>
+                  <% end %>
+                  <% if todo.description.present? %>
+                    <i class="bi bi-justify-left text-secondary fs-6 mx-1"></i>
+                  <% end %>
+                  <% if todo.collaborators.present? %>
+                    <div class="mx-1">
+                      <% todo.collaborators.each do |collaborator| %>
+                        <%= profile_picture_small collaborator %>
+                      <% end %>
+                    </div>
                   <% end %>
                 </div>
-              <% end %>
+              </div>
             </div>
           <% end %>
         <% end %>

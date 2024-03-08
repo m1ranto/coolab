@@ -93,28 +93,21 @@ a {
     background-color: var(--bg-default);;
 }
 
-.card-width {
-    width: 405px;
-    display: inline-block;
-}
-.card-width-height {
-    width: 405px;
+.card-height {
     height: 350px;
 }
 
 .form-check-todo {
-    width: 21px;
-    height: 21px;
+    font-size: x-large;
     background-color: transparent;
     border: 1px solid dimgrey;
 }
 .form-check-todo-sm {
-    width: 16px;
-    height: 16px;
+    font-size: large;
 }
 
 .w-max-form {
-    width: 400px;
+    max-width: 400px;
 }
 
 .three-dots {
@@ -168,7 +161,13 @@ a {
 }
 
 .todo-menu {
-    width: 125px;
+    display: none;
+}
+@media only screen and (min-width: 576px) {
+    .todo-menu {
+        display: inline-block;
+        width: 125px;
+    }
 }
 
 .document-card {
@@ -176,7 +175,6 @@ a {
     border-radius: 5px;
     display: inline-block;
     padding: 8px;
-    width: 150px;
     height: 208px;
     overflow: hidden;
 }

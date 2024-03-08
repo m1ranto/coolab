@@ -1,10 +1,10 @@
 <% if comment.collaborator == current_collaborator %>
-  <article class="text-end" id="<%= dom_id comment %>">
+  <article class="hstack justify-content-end gap-1" id="<%= dom_id comment %>">
     <div class="d-inline-block">
       <%= button_to '', [comment.project, comment], method: :delete, class: "bi bi-trash btn link-secondary p-1" %>
     </div>
     <div class="align-middle d-inline-block px-2 py-1 bg-dark rounded mb-2">
-      <time class="small text-secondary " datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
+      <time class="small text-secondary" datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
       <address class="mb-0 d-inline small fw-bold"><%= comment.collaborator.name %></address>
       <p class="mb-0"><%= comment.content %></p>
     </div>
@@ -13,7 +13,7 @@
     <% end %>
   </article>
 <% else %>
-  <article class="" id="<%= dom_id comment %>">
+  <article class="hstack gap-1" id="<%= dom_id comment %>">
     <%= link_to collaborator_path(comment.collaborator) do %>
       <%= profile_picture comment.collaborator %>
     <% end %>
