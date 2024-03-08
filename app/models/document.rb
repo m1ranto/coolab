@@ -10,10 +10,14 @@ class Document < ApplicationRecord
 
     def files_size
       if files.attached?
-        files.each do |file|
-          if file.blob.byte_size > 1050000
-            file.purge
-            errors.add(:base, "Too big file, maximum is 1 MB")
+        if ActiveStorage::Attachment.joins(:blob).sum(:byte_size) > 5240000
+          errors.add(:base, "Maximum storage volume is 5 MB")
+        else
+          files.each do |file|
+            if file.blob.byte_size > 1050000
+              file.purge
+              errors.add(:base, "Too big file, maximum is 1 MB")
+            end
           end
         end
       end

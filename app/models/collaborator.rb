@@ -30,7 +30,9 @@ class Collaborator < ApplicationRecord
     def valid_profile_picture
       limit_size = 1050000
       if profile_picture.attached?
-        if profile_picture.blob.byte_size > limit_size && !profile_picture.blob.content_type.starts_with?('image/')
+        if ActiveStorage::Attachment.joins(:blob).sum(:byte_size) > 5240000
+          errors.add(:base, "Maximum storage volume is 5 MB")
+        elsif profile_picture.blob.byte_size > limit_size && !profile_picture.blob.content_type.starts_with?('image/')
           profile_picture.purge
           errors.add(:base, "Too big file, maximum is 1 MB")
           errors.add(:base, "Must be an image")
