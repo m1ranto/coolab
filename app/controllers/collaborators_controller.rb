@@ -2,6 +2,7 @@ class CollaboratorsController < ApplicationController
   before_action :set_collaborator, only: %i[ show edit update destroy ]
   before_action :logged_in_collaborator, except: %i[ new create ]
   before_action :correct_collaborator, only: %i[ edit update destroy ]
+  before_action :correct_organization, only: %i[ show edit update destroy ]
 
   include SessionsHelper
 
@@ -90,6 +91,12 @@ class CollaboratorsController < ApplicationController
     def correct_collaborator
       @collaborator = Collaborator.find(params[:id])
       redirect_to collaborators_path unless @collaborator == current_collaborator || current_collaborator.admin?
+    end
+
+    # Require correct organization
+    def correct_organization
+      @collaborator = Collaborator.find(params[:id])
+      redirect_to collaborators_path unless @collaborator.organization == current_collaborator.organization
     end
 
     # Generate random background-color profile in hsl

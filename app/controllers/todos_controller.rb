@@ -3,6 +3,7 @@ class TodosController < ApplicationController
   before_action :set_todo, only: %i[ show edit update done assign destroy ]
   before_action :logged_in_collaborator
   before_action :get_collaborators, only: %i[ create update ]
+  before_action :correct_organization
 
   include SessionsHelper
 
@@ -105,5 +106,10 @@ class TodosController < ApplicationController
     # Get task
     def get_task
       @task = Task.find(params[:task_id])
+    end
+
+    # Require correct organization
+    def correct_organization
+      redirect_to projects_path unless @task.blank? || @task.project.collaborator.organization == current_collaborator.organization
     end
 end

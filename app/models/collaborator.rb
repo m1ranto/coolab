@@ -31,6 +31,7 @@ class Collaborator < ApplicationRecord
       limit_size = 1050000
       if profile_picture.attached?
         if ActiveStorage::Attachment.joins(:blob).sum(:byte_size) > 5240000
+          profile_picture.purge
           errors.add(:base, "Maximum storage volume is 5 MB")
         elsif profile_picture.blob.byte_size > limit_size && !profile_picture.blob.content_type.starts_with?('image/')
           profile_picture.purge

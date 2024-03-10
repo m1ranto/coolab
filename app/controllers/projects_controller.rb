@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
   before_action :logged_in_collaborator
   before_action :correct_collaborator, only: %i[ edit update destroy ]
+  before_action :correct_organization, only: %i[ show edit update destroy ]
 
   include SessionsHelper
 
@@ -71,5 +72,10 @@ class ProjectsController < ApplicationController
     def correct_collaborator
       @collaborator = @project.collaborator
       redirect_to projects_path unless @collaborator == current_collaborator || current_collaborator.admin?
+    end
+
+    # Require correct organization
+    def correct_organization
+      redirect_to projects_path unless @project.collaborator.organization == current_collaborator.organization
     end
 end

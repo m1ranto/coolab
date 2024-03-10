@@ -2,10 +2,12 @@
   <h2 class="title"><%= "Activity" %></h2>
 
   <% Project.includes(:tasks).each do |project| %>
-    <% if project.tasks.present? %>
-      <div id="tasks">
-        <%= render project.tasks %>
-      </div>
+    <% if project.collaborator.organization == current_collaborator.organization %>
+          <% if project.tasks.present? %>
+            <div id="tasks">
+              <%= render project.tasks %>
+            </div>
+          <% end %>
     <% end %>
   <% end %>
 </div>

@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :get_project
+  before_action :set_project
   before_action :set_comment, only: :destroy
   before_action :logged_in_collaborator
   before_action :correct_collaborator, only: :destroy
+  before_action :correct_organization
 
   include SessionsHelper
 
@@ -49,7 +50,7 @@ class CommentsController < ApplicationController
     end
 
     # Get project, as comment is nested in project route
-    def get_project
+    def set_project
       @project = Project.find(params[:project_id])
     end
 
@@ -57,5 +58,10 @@ class CommentsController < ApplicationController
     def correct_collaborator
       @collaborator = @comment.collaborator
       redirect_to project_comments_path unless @collaborator == current_collaborator || current_collaborator.admin?
+    end
+
+    # Require correct organization
+    def correct_organization
+      redirect_to projects_path unless @project.collaborator.organization == current_collaborator.organization
     end
 end

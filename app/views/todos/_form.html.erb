@@ -8,7 +8,7 @@
 
   <div class="mt-1 flex items-center gap-2">
     <%= form.label :collaborator, "Assigned to", class: "hidden sm:inline-block w-32 text-end" %>
-    <%= form.collection_select :collaborator, Collaborator.all, :id, :name, { include_blank: true }, { multiple: true, class: "w-full bg-transparent border-0 focus-none h-10", data: { controller: "slim" } } %>
+    <%= form.collection_select :collaborator, current_collaborator.organization.collaborators, :id, :name, { include_blank: true }, { multiple: true, class: "w-full bg-transparent border-0 focus-none h-min-10", data: { controller: "slim" } } %>
   </div>
 
   <div class="mt-1 flex items-center gap-1">

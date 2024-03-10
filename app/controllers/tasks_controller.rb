@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
-  before_action :get_project
+  before_action :set_project
   before_action :set_task, only: %i[ show edit update destroy ]
   before_action :logged_in_collaborator
+  before_action :correct_organization
 
   include SessionsHelper
 
@@ -69,7 +70,12 @@ class TasksController < ApplicationController
     end
 
     # Get project, as task is nested in project route
-    def get_project
+    def set_project
       @project = Project.find(params[:project_id])
+    end
+
+    # Require correct organization
+    def correct_organization
+      redirect_to projects_path unless @project.collaborator.organization == current_collaborator.organization
     end
 end
