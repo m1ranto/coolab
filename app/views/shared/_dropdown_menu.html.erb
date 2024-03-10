@@ -1,15 +1,15 @@
-<div class="<%= "ms-auto" if object.is_a?(Task) || object.is_a?(Todo) %> dropdown text-white ms-2 d-inline-block">
-  <a class="py-1 nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+<div class="relative ms-2 <%= "ms-auto" if object.is_a?(Task) || object.is_a?(Todo) %> inline-block" data-controller="dropdown">
+  <a class="py-1 nav-link" role="button" data-action="dropdown#toggle" aria-expanded="false">
     <div class="three-dots"><i class="bi bi-three-dots fs-5"></i></div>
   </a>
-  <ul class="dropdown-menu" data-bs-theme="dark">
+  <ul class="hidden absolute top-8 z-10 right-0 md:right-auto bg-gray-800 py-1 px-3 rounded" data-dropdown-target="menu">
     <li>
-      <%= link_to dropdown_edit(object), class: "dropdown-item" do %>
+      <%= link_to dropdown_edit(object), class: "flex py-1 hover:text-gray-400" do %>
         <i class="bi bi-pencil-square me-2"></i>Edit
       <% end %>
     </li>
     <li>
-      <%= button_to dropdown_delete(object), class: "dropdown-item", method: :delete do %>
+      <%= button_to dropdown_delete(object), class: "flex py-1 hover:text-gray-400", method: :delete do %>
         <i class="bi bi-trash me-2"></i>Delete
       <% end %>
     </li>

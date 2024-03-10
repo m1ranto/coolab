@@ -1,14 +1,12 @@
 <%= form_with(model: [@project, task], data: { controller: "form", action: "turbo:submit-end->form#reset" }) do |form| %>
   <%= render 'shared/errors', object: task %>
 
-  <%= form.text_field :name, placeholder: "Name this task", autofocus: true, class: "form-control ps-0 fs-4 mb-0 bg-transparent border-0 focus-none" %>
+  <%= form.text_field :name, placeholder: "Name this task", autofocus: true, class: "w-full ps-0 text-3xl mb-0 bg-transparent border-0 focus-none" %>
 
-  <div>
-    <%= form.hidden_field :project_id %>
-  </div>
+  <%= form.hidden_field :project_id %>
 
   <div class="mt-2 mb-3">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit class: "btn btn-green" %>
     <%= link_to "Close", project_tasks_path(@project), class: "btn btn-dark" %>
   </div>
 <% end %>

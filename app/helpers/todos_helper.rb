@@ -24,15 +24,15 @@ module TodosHelper
   end
 
   def todo_indexes(index)
-    content_tag :span, "#{index+1}/#{todos.size}", class: "text-secondary ms-1"
+    content_tag :span, "#{index+1}/#{todos.size}", class: "text-gray-600 ms-1"
   end
 
   def priority_icon(todo)
     case todo.priority
-    when "Urgent" then "bi bi-exclamation-square-fill text-warning fs-6 mx-1"
-    when "High" then "bi bi-reception-4 fs-6 mx-1"
-    when "Medium" then "bi bi-reception-3 fs-6 mx-1"
-    when "Low" then "bi bi-reception-2 fs-6 mx-1"
+    when "Urgent" then "bi bi-exclamation-square-fill text-orange-500 mx-1"
+    when "High" then "bi bi-reception-4 mx-1"
+    when "Medium" then "bi bi-reception-3 mx-1"
+    when "Low" then "bi bi-reception-2 mx-1"
     else ""
     end
   end

@@ -1,22 +1,22 @@
 <%= form_with model: [@project, document] do |form| %>
   <%= render "shared/errors", object: document %>
 
-  <%= form.text_field :name, placeholder: "Name this document", autofocus: true, class: "form-control mb-0 bg-transparent border-0 focus-none" %>
+  <%= form.text_field :name, placeholder: "Name this document", autofocus: true, class: "w-full mb-0 bg-transparent border-0 focus-none" %>
 
-  <div class="mt-4 upload-border d-flex flex-column justify-content-center align-items-center">
+  <div class="mt-4 h-44 border border-2 border-dashed border-gray-800 flex flex-col justify-center items-center">
     <%= form.label :files, class: "cursor-pointer" do %>
-      <i class="bi bi-image-alt display-5"></i>
+      <i class="bi bi-image-alt text-5xl"></i>
     <% end %>
-    <%= form.file_field :files, multiple: true, class: "upload-button text-center" %>
+    <%= form.file_field :files, multiple: true, class: "upload-button text-center focus-none hover:text-gray-300" %>
   </div>
 
-  <div class="mt-3 hstack gap-1">
-    <%= form.label :description, "Notes", class: "form-label mb-0" %>
-    <%= form.text_area :description, placeholder: "Add description", class: "form-control mb-0 bg-transparent border-0 focus-none", style: "height: 38px" %>
+  <div class="mt-3 flex items-center gap-1">
+    <%= form.label :description, "Notes" %>
+    <%= form.text_area :description, placeholder: "Add description", class: "w-full bg-transparent border-0 focus-none", style: "height: 40px" %>
   </div>
 
   <div class="mt-4">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit class: "btn btn-green" %>
     <%= link_to "Close", project_documents_path(@project), class: "btn btn-dark" %>
   </div>
 <% end %>

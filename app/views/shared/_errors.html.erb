@@ -1,7 +1,7 @@
 <% if object.errors.present? %>
-  <section class="card-darker mb-2 p-2">
-    <h2 class="fs-5 text-danger mb-0">Oops! There <%= "is".pluralize(object.errors.size) %> <%= pluralize(object.errors.size, "error") %>:</h2>
-    <ul class="mb-1">
+  <section class="card-darker mb-2">
+    <h2 class="text-red-600 text-lg">Oops! There <%= "is".pluralize(object.errors.size) %> <%= pluralize(object.errors.size, "error") %>:</h2>
+    <ul>
       <% object.errors.each do |error| %>
         <li><%= error.full_message %></li>
       <% end %>

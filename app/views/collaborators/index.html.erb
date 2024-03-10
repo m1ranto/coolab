@@ -1,5 +1,5 @@
-<div class="hstack justify-content-center">
-  <h1 class="text-center fs-3 fw-bold"><%= current_collaborator.organization&.name %></h1>
+<div class="flex justify-center items-center">
+  <h1 class="text-center text-2xl font-semibold"><%= current_collaborator.organization&.name %></h1>
   <% if current_collaborator.admin? %>
     <%= render 'shared/dropdown_menu', object: current_collaborator.organization %>
   <% end %>
@@ -7,13 +7,13 @@
 
 <% if current_collaborator.admin? %>
   <div class="text-center mb-3">
-    <%= link_to 'Invite collaborators', organization_invite_path(current_collaborator.organization), class: "btn btn-success text-black" %>
+    <%= link_to 'Invite collaborators', organization_invite_path(current_collaborator.organization), class: "btn btn-green text-black" %>
   </div>
 <% end %>
 
 <div class="card-darker title-container">
   <h2 class="title">Team</h2>
-  <div class="px-1 row justify-content-between" id="collaborators">
+  <div class="grid md:grid-cols-2 gap-3" id="collaborators">
     <% @collaborators.each do |collaborator| %>
       <%= render collaborator %>
     <% end %>

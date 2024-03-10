@@ -1,30 +1,31 @@
-<div class="hstack flex-wrap" id="<%= dom_id todo %>">
-  <div class="form-check" style="margin-left: 11px">
+<div class="flex items-center flex-wrap" id="<%= dom_id todo %>">
+  <div class="mt-1 flex gap-2">
     <%= form_with model: todo, url: done_todo_path(todo.task.project, todo.task, todo), data: { controller: "todo", action: "input->todo#done" } do |form| %>
-      <%= form.check_box :done, class: "form-check-input form-check-todo" %>
+      <%= form.check_box :done, class: "checkbox" %>
     <% end %>
-    <div class="mt-1 hstack flex-wrap">
-    <h3 class="fs-6 mb-0 me-1">
-      <%= link_to todo.name, [todo.task.project, todo.task, todo] %>
-    </h3>
-    <% if todo.priority.present? %>
-      <%= link_to "", [todo.task.project, todo.task, todo], class: "#{priority_icon(todo)}" %>
-    <% end %>
-  <% if todo.due_on.present? %>
-    <%= link_to [todo.task.project, todo.task, todo], class: "bi bi-calendar-event text-primary fs-6 ms-1" do %>
-      <span class="text-secondary me-1"><%= todo.due_on.strftime("%a, %b %d") %></span>
-    <% end %>
-  <% end %>
-  <% if todo.description.present? %>
-    <%= link_to "", [todo.task.project, todo.task, todo], class: "bi bi-justify-left text-secondary fs-6 me-2" %>
-  <% end %>
-  <% if todo.collaborators.present? %>
-    <% todo.collaborators.each do |collaborator| %>
-      <%= link_to collaborator, class: "ms-1" do %>
-        <%= profile_picture_small collaborator %>
+
+    <div class="mt-0.5 flex flex-wrap">
+      <h3 class="me-1">
+        <%= link_to todo.name, [todo.task.project, todo.task, todo] %>
+      </h3>
+      <% if todo.priority.present? %>
+        <%= link_to "", [todo.task.project, todo.task, todo], class: "#{priority_icon(todo)}" %>
       <% end %>
-    <% end %>
-  <% end %>
-  </div>
+      <% if todo.due_on.present? %>
+        <%= link_to [todo.task.project, todo.task, todo], class: "bi bi-calendar-event text-blue-800 ms-1" do %>
+          <span class="text-gray-500 me-1"><%= todo.due_on.strftime("%a, %b %d") %></span>
+        <% end %>
+      <% end %>
+      <% if todo.description.present? %>
+        <%= link_to "", [todo.task.project, todo.task, todo], class: "bi bi-justify-left text-gray-500 me-2" %>
+      <% end %>
+      <% if todo.collaborators.present? %>
+        <% todo.collaborators.each do |collaborator| %>
+          <%= link_to collaborator, class: "ms-1" do %>
+            <%= profile_picture_small collaborator %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

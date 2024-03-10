@@ -2,12 +2,11 @@
   <%= render 'shared/errors', object: organization %>
 
   <div>
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control text-bg-dark border-0" %>
+    <%= form.text_field :name, placeholder: "Edit organization name", autofocus: true, class: "w-full ps-0 bg-transparent border-0 focus-none" %>
   </div>
 
   <div class="mt-3">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit class: "btn btn-green" %>
     <%= link_to "Close", collaborators_path, class: "btn btn-dark" %>
   </div>
 <% end %>

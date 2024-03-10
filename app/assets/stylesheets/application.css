@@ -29,12 +29,15 @@ body {
 main {
     color: var(--color) !important;
     max-width: 850px;
-    padding-bottom: 10px;
 }
 
 a {
     text-decoration: none;
     color: var(--color);
+}
+
+address {
+    font-style: normal;
 }
 
 .turbo-progress-bar {
@@ -51,6 +54,7 @@ a {
     justify-content: center;
     align-items: center;
     margin-bottom: 0;
+    flex-shrink: 0;
 }
 .profile-picture-sm {
     width: 25px;
@@ -87,6 +91,7 @@ a {
     padding: 3px 5px;
     border-radius: 3px;
     top: -13px;
+    font-size: x-large;
 }
 
 .bg-default {
@@ -97,24 +102,16 @@ a {
     height: 350px;
 }
 
-.form-check-todo {
-    font-size: x-large;
-    background-color: transparent;
-    border: 1px solid dimgrey;
-}
 .form-check-todo-sm {
-    font-size: large;
-}
-
-.w-max-form {
-    max-width: 400px;
+    width: 15px;
+    height: 15px;
 }
 
 .flash {
-    width: 300px;
+    width: 290px;
     position: fixed;
     left: 50%;
-    margin-left: -150px;
+    margin-left: -145px;
     bottom: 15px;
 }
 
@@ -149,14 +146,11 @@ a {
 }
 .arrow.disable {
     color: dimgrey;
+    cursor: not-allowed;
 }
 
 .form-control::placeholder {
     color: grey;
-}
-
-.cursor-pointer {
-    cursor: pointer;
 }
 
 .focus-none {
@@ -168,18 +162,8 @@ a {
     color: whitesmoke;
 }
 
-.todo-menu {
-    display: none;
-}
-@media only screen and (min-width: 576px) {
-    .todo-menu {
-        display: inline-block;
-        width: 125px;
-    }
-}
-
 .document-card {
-    border: 1px solid var(--border);
+    border: 1px solid hsl(0, 0%, 15%);
     border-radius: 5px;
     display: inline-block;
     padding: 8px;
@@ -192,18 +176,6 @@ a {
     height: 140px;
 }
 
-.cursor-zoom-in {
-    cursor: zoom-in;
-}
-
-.text-blue {
-    color: var(--primary-color);
-}
-
-.upload-border {
-    border: 2px dashed var(--border);
-    height: 175px;
-}
 .upload-button::file-selector-button {
     display: none;
 }

@@ -1,13 +1,14 @@
-<%= link_to [@project, document], class: "document-card col-12 col-sm-5 col-md-3" do %>
-  <h2 class="fs-5 mb-3 text-center"><i class="bi bi-folder-fill text-blue me-1"></i><%= document.name %></h2>
+<%= link_to [@project, document], class: "document-card" do %>
+  <h2 class="text-lg mb-3 text-center">
+    <i class="bi bi-folder-fill text-blue-800"></i>
+    <%= document.name %>
+  </h2>
   <% document.files.each do |file| %>
     <% if file.representable? %>
-      <div class="text-center">
-        <%= image_tag file.representation(resize_to_limit: [134, 150]), class: "rounded-1" %>
-      </div>
+      <%= image_tag file.representation(resize_to_limit: [134, 150]), class: "rounded-sm mx-auto" %>
     <% else %>
       <div class="text-center">
-        <i class="bi bi-file-earmark-text display-2"></i>
+        <i class="bi bi-file-earmark-text text-7xl"></i>
       </div>
     <% end %>
   <% end %>

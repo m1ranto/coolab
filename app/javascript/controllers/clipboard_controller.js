@@ -10,8 +10,8 @@ export default class extends Controller {
     // show flash
     this.flashTarget.innerHTML = `
       <section class="card-darker flash shadow-lg" data-controller="flash">
-        <h3 class="fs-6 mb-0">
-          <i class="bi bi-check-circle-fill text-success me-1"></i>
+        <h3>
+          <i class="bi bi-check-circle-fill text-green-500 me-1"></i>
           Invite link copied to clipboard
         </h3>
       </section>

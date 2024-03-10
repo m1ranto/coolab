@@ -1,14 +1,14 @@
-<div class="row min-vh-100">
-  <section class="d-none d-lg-block col-lg-5 p-5 text-white" style="background-color: #021138;">
-    <h2 class="fs-3 fw-bold mt-5 pt-5"><%= link_to 'Coolab', root_path, data: { turbo: false },class: "text-decoration-none link-light" %></h2>
-    <p class="fs-5">Cool project collaboration for your teams !</p>
+<div class="grid lg:grid-cols-2 gap-x-12 min-h-screen">
+  <section class="hidden lg:inline-block p-5 text-white" style="background-color: #021138;">
+    <h2 class="text-3xl font-bold mt-16 pt-5"><%= link_to 'Coolab', root_path, data: { turbo: false }, class: "hover:text-gray-200" %></h2>
+    <p class="text-lg">Cool project collaboration for your teams !</p>
   </section>
-  <section class="offset-lg-1 col-lg-6 py-4 d-flex flex-column align-items-center d-lg-block">
+  <section class="py-4 px-2 flex flex-col items-center lg:inline-block">
     <p>
       Already a collaborator?
-      <%= link_to 'Sign in now', login_path, class: "link-light text-decoration-underline" %>
+      <%= link_to 'Sign in', login_path, class: "underline hover:text-gray-300" %>
     </p>
-    <h1 class="fs-3 fw-bold mt-5 pt-lg-5">Sign up to Coolab</h1>
+    <h1 class="text-2xl fw-bold lg:mt-16">Sign up to <%= link_to 'Coolab', root_path, data: { turbo: false }, class: "underline font-bold hover:text-gray-200" %></h1>
 
     <%= render "form", collaborator: @collaborator %>
   </section>

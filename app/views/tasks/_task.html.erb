@@ -1,7 +1,7 @@
-<div class="mb-3 card-darker" id="<%= dom_id task %>">
+<div class="mb-8 card-darker" id="<%= dom_id task %>">
   <%= turbo_frame_tag task do %>
-    <div class="d-flex align-items-top">
-      <h2 class="fs-3">
+    <div class="flex items-top">
+      <h2 class="text-3xl">
         <%= link_to task.name, project_task_path(task.project, task), data: { turbo_frame: "_top" } ,class: "py-2" %>
       </h2>
       <%= render "shared/dropdown_menu", object: task %>

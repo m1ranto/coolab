@@ -1,11 +1,9 @@
-<h1 class="visually-hidden">Projects</h1>
-
-<h2 class="text-center fs-3 fw-bold"><%= current_collaborator.organization&.name %></h2>
+<h1 class="text-center text-2xl font-semibold"><%= current_collaborator.organization&.name %></h1>
 
 <div class="text-center">
-  <%= link_to 'New project', new_project_path, class: "btn btn-success text-black" %>
+  <%= link_to 'New project', new_project_path, class: "btn btn-green text-black" %>
 </div>
 
-<div class="row" id="projects">
+<div class="grid md:grid-cols-2 gap-4" id="projects">
   <%= render @projects %>
 </div>

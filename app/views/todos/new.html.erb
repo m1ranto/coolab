@@ -1,7 +1,7 @@
 <%= render 'shared/links', object: @todo %>
 
-<div class="card card-darker title-container">
-  <h1 class="fs-4 title">New todo</h1>
+<div class="card-darker title-container">
+  <h1 class="title">New todo</h1>
   <%= turbo_frame_tag "new_todo" do %>
     <%= render "form", todo: @todo %>
   <% end %>

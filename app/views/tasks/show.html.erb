@@ -1,7 +1,7 @@
 <%= render 'shared/links', object: @task %>
 
-<h1 class="visually-hidden">Task</h1>
+<h1 class="sr-only">Task</h1>
 
-<div class="mb-1"><%= arrows_task(@tasks, @task) %></div>
+<div class="mt-2 mb-1"><%= arrows_task(@tasks, @task) %></div>
 
 <%= render @task %>

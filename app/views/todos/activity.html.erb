@@ -1,5 +1,5 @@
 <div class="mt-3 card-darker title-container" id="todoslist">
-  <h2 class="fs-3 title"><%= "Activity" %></h2>
+  <h2 class="title"><%= "Activity" %></h2>
 
   <% Project.includes(:tasks).each do |project| %>
     <% if project.tasks.present? %>

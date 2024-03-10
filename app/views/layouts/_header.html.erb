@@ -1,46 +1,49 @@
-<header class="mb-2 bg-default fixed-top">
-  <nav class="navbar border-bottom border-dark py-0">
-    <div class="container-fluid">
-      <%= link_to "Coolab", root_path, class: "navbar-brand text-white mb-0 pb-0", aria_current: "page" %>
-      <ul class="me-sm-4 list-unstyled hstack gap-3 gap-sm-4 mb-0 pb-0">
+<header class="border-b border-gray-800">
+  <nav class="p-1 sm:px-3">
+    <div class="flex flex-wrap justify-between items-center">
+      <%= link_to "C", root_path, class: "text-3xl sm:hidden", aria_current: "page" %>
+      <%= link_to "Coolab", root_path, class: "text-xl hidden sm:inline", aria_current: "page" %>
+      <ul class="flex gap-3 sm:gap-7 sm:me-8">
         <li>
-          <%= link_to projects_path, class: "py-sm-2 nav-link link-light" do %>
-            <div class="text-center text-sm-start">
+          <%= link_to projects_path, class: "sm:py-1 inline-block" do %>
+            <div class="text-center">
               <i class="bi bi-house-door-fill"></i>
-              <span class="d-none d-sm-inline">Home</span>
+              <span class="hidden sm:inline">Home</span>
             </div>
-            <div class="small d-sm-none" style="margin-top: -3px">Home</div>
+            <div class="text-xs sm:hidden -mt-1">Home</div>
           <% end %>
         </li>
         <li>
-          <%= link_to activity_path, class: "py-sm-2 nav-link link-light" do %>
-            <div class="text-center text-sm-start">
+          <%= link_to activity_path, class: "sm:py-1 inline-block" do %>
+            <div class="text-center">
               <i class="bi bi-circle-half"></i>
-              <span class="d-none d-sm-inline">Activity</span>
+              <span class="hidden sm:inline">Activity</span>
             </div>
-            <div class="small d-sm-none" style="margin-top: -3px">Activity</div>
+            <div class="text-xs sm:hidden -mt-1">Activity</div>
           <% end %>
         </li>
         <li>
-          <%= link_to collaborators_path, class: "py-sm-2 nav-link link-light" do %>
-            <div class="text-center text-sm-start">
+          <%= link_to collaborators_path, class: "sm:py-1 inline-block" do %>
+            <div class="text-center">
               <i class="bi bi-people-fill"></i>
-              <span class="d-none d-sm-inline">Team</span>
+              <span class="hidden sm:inline">Team</span>
             </div>
-            <div class="small d-sm-none" style="margin-top: -3px">Team</div>
+            <div class="text-xs sm:hidden -mt-1">Team</div>
           <% end %>
         </li>
       </ul>
-      <ul class="mb-0 pb-0 list-unstyled hstack align-items-baseline">
-        <li class="dropdown text-white">
-          <a class="py-1 nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <ul class="relative" data-controller="dropdown">
+        <li>
+          <a class="py-1 nav-link dropdown-toggle" role="button" data-action="dropdown#toggle" aria-expanded="false">
             <%= profile_picture current_collaborator %>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" data-bs-theme="dark">
-            <li><%= link_to 'Profile', current_collaborator, class: "dropdown-item" %></li>
-            <li><%= link_to 'Settings', edit_collaborator_path(current_collaborator), class: "dropdown-item" %></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to 'Log out', logout_path, data: { "turbo-method": :delete }, class: "dropdown-item" %></li>
+        </li>
+        <li class="hidden z-10 absolute top-11 right-0 bg-gray-800 py-3 px-5 rounded" data-dropdown-target="menu">
+          <ul>
+            <li><%= link_to 'Profile', current_collaborator, class: "hover:text-gray-400" %></li>
+            <li><%= link_to 'Settings', edit_collaborator_path(current_collaborator), class: "hover:text-gray-400" %></li>
+            <li><hr class="my-1 border-gray-700"></li>
+            <li><%= link_to 'Log out', logout_path, data: { "turbo-method": :delete }, class: "hover:text-gray-400" %></li>
           </ul>
         </li>
       </ul>

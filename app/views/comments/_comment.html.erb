@@ -1,30 +1,30 @@
 <% if comment.collaborator == current_collaborator %>
-  <article class="hstack justify-content-end gap-1" id="<%= dom_id comment %>">
-    <div class="d-inline-block">
-      <%= button_to '', [comment.project, comment], method: :delete, class: "bi bi-trash btn link-secondary p-1" %>
+  <article class="flex items-center justify-end gap-1" id="<%= dom_id comment %>">
+    <div class="inline-block">
+      <%= button_to '', [comment.project, comment], method: :delete, class: "bi bi-trash p-1 text-gray-600 hover:text-red-600" %>
     </div>
-    <div class="align-middle d-inline-block px-2 py-1 bg-dark rounded mb-2">
-      <time class="small text-secondary" datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
-      <address class="mb-0 d-inline small fw-bold"><%= comment.collaborator.name %></address>
-      <p class="mb-0"><%= comment.content %></p>
+    <div class="align-middle inline-block px-2 py-1 bg-gray-800 rounded-lg mb-2 text-end">
+      <time class="text-sm text-gray-500" datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
+      <address class="inline text-sm font-semibold"><%= comment.collaborator.name %></address>
+      <p><%= comment.content %></p>
     </div>
-    <%= link_to collaborator_path(current_collaborator) do %>
+    <%= link_to collaborator_path(current_collaborator), class: "shrink-0" do %>
       <%= profile_picture current_collaborator %>
     <% end %>
   </article>
 <% else %>
-  <article class="hstack gap-1" id="<%= dom_id comment %>">
-    <%= link_to collaborator_path(comment.collaborator) do %>
+  <article class="flex items-center gap-1" id="<%= dom_id comment %>">
+    <%= link_to collaborator_path(comment.collaborator), class: "shrink-0" do %>
       <%= profile_picture comment.collaborator %>
     <% end %>
-    <div class="align-middle d-inline-block px-2 py-1 bg-dark rounded mb-2">
-      <address class="mb-0 d-inline small fw-bold"><%= comment.collaborator.name %></address>
-      <time class="small text-secondary " datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
-      <p class="mb-0"><%= comment.content %></p>
+    <div class="align-middle inline-block px-2 py-1 bg-gray-800 rounded-lg mb-2">
+      <address class="inline text-sm font-semibold"><%= comment.collaborator.name %></address>
+      <time class="text-sm text-gray-500 " datetime="<%= comment.created_at %>"><%= comment_datetime comment %></time>
+      <p><%= comment.content %></p>
     </div>
     <% if current_collaborator&.admin? %>
-      <div class="d-inline-block">
-        <%= button_to '', [comment.project, comment], method: :delete, class: "bi bi-trash btn link-secondary p-1" %>
+      <div class="inline-block">
+        <%= button_to '', [comment.project, comment], method: :delete, class: "bi bi-trash p-1 text-gray-600 hover:text-red-600" %>
       </div>
     <% end %>
   </article>

@@ -1,12 +1,12 @@
 <div class="text-center">
   <%= profile_picture_large @collaborator %>
 </div>
-<div class="hstack justify-content-center">
-  <h1 class="mb-0 fs-2 text-center"><%= @collaborator.name %></h1>
+<div class="flex justify-center items-center">
+  <h1 class="text-2xl text-center"><%= @collaborator.name %></h1>
   <% if @collaborator == current_collaborator || current_collaborator.admin? %>
     <%= render 'shared/dropdown_menu', object: @collaborator %>
   <% end %>
 </div>
-<p class="mb-0 text-center"><%= @collaborator.title %></p>
+<p class="text-center"><%= @collaborator.title %></p>
 
 <%= render 'shared/assignments', collaborator: @collaborator %>
