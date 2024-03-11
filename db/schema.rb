@@ -11,11 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -47,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "profile"
-    t.integer "organization_id"
+    t.bigint "organization_id"
     t.boolean "admin", default: false
     t.index ["email"], name: "index_collaborators_on_email", unique: true
     t.index ["organization_id"], name: "index_collaborators_on_organization_id"
@@ -63,8 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.integer "project_id", null: false
-    t.integer "collaborator_id", null: false
+    t.bigint "project_id", null: false
+    t.bigint "collaborator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collaborator_id"], name: "index_comments_on_collaborator_id"
@@ -76,8 +79,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "project_id", null: false
-    t.integer "collaborator_id"
+    t.bigint "project_id", null: false
+    t.bigint "collaborator_id"
     t.index ["collaborator_id"], name: "index_documents_on_collaborator_id"
     t.index ["project_id"], name: "index_documents_on_project_id"
   end
@@ -92,7 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "collaborator_id", null: false
+    t.bigint "collaborator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collaborator_id"], name: "index_projects_on_collaborator_id"
@@ -100,7 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.integer "project_id", null: false
+    t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_tasks_on_project_id"
@@ -111,7 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_104928) do
     t.text "description"
     t.date "due_on"
     t.boolean "done"
-    t.integer "task_id", null: false
+    t.bigint "task_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "priority"
