@@ -69,6 +69,7 @@ test:
 # variable when you boot the app. For example:
 #
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+#   DATABASE_URL=$SCALINGO_POSTGRESQL_URL
 #
 # If the connection URL is provided in the special DATABASE_URL environment
 # variable, Rails will automatically merge its configuration values on top of
@@ -86,3 +87,4 @@ production:
   database: coolab_production
   username: coolab
   password: <%= ENV["COOLAB_DATABASE_PASSWORD"] %>
+  url: <%= ENV["SCALINGO_POSTGRESQL_URL"] %>
