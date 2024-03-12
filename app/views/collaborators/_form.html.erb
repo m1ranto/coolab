@@ -42,8 +42,10 @@
   <% end %>
 
   <div class="mt-3">
-    <%= form.submit class: "btn text-white w-full", style: "background-color: hsl(240, 60%, 41%);" %>
-    <% unless collaborator.new_record? %>
+    <% if collaborator.new_record? %>
+      <%= form.submit class: "btn text-white w-full", style: "background-color: hsl(240, 60%, 41%);" %>
+    <% else %>
+      <%= form.submit class: "btn text-white", style: "background-color: hsl(240, 60%, 41%);" %>
       <%= link_to "Close", collaborator_path(collaborator), class: "btn btn-dark" %>
     <% end %>
   </div>
