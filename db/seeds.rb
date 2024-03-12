@@ -10,7 +10,7 @@
 miranto_organization = Organization.create! name: 'Miranto-Organization'
 
 # Collaborators
-miranto   = Collaborator.create( name: 'Miranto', email: 'miranto@email.com', title: 'Web Developer', password: 'miranto', organization: miranto_organization, profile: 'darkslategrey' )
+miranto   = Collaborator.create( name: 'Miranto', email: 'miranto@email.com', title: 'Web Developer', password: 'miranto', organization: miranto_organization, admin: true, profile: 'darkslategrey' )
 iliana    = Collaborator.create( name: 'Iliana', email: 'iliana@email.com', title: 'Customer Success', password: 'iliana', organization: miranto_organization, profile: 'sienna' )
 madeleine = Collaborator.create( name: 'Madeleine', email: 'madeleine@email.com', title: 'Product Owner', password: 'madeleine', organization: miranto_organization, profile: 'brown' )
 lynda     = Collaborator.create( name: 'Lynda', email: 'lynda@email.com', title: 'Business Developer', password: 'lynda', organization: miranto_organization, profile: 'darkslateblue' )

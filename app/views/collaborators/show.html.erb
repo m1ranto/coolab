@@ -8,5 +8,10 @@
   <% end %>
 </div>
 <p class="text-center"><%= @collaborator.title %></p>
+<% if @collaborator.admin? %>
+  <p class="text-center">
+    <span class="bg-blue-800 p-1 rounded">Admin <i class="bi bi-star-fill text-yellow-500"></i></span>
+  </p>
+<% end %>
 
 <%= render 'shared/assignments', collaborator: @collaborator %>
