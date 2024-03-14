@@ -1,3 +1,5 @@
+<% @title = "Sign in to Coolab" %>
+
 <div class="grid lg:grid-cols-2 lg:gap-x-12 min-h-screen">
   <section class="hidden lg:inline-block p-5 text-white" style="background-color: #021138;">
     <h2 class="text-3xl font-bold mt-16 pt-5"><%= link_to 'Coolab', root_path, data: { turbo: false }, class: "hover:text-gray-200" %></h2>
@@ -8,7 +10,7 @@
       Not yet a collaborator?
       <%= link_to 'Sign up now', signup_path, class: "underline hover:text-gray-300" %>
     </p>
-    <h1 class="text-2xl fw-bold lg:mt-16">Sign up to <%= link_to 'Coolab', root_path, data: { turbo: false }, class: "underline font-bold hover:text-gray-200" %></h1>
+    <h1 class="text-2xl fw-bold lg:mt-16">Sign in to <%= link_to 'Coolab', root_path, data: { turbo: false }, class: "underline font-bold hover:text-gray-200" %></h1>
 
     <%= form_with(url: login_path) do |form| %>
       <div class="mt-3">

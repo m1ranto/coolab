@@ -1,7 +1,9 @@
+<% @title = "Edit #{@task.name}" %>
+
 <%= render 'shared/links', object: @task %>
 
 <div class="card-darker title-container">
-  <h1 class="title">Editing task</h1>
+  <h1 class="title">Edit task</h1>
   <%= turbo_frame_tag @task do %>
     <%= render "form", task: @task %>
   <% end %>

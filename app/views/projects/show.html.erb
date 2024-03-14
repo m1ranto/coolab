@@ -1,3 +1,5 @@
+<% @title = @project.name %>
+
 <div class="flex justify-center items-center">
   <h1 class="text-center text-3xl"><%= @project.name %></h1>
   <% if @project.collaborator == current_collaborator || current_collaborator.admin? %>
