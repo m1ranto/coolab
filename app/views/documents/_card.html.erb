@@ -4,8 +4,8 @@
     <% if project.documents.blank? %>
       <%= button_tag "Add a document", class: "btn btn-dark btn-sm" %>
     <% else %>
-      <div class="flex flex-wrap mx-1 justify-between gap-5">
-        <% project.documents.each do |document| %>
+      <div class="grid grid-cols-2 sm:grid-cols-3 mx-1 gap-7">
+        <% project.documents.recent.each do |document| %>
           <div class="document-card document-card-sm" id="<%= dom_id document %>">
             <h3 class="mb-2 text-center">
               <i class="bi bi-folder-fill text-blue-800"></i>

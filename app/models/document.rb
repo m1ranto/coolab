@@ -6,6 +6,9 @@ class Document < ApplicationRecord
   belongs_to :collaborator, optional: true
   has_many_attached :files
 
+  default_scope { order(created_at: :desc) }
+  scope :recent, -> { order(created_at: :desc).limit(6) }
+
   private
 
     def files_size

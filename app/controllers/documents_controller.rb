@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
   before_action :set_document, only: %i[ show edit update destroy ]
   before_action :correct_collaborator, only: %i[ edit update destroy ]
   before_action :correct_organization
+  before_action :correct_document, only: :show
 
   include SessionsHelper
 
@@ -16,7 +17,7 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    @documents = Document.all
+    @documents = @project.documents
   end
 
   def edit
@@ -76,5 +77,10 @@ class DocumentsController < ApplicationController
     # Require correct organization
     def correct_organization
       redirect_to projects_path unless @project.collaborator.organization == current_collaborator.organization
+    end
+
+    # Require correct document
+    def correct_document
+      redirect_to project_documents_path(@project) unless @project.documents.include?(@document)
     end
 end
