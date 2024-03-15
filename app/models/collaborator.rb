@@ -8,7 +8,7 @@ class Collaborator < ApplicationRecord
                     length: { maximum: 50 },
                     uniqueness: true,
                     format: { with: VALID_EMAIL_REGEX }
-  validate :valid_profile_picture
+  validate :acceptable_profile_picture
 
   has_many :projects, dependent: :destroy
   has_and_belongs_to_many :todos
@@ -27,23 +27,19 @@ class Collaborator < ApplicationRecord
 
   private
 
-    def valid_profile_picture
-      limit_size = 1050000
-      if profile_picture.attached?
-        if ActiveStorage::Attachment.joins(:blob).sum(:byte_size) > 5240000
-          profile_picture.purge
-          errors.add(:base, "Maximum storage volume is 5 MB")
-        elsif profile_picture.blob.byte_size > limit_size && !profile_picture.blob.content_type.starts_with?('image/')
-          profile_picture.purge
-          errors.add(:base, "Too big file, maximum is 1 MB")
-          errors.add(:base, "Must be an image")
-        elsif profile_picture.blob.byte_size > limit_size
-          profile_picture.purge
-          errors.add(:base, "Too big file, maximum is 1 MB")
-        elsif !profile_picture.blob.content_type.starts_with?('image/')
-          profile_picture.purge
-          errors.add(:base, "Must be an image")
-        end
+    def acceptable_profile_picture
+      return unless profile_picture.attached?
+
+      unless ActiveStorage::Attachment.joins(:blob).sum(:byte_size) < 100.megabytes
+        errors.add(:base, "Maximum storage volume is 100 MB")
+      end
+
+      unless profile_picture.blob.byte_size < 1.megabyte
+        errors.add(:base, "Too big file, maximum is 1 MB")
+      end
+
+      unless profile_picture.content_type.starts_with?('image/')
+        errors.add(:base, "Must be an image")
       end
     end
 end
