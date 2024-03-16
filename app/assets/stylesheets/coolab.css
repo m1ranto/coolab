@@ -79,27 +79,30 @@ nav svg {
 }
 nav ul {
     display: none;
-    transform: translateY(-200%);
 }
 nav ul:target {
     display: block;
     transform: translateY(0);
 }
 /* Mobile Menu Navigation */
-nav ul a {
+.btn-menu-lg {
+    display: none;
+}
+.menu-wrapper {
+    text-align: end;
+}
+.menu-wrapper li {
+    margin-bottom: 25px;
+}
+.menu {
     font-size: larger;
     color: white;
     background-color: var(--primary-color);
     border-radius: 5px;
+    padding: 8px;
 }
-nav ul a:hover {
+.menu:hover {
     opacity: .9;
-}
-nav ul li {
-    margin-top: 25px;
-}
-.btn-menu-lg {
-    display: none;
 }
 /* Desktop Menu Navigation */
 @media screen and (min-width: 700px) {

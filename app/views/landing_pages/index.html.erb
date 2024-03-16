@@ -1,4 +1,4 @@
-<header>
+<header data-controller="menu">
   <nav>
     <div>
       <a class="fs-x-large" href="">Coolab</a>
@@ -11,7 +11,7 @@
       </ul>
     </div>
     <div>
-      <a class="close" href="#navigation">
+      <a class="close" href="#" data-action="menu#toggle">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>
         Menu
       </a>
@@ -19,6 +19,13 @@
       <%= link_to 'Sign up', signup_path, data: { turbo: false }, class: "btn-contact btn-menu-lg", id: 'signup' %>
     </div>
   </nav>
+  <ul class="menu-wrapper" data-menu-target="navigation" style="display: none">
+    <li><a class="btn-menu menu" href="#product" data-action="menu#close">Product</a></li>
+    <li><a class="btn-menu menu" href="#feature" data-action="menu#close">Features</a></li>
+    <li><a class="btn-menu menu" href="#pricing" data-action="menu#close">Pricing</a></li>
+    <li><%= link_to 'Sign in', login_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
+    <li><%= link_to 'Sign up', signup_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
+  </ul>
 </header>
 
 <main>
@@ -32,8 +39,8 @@
       <%= image_tag "header magnet-me-63XrEEiOko8-unsplash.jpg", alt: "Collaborator on project" %>
       <%= image_tag "header windows-N1YOSWrXQJE-unsplash.jpg", alt: "Collaborator on project" %>
       <span>Stay organized</span>
-      <span>Visualize work progress</span>
       <span>Manage your project</span>
+      <span>Assign task issues</span>
     </section>
   </section>
 
