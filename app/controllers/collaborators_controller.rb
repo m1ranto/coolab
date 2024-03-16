@@ -5,6 +5,7 @@ class CollaboratorsController < ApplicationController
   before_action :correct_organization, only: %i[ show edit update destroy ]
 
   include SessionsHelper
+  include Sample
 
   # Get all collaborators
   def index
@@ -39,6 +40,9 @@ class CollaboratorsController < ApplicationController
       @organization = Organization.create!(name: organization_name)
       @collaborator = @organization.collaborators.new(collaborator_params)
       @collaborator.admin = true
+
+      # add sample data
+      Sample.all(@organization)
     else
       # create collaborator to join existing organization
       @collaborator = Collaborator.new(collaborator_params)

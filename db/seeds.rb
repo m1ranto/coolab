@@ -14,7 +14,7 @@ miranto   = Collaborator.create( name: 'Miranto', email: 'miranto@email.com', ti
 iliana    = Collaborator.create( name: 'Iliana', email: 'iliana@email.com', title: 'Customer Success', password: 'iliana', organization: miranto_organization, profile: 'sienna' )
 madeleine = Collaborator.create( name: 'Madeleine', email: 'madeleine@email.com', title: 'Product Owner', password: 'madeleine', organization: miranto_organization, profile: 'brown' )
 lynda     = Collaborator.create( name: 'Lynda', email: 'lynda@email.com', title: 'Business Developer', password: 'lynda', organization: miranto_organization, profile: 'darkslateblue' )
-ive       = Collaborator.create( name: 'Ive', email: 'steven@email.com', title: 'Designer', password: 'jorge', organization: miranto_organization, profile: 'darkolivegreen' )
+ive       = Collaborator.create( name: 'Ive', email: 'ive@email.com', title: 'Designer', password: 'ive', organization: miranto_organization, profile: 'darkolivegreen' )
 
 # Projects
 web_app   = Project.create( name: 'Web app', description: 'Build cool web app', collaborator: miranto )
