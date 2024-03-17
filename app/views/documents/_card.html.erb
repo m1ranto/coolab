@@ -2,7 +2,7 @@
   <div class="card-darker card-height title-container">
     <h2 class="title">Documents</h2>
     <% if project.documents.blank? %>
-      <%= button_tag "Add a document", class: "btn btn-dark btn-sm" %>
+      <%= button_tag "New document", class: "btn btn-dark btn-sm" %>
     <% else %>
       <div class="grid grid-cols-2 sm:grid-cols-3 mx-1 gap-7">
         <% project.documents.recent.each do |document| %>

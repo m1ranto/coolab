@@ -1,5 +1,5 @@
 module Sample
-  attr_accessor :organization, :miranto, :iliana, :web_app, :marketing, :app_roadmap, :strategies_product
+  attr_accessor :organization, :miranto, :iliana, :sample_project, :empty_project, :app_roadmap, :strategies_product
 
   def self.all(organization)
     @organization = organization
@@ -22,13 +22,13 @@ module Sample
     end
 
     def self.projects
-      @web_app   = Project.create( name: 'Web app', description: 'Build cool web app', collaborator: @miranto )
-      @marketing = Project.create( name: 'Marketing', description: 'Plan marketing' , collaborator: @iliana )
+      @sample_project = Project.create( name: 'Sample project', description: 'Build cool web app', collaborator: @miranto )
+      @empty_project  = Project.create( name: 'Empty project', description: 'Plan marketing' , collaborator: @iliana )
     end
 
     def self.tasks
-      @app_roadmap        = Task.create( name: 'App roadmap', project: @web_app )
-      @strategies_product = Task.create( name: 'Strategies for product', project: @web_app )
+      @app_roadmap        = Task.create( name: 'App roadmap', project: @sample_project )
+      @strategies_product = Task.create( name: 'Strategies for product', project: @sample_project )
     end
 
     def self.todos
@@ -43,18 +43,18 @@ module Sample
 
     def self.comments
       Comment.create!([
-        { content: 'Hi Team !!', project_id: @web_app.id, collaborator_id: @miranto.id },
-        { content: "Hi, how about the new feature?", project_id: @web_app.id, collaborator_id: @iliana.id },
-        { content: "Should we improve the design?", project_id: @web_app.id, collaborator_id: @iliana.id },
-        { content: "Yes, let's build great thing, together!", project_id: @web_app.id, collaborator_id: @miranto.id },
+        { content: 'Hi Team !!', project_id: @sample_project.id, collaborator_id: @miranto.id },
+        { content: "Hi, how about the new feature?", project_id: @sample_project.id, collaborator_id: @iliana.id },
+        { content: "Should we improve the design?", project_id: @sample_project.id, collaborator_id: @iliana.id },
+        { content: "Yes, let's build great thing, together!", project_id: @sample_project.id, collaborator_id: @miranto.id },
       ])
     end
 
     def self.documents
-      doc1 = Document.create(name: 'doc1', project_id: @web_app.id, collaborator_id: @miranto.id)
+      doc1 = Document.create(name: 'doc1', project_id: @sample_project.id, collaborator_id: @miranto.id)
       doc1.files.attach(io: File.open('app/assets/images/collaborations1.jpg'), filename: "collaborators1.jpg", content_type: "image/jpeg")
 
-      doc2 = Document.create(name: 'doc2', project_id: @web_app.id, collaborator_id: @iliana.id)
+      doc2 = Document.create(name: 'doc2', project_id: @sample_project.id, collaborator_id: @iliana.id)
       doc2.files.attach(io: File.open('app/assets/images/collaborations2.jpg'), filename: "collaborators2.jpg", content_type: "image/jpeg")
     end
 end

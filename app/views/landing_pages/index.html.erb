@@ -6,8 +6,8 @@
         <li><a href="#product">Product</a></li>
         <li><a href="#feature">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><%= link_to 'Sign in', login_path, data: { turbo: false }, class: "btn-menu" %></li>
-        <li><%= link_to 'Sign up', signup_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
+        <li class="btn-menu"><%= link_to 'Sign in', login_path, data: { turbo: false }, class: "btn-menu" %></li>
+        <li class="btn-menu"><%= link_to 'Sign up', signup_path, data: { turbo: false }, class: "btn-contact btn-menu" %></li>
       </ul>
     </div>
     <div>
@@ -29,7 +29,7 @@
 </header>
 
 <main>
-  <section id="product">
+  <section id="product" >
     <div>
       <h1>Cool project collaboration for your teams !</h1>
       <p>Say hello to a user-friendly collaboration app that save your team work time.</p>

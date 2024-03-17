@@ -4,13 +4,20 @@
     <%= turbo_stream_from "comment" %>
     <% if project.comments.present? %>
       <% project.comments.recent.each do |comment| %>
-        <div class="flex items-start gap-2 my-1" id="<%= dom_id comment %>">
-          <%= profile_picture_small comment.collaborator %>
-          <p><%= comment.content %></p>
-        </div>
+        <% if comment.collaborator == current_collaborator %>
+          <div class="flex items-start justify-end gap-2 my-1" id="<%= dom_id comment %>">
+            <p><%= comment.content %></p>
+            <%= profile_picture_small comment.collaborator %>
+          </div>
+        <% else %>
+          <div class="flex items-start gap-2 my-1" id="<%= dom_id comment %>">
+            <%= profile_picture_small comment.collaborator %>
+            <p><%= comment.content %></p>
+          </div>
+        <% end %>
       <% end %>
     <% else %>
-      <%= button_tag "Add a comment", class: "btn btn-dark btn-sm" %>
+      <%= button_tag "New chat", class: "btn btn-dark btn-sm" %>
     <% end %>
   </div>
 <% end %>

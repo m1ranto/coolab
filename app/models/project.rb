@@ -5,4 +5,6 @@ class Project < ApplicationRecord
   has_many   :tasks, dependent: :destroy
   has_many   :comments, dependent: :destroy
   has_many   :documents, dependent: :destroy
+
+  default_scope { order(created_at: :asc) }
 end

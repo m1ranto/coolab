@@ -31,6 +31,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@task, @task) }
         format.html { redirect_to project_task_todo_url(@task.project, @task, @todo), notice: "Todo was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }

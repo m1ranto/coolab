@@ -22,8 +22,16 @@
     --border: hsl(0, 0%, 20%);
 }
 
+@font-face {
+    font-family: "Inter";
+    src: url("Inter-Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     background-color: var(--bg-default);
+    font-family: Inter;
 }
 
 main {

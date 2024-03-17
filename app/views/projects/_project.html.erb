@@ -1,7 +1,7 @@
 <%= link_to project do %>
 <div class="mt-3 card-darker" id="<%= dom_id(project) %>">
   <h2 class="text-2xl"><%= project.name %></h2>
-  <p><%= project.description %></p>
+  <p><%= project.description %>&nbsp;</p>
   <div class="mt-4">
     <%= profile_picture project.collaborator %>
   </div>

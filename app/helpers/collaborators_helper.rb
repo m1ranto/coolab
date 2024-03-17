@@ -25,7 +25,7 @@ module CollaboratorsHelper
       if collaborator.profile_picture.attached?
         image_tag collaborator.profile_picture, class: class_size
       else
-        content_tag(:figure, first_letter(collaborator), class: class_size, style: "background-color: #{collaborator.profile}")
+        content_tag(:figure, first_letter(collaborator).upcase, class: class_size, style: "background-color: #{collaborator.profile}")
       end
     end
 end
