@@ -18,5 +18,7 @@
 <div class="grid md:grid-cols-2 gap-4">
   <%= render 'comments/card', project: @project %>
   <%= render 'tasks/card', project: @project %>
-  <%= render 'documents/card', project: @project %>
+  <div class="md:translate-x-1/2">
+    <%= render 'documents/card', project: @project %>
+  </div>
 </div>
