@@ -2,4 +2,4 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-Turbo.setProgressBarDelay(250)
+Turbo.setProgressBarDelay(1250)
