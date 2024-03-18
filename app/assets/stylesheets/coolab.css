@@ -66,6 +66,32 @@ nav {
     font-size: x-large;
     font-weight: bold;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    height: 50px;
+}
+
+.logo svg {
+    width: 40px;
+    height: 40px;
+}
+
+.logo:hover path {
+    fill: var(--secondary-color);
+}
+
+.logo span {
+    display: none;
+}
+@media screen and (min-width: 250px) {
+    .logo span {
+        display: inline;
+    }
+}
+
 nav a {
     padding: 8px;
 }
@@ -110,7 +136,7 @@ nav ul:target {
     nav div {
         display: flex;
         align-items: center;
-        column-gap: 1rem;
+        column-gap: .4rem;
     }
     .btn-menu {
         display: none;
